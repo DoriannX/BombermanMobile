@@ -19,25 +19,25 @@ public class PathFinding : MonoBehaviour
         _enemiesUnit = UnitManager.Instance.EnemiesUnits;
     }
 
-    private GameObject GetTarget()
+    private Vector3 GetTarget()
     {
-        GameObject target = null;
+        Vector3 target = null;
         switch (_characterType)
         {
             case Type.Suicidal:
-                target = UnitManager.Instance.GetClosest(gameObject);
+                target = UnitManager.Instance.GetClosest(gameObject).transform.position;
                 break;
             case Type.Mortar:
-                target = UnitManager.Instance.GetFarthest(gameObject);
+                target = UnitManager.Instance.GetFarthest(gameObject).transform.position;
                 break;
             case Type.Classic:
-                target = UnitManager.Instance.GetClosest(gameObject);
+                target = UnitManager.Instance.GetClosest(gameObject).transform.position;
                 break;
             case Type.Bowman:
-                target = UnitManager.Instance.GetClosest(gameObject);
+                target = UnitManager.Instance.GetClosest(gameObject).transform.position;
                 break;
             case Type.Minelayer:
-                //target = 
+                target = GetRandomPosition();
                 break;
             case Type.Funky:
                 break;
@@ -47,8 +47,8 @@ public class PathFinding : MonoBehaviour
 
     private Vector3 GetRandomPosition()
     {
-        //Vector3 randomPos = new Vector3(Random.Range(-10, 10), Random.Range();
-        return Vector3.zero;
+        Vector3 randomPos = new Vector3(Random.Range(MapManager.Instance.MapGround.localScale.x*10/2, MapManager.Instance.MapGround.localScale.y * 10 / 2), 1);
+        return randomPos;
     }
 
     public void MoveTo(InputAction.CallbackContext ctx)
