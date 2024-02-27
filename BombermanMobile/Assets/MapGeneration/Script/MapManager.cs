@@ -1,13 +1,15 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class MapManager : MonoBehaviour
 {
     public static MapManager Instance;
-    [SerializeField] private Transform _mapGround;
+    [SerializeField] public Transform _mapGround;
 
     [SerializeField] private GameObject _wallObject;
 
     [SerializeField] private Vector2 _mapSize = new Vector2(20, 35);
+    [SerializeField] private float _tileSize = 2f;
 
     private void Awake()
     {
@@ -29,24 +31,53 @@ public class MapManager : MonoBehaviour
 
     private void BuildWalls()
     {
-        Vector3 _placingPosition = new Vector3(-_mapSize.x/2 + 1, 1f, _mapSize.y/2 - 1) + _mapGround.position;
-        while (_placingPosition.z > -_mapSize.y/2 - 1 + _mapGround.position.y)
+        float halfTile = (_tileSize / 2f);
+        Vector3 _placingPosition = new Vector3(-_mapSize.x/2 + halfTile, 1f, _mapSize.y/2 - halfTile) + _mapGround.position;
+        List<Vector2> _walls = new List<Vector2>();
+        while (_placingPosition.z > -_mapSize.y/2 - halfTile + _mapGround.position.y)
         {
-            int rand = Random.Range(0, 2);
-            if (rand == 0)
+            bool placedWall = false;
+            int rand = Random.Range(1, 101);
+            if (GetNearWallCount(_placingPosition, _walls) > 0) rand += 40;
+            if (rand > 85 && !placedWall)
             {
                 Instantiate(_wallObject, _placingPosition, Quaternion.identity);
+                placedWall = true;
             }
             
             
-            _placingPosition.x += 2;
-            if (_placingPosition.x > _mapSize.x/2 + _mapGround.position.x)
+            if (placedWall)
             {
-                _placingPosition.x = -_mapSize.x / 2 + 1;
-                _placingPosition.z -= 2;
+                _walls.Add(new Vector2(_placingPosition.x, _placingPosition.z));
+            }
+            
+            _placingPosition.x += _tileSize;
+            if (_placingPosition.x > _mapSize.x / 2 + _mapGround.position.x)
+            {
+                _placingPosition.x = -_mapSize.x / 2 + halfTile;
+                _placingPosition.z -= _tileSize;
             }
             
         }
+    }
+    
+    private int GetNearWallCount(Vector3 searchPosition, List<Vector2> wallList)
+    {
+        int wallCount = 0;
+
+        if (wallList.Contains(new Vector2(searchPosition.x + _tileSize, searchPosition.z)))
+            wallCount += 1;
+
+        if (wallList.Contains(new Vector2(searchPosition.x - _tileSize, searchPosition.z)))
+            wallCount += 1;
+
+        if (wallList.Contains(new Vector2(searchPosition.x, searchPosition.z + _tileSize)))
+            wallCount += 1;
+
+        if (wallList.Contains(new Vector2(searchPosition.x, searchPosition.z - _tileSize)))
+            wallCount += 1;
+
+        return wallCount;
     }
 
     private void PlaceEnemies()
