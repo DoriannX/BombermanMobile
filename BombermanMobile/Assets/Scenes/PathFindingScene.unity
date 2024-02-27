@@ -296,7 +296,7 @@ GameObject:
   - component: {fileID: 789967241}
   - component: {fileID: 789967242}
   m_Layer: 0
-  m_Name: Player
+  m_Name: TemplateUnit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -402,6 +402,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4e6f8aadfeaf8348938c7a650a9c07c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _characterTeam: 0
+  _characterType: 2
 --- !u!114 &789967241
 MonoBehaviour:
   m_ObjectHideFlags: 0
