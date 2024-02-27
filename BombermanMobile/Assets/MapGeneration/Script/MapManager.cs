@@ -4,7 +4,7 @@ using UnityEngine;
 public class MapManager : MonoBehaviour
 {
     public static MapManager Instance;
-    [SerializeField] public Transform _mapGround;
+    [SerializeField] private Transform _mapGround; public Transform MapGround {  get { return _mapGround; } }
 
     [SerializeField] private GameObject _wallObject;
 
