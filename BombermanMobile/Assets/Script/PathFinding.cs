@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.InputSystem;
-
 public class PathFinding : MonoBehaviour
 {
     private enum Team {Player, Ennemy};
@@ -18,10 +17,9 @@ public class PathFinding : MonoBehaviour
         _agent = GetComponent<NavMeshAgent>();
         _enemiesUnit = UnitManager.Instance.EnemiesUnits;
     }
-
     private Vector3 GetTarget()
     {
-        Vector3 target = null;
+        Vector3 target = Vector3.zero;
         switch (_characterType)
         {
             case Type.Suicidal:
@@ -40,6 +38,7 @@ public class PathFinding : MonoBehaviour
                 target = GetRandomPosition();
                 break;
             case Type.Funky:
+                target = UnitManager.Instance.GetClosest(gameObject).transform.position;
                 break;
         }
         return target;
