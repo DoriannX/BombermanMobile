@@ -2,27 +2,18 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class GoatPortrait : MonoBehaviour, IPointerDownHandler
+public class GoatPortrait : Unit, IPointerDownHandler
 {
     private bool _isClicked = false;
     private bool _alreadyFollowing = false;
 
     private Transform _unitVisual; //unit that is following finger
 
-    [SerializeField] private GameObject _unitPrefab;
+    [SerializeField] private Type _type = Type.Classic;
+    [SerializeField] private Team _team = Team.Player;
     [SerializeField] private Sprite _spriteRadius;
 
     private Vector2 _placeOffset = Vector2.zero;
-    
-    private void Awake()
-    {
-        
-    }
-
-    private void Start()
-    {
-        //_placeOffset = new Vector2(0, Screen.height / 15f);
-    }
 
     public void FollowFinger()
     {
@@ -69,7 +60,7 @@ public class GoatPortrait : MonoBehaviour, IPointerDownHandler
         {
             if (CanSpawnUnitAt(spawnPosition))
             {
-                Instantiate(_unitPrefab, hitData.point, Quaternion.identity);
+                UnitManager.Instance.SpawnUnit(_team, 1, _type, hitData.point);
             }
         }
     }

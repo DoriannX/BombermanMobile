@@ -19,22 +19,23 @@ public class PathFinding : Unit
         switch (_unitType)
         {
             case Type.Suicidal:
-                target = UnitManager.Instance.GetClosest(gameObject, _unitTeam).transform.position;
+                _agent.destination = UnitManager.Instance.GetClosest(gameObject, _unitTeam).transform.position;
                 break;
             case Type.Mortar:
-                target = UnitManager.Instance.GetFarthest(gameObject, _unitTeam).transform.position;
+                _agent.destination = UnitManager.Instance.GetFarthest(gameObject, _unitTeam).transform.position;
                 break;
             case Type.Classic:
-                target = UnitManager.Instance.GetClosest(gameObject, _unitTeam).transform.position; //Player spawned but enemy is not
+                _agent.destination = UnitManager.Instance.GetClosest(gameObject, _unitTeam).transform.position; //Player spawned but enemy is not
                 break;
             case Type.Bowman:
-                target = UnitManager.Instance.GetClosest(gameObject, _unitTeam).transform.position;
+                _agent.destination = UnitManager.Instance.GetClosest(gameObject, _unitTeam).transform.position;
+                _agent.stoppingDistance = 10f;
                 break;
             case Type.Minelayer:
-                target = UnitManager.Instance.GetRandomPosition();
+                UnitManager.Instance.GetRandomPosition(_agent);
                 break;
             case Type.Funky:
-                target = UnitManager.Instance.GetClosest(gameObject, _unitTeam).transform.position;
+                _agent.destination = UnitManager.Instance.GetClosest(gameObject, _unitTeam).transform.position;
                 break;
         }
         return target;
@@ -42,7 +43,7 @@ public class PathFinding : Unit
 
     public void MoveTo()
     {
-        _agent.destination = GetTarget();
+        GetTarget();
         _canMove = true;
     }
 
@@ -62,7 +63,6 @@ public class PathFinding : Unit
             {
                 _touchPos = hitData.point;
             }
-            print(_touchPos);
         }
         else
         {
