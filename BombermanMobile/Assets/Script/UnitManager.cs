@@ -1,7 +1,11 @@
+using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.AI;
+using static UnityEngine.GraphicsBuffer;
 
 public class UnitManager : Unit
 {
@@ -13,6 +17,7 @@ public class UnitManager : Unit
     [SerializeField] private List<Material> _materials;
     private Vector3 _allyPos = new Vector3(0, 1, -13);
     private Vector3 _enemyPos = new Vector3(0, 1, 13);
+    private bool _canGetRandomPos = true;
 
     private void Awake()
     {
@@ -20,24 +25,22 @@ public class UnitManager : Unit
             Instance = this;
         StartGame();
     }
-    private List<GameObject> SpawnUnit(Team unitTeam, int nb,  Type unitType)
+    public List<GameObject> SpawnUnit(Team unitTeam, int nb,  Type unitType, Vector3 position)
     {
         List<GameObject> spawnedUnits = new List<GameObject>();
         for(int i = 0; i < nb; i++)
         {
-            GameObject spawnedUnit = Instantiate(_unitTemplate, _units.transform);
+            GameObject spawnedUnit = Instantiate(_unitTemplate, position, Quaternion.identity, _units.transform);
             spawnedUnits.Add(spawnedUnit);
             if (_materials.Count > 0)
             {
                 if (unitTeam == Team.Player)
                 {
-                    spawnedUnit.transform.position = _allyPos;
                     AllyUnits.Add(spawnedUnit);
                     spawnedUnit.GetComponent<MeshRenderer>().material = _materials[0];
                 }
                 else
                 {
-                    spawnedUnit.transform.position = _enemyPos;
                     EnemiesUnits.Add(spawnedUnit);
                     spawnedUnit.GetComponent<MeshRenderer>().material = _materials[1];
                 }
@@ -58,8 +61,8 @@ public class UnitManager : Unit
         {
             if(_unitTemplate != null)
             {
-                SpawnUnit(Team.Player, 1, Type.Classic);
-                SpawnUnit(Team.Ennemy, 10, Type.Classic);
+                //SpawnUnit(Team.Player, 1, Type.Classic, _allyPos);
+                //SpawnUnit(Team.Ennemy, 10, Type.Classic, _enemyPos);
             }
             else
             {
@@ -87,7 +90,6 @@ public class UnitManager : Unit
     public GameObject GetClosest(GameObject unit, Team unitTeam)
     {
         List<GameObject> opponentUnit = (unitTeam == Team.Player) ? EnemiesUnits : AllyUnits;
-        print(EnemiesUnits.Count);
         GameObject closest = null;
         if ( opponentUnit.Count > 0 )
         {
@@ -99,7 +101,6 @@ public class UnitManager : Unit
                     closest = targetUnit;
                 }
             }
-            print(closest);
         }
         else
         {
@@ -119,21 +120,35 @@ public class UnitManager : Unit
                 farthest = targetUnit;
             }
         }
-        print(farthest);
         return farthest;
     }
 
     public GameObject GetRandom(GameObject unit)
     {
         GameObject random = EnemiesUnits[Random.Range(0, EnemiesUnits.Count)];
-        
-        print(random);
         return random;
     }
 
-    public Vector3 GetRandomPosition()
+    public void GetRandomPosition(NavMeshAgent agent)
     {
-        Vector3 randomPos = new Vector3(Random.Range(MapManager.Instance.MapGround.localScale.x * 10 / 2, MapManager.Instance.MapGround.localScale.y * 10 / 2), 1);
-        return randomPos;
+        StartCoroutine(RandPosCo(agent));
+    }
+
+    private IEnumerator RandPosCo(NavMeshAgent agent)
+    {
+        if (_canGetRandomPos)
+        {
+            _canGetRandomPos = false;
+            Debug.Log("At Destination");
+            agent.destination = new Vector3(Random.Range(
+                -MapManager.Instance.MapGround.localScale.x * 10 / 2, MapManager.Instance.MapGround.localScale.x * 10 / 2),
+                1,
+                Random.Range(-MapManager.Instance.MapGround.localScale.z * 10 / 2, MapManager.Instance.MapGround.localScale.z * 10 / 2));
+            print("random pos : " + agent.destination);
+        }
+
+        yield return new WaitForSeconds(3);
+        StopAllCoroutines();
+        _canGetRandomPos = true;
     }
 }
