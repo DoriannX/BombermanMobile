@@ -8,6 +8,8 @@ public class GoatPortrait : MonoBehaviour, IPointerDownHandler
     private bool _alreadyFollowing = false;
 
     private Transform _unitVisual; //unit that is following finger
+
+    [SerializeField] private GameObject _unitPrefab;
     
     private void Awake()
     {
@@ -25,11 +27,12 @@ public class GoatPortrait : MonoBehaviour, IPointerDownHandler
                 GameObject newObject = new GameObject();
                 newObject.AddComponent<Image>();
                 newObject.GetComponent<Image>().sprite = GetComponent<Image>().sprite;
-                _unitVisual = Instantiate(transform);
+                _unitVisual = Instantiate(newObject, InputManager.Instance.LastTouchPosition, Quaternion.identity, transform.parent.parent).transform;
+                Destroy(newObject);
             }
             else
             {
-                _unitVisual.position = new Vector3(fingerPos.x, 1, fingerPos.y);
+                _unitVisual.position = new Vector3(fingerPos.x, fingerPos.y, 0);
             }
         }
     }
@@ -40,6 +43,7 @@ public class GoatPortrait : MonoBehaviour, IPointerDownHandler
         {
             SpawnUnit(InputManager.Instance.LastTouchPosition);
             Destroy(_unitVisual.gameObject);
+            _unitVisual = null;
         }
         InputManager.Instance.TouchPositionEvent.RemoveListener(FollowFinger);
         _alreadyFollowing = false;
@@ -48,10 +52,13 @@ public class GoatPortrait : MonoBehaviour, IPointerDownHandler
 
     public void SpawnUnit(Vector2 spawnPosition)
     {
-        Ray ray = Camera.main.ScreenPointToRay(new Vector3(spawnPosition.x, 0, spawnPosition.y));
+        Ray ray = Camera.main.ScreenPointToRay(new Vector3(spawnPosition.x, spawnPosition.y, 0));
         if (Physics.Raycast(ray, out RaycastHit hitData))
         {
-            //_touchPos = hitData.point;
+            if (hitData.collider.CompareTag("Ground"))
+            {
+                Instantiate(_unitPrefab, hitData.point, Quaternion.identity);
+            }
         }
     }
 
