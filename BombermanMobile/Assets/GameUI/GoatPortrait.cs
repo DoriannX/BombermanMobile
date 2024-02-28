@@ -9,7 +9,7 @@ public class GoatPortrait : MonoBehaviour, IPointerDownHandler
 
     private Transform _unitVisual; //unit that is following finger
 
-    [SerializeField] private GameObject _unitPrefab
+    [SerializeField] private GameObject _unitPrefab;
     [SerializeField] private Sprite _spriteRadius;
 
     private Vector2 _placeOffset = Vector2.zero;
