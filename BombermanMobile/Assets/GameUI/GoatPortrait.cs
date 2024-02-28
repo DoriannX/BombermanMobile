@@ -53,14 +53,11 @@ public class GoatPortrait : MonoBehaviour, IPointerDownHandler
     public void SpawnUnit(Vector2 spawnPosition)
     {
         Ray ray = Camera.main.ScreenPointToRay(new Vector3(spawnPosition.x, spawnPosition.y, 0));
-        print("tryspawn");
         if (Physics.Raycast(ray, out RaycastHit hitData))
         {
-            print(hitData.collider.name);
             if (hitData.collider.CompareTag("Ground"))
             {
                 Instantiate(_unitPrefab, hitData.point, Quaternion.identity);
-                print("spawned");
             }
         }
     }
