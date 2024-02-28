@@ -10,6 +10,9 @@ public class GoatPortrait : MonoBehaviour, IPointerDownHandler
     private Transform _unitVisual; //unit that is following finger
 
     [SerializeField] private GameObject _unitPrefab;
+    [SerializeField] private Sprite _spriteRadius;
+
+    private Vector2 _placeOffset = Vector2.zero;
     
     private void Awake()
     {
@@ -27,13 +30,17 @@ public class GoatPortrait : MonoBehaviour, IPointerDownHandler
                 GameObject newObject = new GameObject();
                 newObject.AddComponent<Image>();
                 newObject.GetComponent<Image>().sprite = GetComponent<Image>().sprite;
-                _unitVisual = Instantiate(newObject, InputManager.Instance.LastTouchPosition, Quaternion.identity, transform.parent.parent).transform;
+                _unitVisual = Instantiate(newObject, fingerPos, Quaternion.identity, transform.parent.parent).transform;
+                Instantiate(newObject, _unitVisual).GetComponent<Image>().sprite = _spriteRadius;
+                _unitVisual.GetChild(0).transform.localScale = new Vector3(1, 1, 1) * 5f;
                 Destroy(newObject);
             }
             else
             {
                 _unitVisual.position = new Vector3(fingerPos.x, fingerPos.y, 0);
             }
+            _unitVisual.GetChild(0).GetComponent<Image>().color = (CanSpawnUnitAt(fingerPos)) ? Color.green : Color.red;
+            _unitVisual.GetChild(0).GetComponent<Image>().color += new Color(0, 0, 0, -0.8f);
         }
     }
 
