@@ -57,7 +57,7 @@ public class GoatPortrait : MonoBehaviour, IPointerDownHandler
         if (Physics.Raycast(ray, out RaycastHit hitData))
         {
             print(hitData.collider.name);
-            if (hitData.collider.CompareTag("Ground") || true)
+            if (hitData.collider.CompareTag("Ground"))
             {
                 Instantiate(_unitPrefab, hitData.point, Quaternion.identity);
                 print("spawned");
