@@ -48,6 +48,10 @@ public class PathFinding : Unit
     public void MoveTo(InputAction.CallbackContext ctx)
     {
         _agent.destination = _touchPos;
+        if (ctx.started)
+        {
+            print("started");
+        }
     }
 
     public void GetPosition(InputAction.CallbackContext ctx)
