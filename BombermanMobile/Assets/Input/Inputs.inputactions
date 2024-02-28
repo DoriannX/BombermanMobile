@@ -6,7 +6,7 @@
             "id": "52717b61-83c0-4f5a-a70c-db8b302f74b9",
             "actions": [
                 {
-                    "name": "CharacterMovement",
+                    "name": "Click",
                     "type": "PassThrough",
                     "id": "d3134738-f177-4a99-b27c-dd864384534a",
                     "expectedControlType": "",
@@ -32,7 +32,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "CharacterMovement",
+                    "action": "Click",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -43,7 +43,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "CharacterMovement",
+                    "action": "Click",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

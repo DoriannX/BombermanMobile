@@ -1,26 +1,21 @@
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.InputSystem;
-public class PathFinding : MonoBehaviour
+public class PathFinding : Unit
 {
-    private enum Team {Player, Ennemy};
-    private enum Type { Suicidal, Mortar, Classic, Bowman, Minelayer, Funky};
-    [SerializeField] Team _characterTeam = Team.Player;
-    [SerializeField] Type _characterType = Type.Classic; 
-    List<GameObject> _enemiesUnit = new List<GameObject>();
+    UnitManager _unitManager = null;
     private Vector3 _touchPos = Vector3.zero;
     private NavMeshAgent _agent = null;
 
     private void Start()
     {
         _agent = GetComponent<NavMeshAgent>();
-        _enemiesUnit = UnitManager.Instance.EnemiesUnits;
+        _unitManager = UnitManager.Instance;
     }
     private Vector3 GetTarget()
     {
         Vector3 target = Vector3.zero;
-        switch (_characterType)
+        switch (_unitManager.UnitType)
         {
             case Type.Suicidal:
                 target = UnitManager.Instance.GetClosest(gameObject).transform.position;
@@ -57,12 +52,19 @@ public class PathFinding : MonoBehaviour
 
     public void GetPosition(InputAction.CallbackContext ctx)
     {
-        _touchPos = ctx.ReadValue<Vector2>();
-        Ray ray = Camera.main.ScreenPointToRay(_touchPos);
-        if(Physics.Raycast(ray, out RaycastHit hitData)) 
+        if(Camera.main != null)
         {
-            _touchPos = hitData.point;
+            _touchPos = ctx.ReadValue<Vector2>();
+            Ray ray = Camera.main.ScreenPointToRay(_touchPos);
+            if (Physics.Raycast(ray, out RaycastHit hitData) && hitData.collider.gameObject.CompareTag("Ground"))
+            {
+                _touchPos = hitData.point;
+            }
+            print(_touchPos);
         }
-        print(_touchPos);
+        else
+        {
+            Debug.LogError("Camera is empty");
+        }
     }
 }

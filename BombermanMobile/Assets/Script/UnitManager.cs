@@ -1,18 +1,18 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UnitManager : MonoBehaviour
+public class UnitManager : Unit
 {
     public static UnitManager Instance;
     public List<GameObject> EnemiesUnits { get; private set; }
+    public Type UnitType = Type.Classic;
+    public Team UnitTeam = Team.Player;
 
     private void Awake()
     {
         if(Instance == null)
             Instance = this;
     }
-    
     public GameObject GetClosest(GameObject unit)
     {
         
