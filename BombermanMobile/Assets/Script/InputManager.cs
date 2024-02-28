@@ -27,12 +27,10 @@ public class InputManager : MonoBehaviour
     {
         if (context.started)
         {
-            print("touchstart");
             ClickEvent.Invoke();
         }
         if (context.canceled)
         {
-            print("touchend");
             ReleaseClickEvent.Invoke();
         }
     }
