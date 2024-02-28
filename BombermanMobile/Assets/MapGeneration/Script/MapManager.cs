@@ -41,7 +41,7 @@ public class MapManager : MonoBehaviour
             if (GetNearWallCount(_placingPosition, _walls) > 0) rand += 40;
             if (rand > 85 && !placedWall)
             {
-                Instantiate(_wallObject, _placingPosition, Quaternion.identity);
+                Instantiate(_wallObject, _placingPosition, Quaternion.identity, transform);
                 placedWall = true;
             }
             
