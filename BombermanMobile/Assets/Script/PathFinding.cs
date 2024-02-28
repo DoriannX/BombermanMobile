@@ -3,55 +3,53 @@ using UnityEngine.AI;
 using UnityEngine.InputSystem;
 public class PathFinding : Unit
 {
-    UnitManager _unitManager = null;
     private Vector3 _touchPos = Vector3.zero;
     private NavMeshAgent _agent = null;
+    public Type _unitType = Type.Classic;
+    public Team _unitTeam = Team.Player;
+    private bool _canMove = false;
 
     private void Start()
     {
         _agent = GetComponent<NavMeshAgent>();
-        _unitManager = UnitManager.Instance;
     }
     private Vector3 GetTarget()
     {
         Vector3 target = Vector3.zero;
-        switch (_unitManager.UnitType)
+        switch (_unitType)
         {
             case Type.Suicidal:
-                target = UnitManager.Instance.GetClosest(gameObject).transform.position;
+                target = UnitManager.Instance.GetClosest(gameObject, _unitTeam).transform.position;
                 break;
             case Type.Mortar:
-                target = UnitManager.Instance.GetFarthest(gameObject).transform.position;
+                target = UnitManager.Instance.GetFarthest(gameObject, _unitTeam).transform.position;
                 break;
             case Type.Classic:
-                target = UnitManager.Instance.GetClosest(gameObject).transform.position;
+                target = UnitManager.Instance.GetClosest(gameObject, _unitTeam).transform.position; //Player spawned but enemy is not
                 break;
             case Type.Bowman:
-                target = UnitManager.Instance.GetClosest(gameObject).transform.position;
+                target = UnitManager.Instance.GetClosest(gameObject, _unitTeam).transform.position;
                 break;
             case Type.Minelayer:
-                target = GetRandomPosition();
+                target = UnitManager.Instance.GetRandomPosition();
                 break;
             case Type.Funky:
-                target = UnitManager.Instance.GetClosest(gameObject).transform.position;
+                target = UnitManager.Instance.GetClosest(gameObject, _unitTeam).transform.position;
                 break;
         }
         return target;
     }
 
-    private Vector3 GetRandomPosition()
+    public void MoveTo()
     {
-        Vector3 randomPos = new Vector3(Random.Range(MapManager.Instance.MapGround.localScale.x*10/2, MapManager.Instance.MapGround.localScale.y * 10 / 2), 1);
-        return randomPos;
+        _agent.destination = GetTarget();
+        _canMove = true;
     }
 
-    public void MoveTo(InputAction.CallbackContext ctx)
+    private void FixedUpdate()
     {
-        _agent.destination = _touchPos;
-        if (ctx.started)
-        {
-            print("started");
-        }
+        if(_canMove)
+            MoveTo();
     }
 
     public void GetPosition(InputAction.CallbackContext ctx)
