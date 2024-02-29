@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class AIUnit : Unit
@@ -8,6 +9,9 @@ public class AIUnit : Unit
     protected private float _maxHealth;
 
     protected private float _speed;
+
+    protected private float _reloadingTime = 1;
+    protected private bool _isReloading = false;
 
     protected private bool _isActivated = false;
 
@@ -57,5 +61,21 @@ public class AIUnit : Unit
     public virtual void Death()
     {
         Destroy(gameObject);
+    }
+
+    public virtual IEnumerator Reloading()
+    {
+        _isReloading = true;
+        yield return new WaitForSeconds(_reloadingTime);
+        _isReloading = false;
+    }
+
+    public virtual bool CanAttack()
+    {
+        if (!_isReloading && _isActivated) 
+        {
+            return true;
+        }
+        return false;
     }
 }
