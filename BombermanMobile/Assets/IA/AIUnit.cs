@@ -10,6 +10,8 @@ public class AIUnit : Unit
     protected private float _speed;
 
     protected private bool _isActivated = false;
+
+    protected private GameObject _currentTarget; public GameObject CurrentTarget {  get { return _currentTarget; } }
     
     protected private enum AISTATES
     {
