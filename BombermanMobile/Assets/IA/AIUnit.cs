@@ -37,4 +37,18 @@ public class AIUnit : Unit
     {
 
     }
+
+    public virtual void TakeDamage(float damage)
+    {
+        _health = Mathf.Clamp(_health -= damage, 0, _maxHealth);
+        if (_health <= 0)
+        {
+            Death();
+        }
+    }
+
+    public virtual void Death()
+    {
+        Destroy(gameObject);
+    }
 }
