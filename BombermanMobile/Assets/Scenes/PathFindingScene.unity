@@ -730,6 +730,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2084539204798923880, guid: 5247c632909c8be44a6441a7fd6ac7a0,
         type: 3}
+      propertyPath: _team
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2084539204798923880, guid: 5247c632909c8be44a6441a7fd6ac7a0,
+        type: 3}
       propertyPath: _unitPrefab
       value: 
       objectReference: {fileID: 4548619596124136097, guid: 547de342a913ad34d92072c610c36249,
