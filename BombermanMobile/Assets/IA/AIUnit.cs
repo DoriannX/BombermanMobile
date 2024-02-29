@@ -6,7 +6,7 @@ public class AIUnit : Unit
 {
     protected private NavMeshAgent _agent;
 
-    public Team CurrentTeam;
+    [HideInInspector] public Team CurrentTeam;
 
     protected private float _health;
     [SerializeField] protected private float _maxHealth;

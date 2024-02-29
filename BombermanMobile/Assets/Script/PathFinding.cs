@@ -26,6 +26,18 @@ public class PathFinding : Unit
             MoveTo();
     }
 
+    public bool IsCloseToEnnemy(float range)
+    {
+        bool isCloseToEnnemy = false;
+
+        if(Vector3.Distance(_agent.transform.position, _agent.destination) <= range)
+        {
+            isCloseToEnnemy = true;
+        }
+
+        return isCloseToEnnemy;
+    }
+
     public void GetPosition(InputAction.CallbackContext ctx)
     {
         if(Camera.main != null)
