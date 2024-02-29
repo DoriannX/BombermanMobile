@@ -49,10 +49,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6427c3be979d0fa46ae79f3d31d47d5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _team: 0
+  CurrentTeam: 0
   _maxHealth: 100
   _maxSpeed: 0
-  _reloadingTime: 1
+  _reloadingTime: 2
+  _range: 10
+  _damage: 0
 --- !u!114 &5000996847490332421
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -65,8 +67,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4e6f8aadfeaf8348938c7a650a9c07c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _unitType: 2
-  _unitTeam: 0
   _ai: {fileID: 5831193621701706723}
 --- !u!33 &7883843510171610483
 MeshFilter:
