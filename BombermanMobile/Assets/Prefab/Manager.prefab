@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8052221338828973120}
   - component: {fileID: 5069564704734163150}
   - component: {fileID: 2974057518389776962}
+  - component: {fileID: 6299591190305119879}
   - component: {fileID: 6254215133761284688}
   m_Layer: 0
   m_Name: Manager
@@ -89,6 +90,21 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   TouchPositionEvent:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &6299591190305119879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6742781808429491398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37dcb9cfd1ea70843b22472cc21ed460, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BattleStartEvent:
     m_PersistentCalls:
       m_Calls: []
 --- !u!114 &6254215133761284688
