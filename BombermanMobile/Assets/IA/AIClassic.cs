@@ -1,16 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class AIClassic : AIUnit
 {
-    public override void Start()
+    public override Vector3 GetTarget()
     {
-        base.Start();
-    }
+        GameObject target = UnitManager.Instance.GetClosest(gameObject, CurrentTeam);
 
-    public override void Awake()
-    {
-        base.Awake();
+        if (target != null)
+        {
+            _agent.destination = target.transform.position;
+        }
+        return target.transform.position;
     }
 }

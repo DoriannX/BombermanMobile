@@ -13,24 +13,39 @@ public class UnitManager : Unit
     private List<GameObject> EnemiesUnits = new List<GameObject>();
     private List<GameObject> AllyUnits = new List<GameObject>();
     [SerializeField] private GameObject _units;
-    [SerializeField] private GameObject _unitTemplate;
     [SerializeField] private List<Material> _materials;
-    private Vector3 _allyPos = new Vector3(0, 1, -13);
-    private Vector3 _enemyPos = new Vector3(0, 1, 13);
     private bool _canGetRandomPos = true;
+
+    [SerializeField] private List<GameObject> _unitsToSpawn;
+
+    public GameObject GetUnitToSpawn(Type type)
+    {
+        GameObject unitToSpawn = null;
+        if(_unitsToSpawn.Count > 0)
+        {
+            unitToSpawn = _unitsToSpawn[(int)type];
+        }
+        else
+        {
+            Debug.LogError("You forgot to put Units to spawn in the serialize field");
+        }
+
+        return unitToSpawn;
+    }
 
     private void Awake()
     {
         if(Instance == null)
             Instance = this;
-        StartGame();
+        //StartGame();
     }
-    public List<GameObject> SpawnUnit(Team unitTeam, int nb,  Type unitType, Vector3 position)
+    public List<GameObject> SpawnUnit(Team unitTeam, int nb, Vector3 position, GameObject unitToSpawn)
     {
         List<GameObject> spawnedUnits = new List<GameObject>();
         for(int i = 0; i < nb; i++)
         {
-            GameObject spawnedUnit = Instantiate(_unitTemplate, position, Quaternion.identity, _units.transform);
+            GameObject spawnedUnit = Instantiate(unitToSpawn, position, Quaternion.identity, _units.transform);
+            spawnedUnit.GetComponent<AIUnit>().CurrentTeam = unitTeam;
             spawnedUnits.Add(spawnedUnit);
             if (_materials.Count > 0)
             {
@@ -50,29 +65,8 @@ public class UnitManager : Unit
                 Debug.LogError("There's no material");
             }
             PathFinding pathFinding = spawnedUnit.GetComponent<PathFinding>();
-            pathFinding._unitTeam = unitTeam;
-            pathFinding._unitType = unitType;
         }
         return spawnedUnits;
-    }
-    private void StartGame()
-    {
-        if(_units != null)
-        {
-            if(_unitTemplate != null)
-            {
-                //SpawnUnit(Team.Player, 1, Type.Classic, _allyPos);
-                //SpawnUnit(Team.Ennemy, 10, Type.Classic, _enemyPos);
-            }
-            else
-            {
-                Debug.LogError("Unit template is null");
-            }
-        }
-        else
-        {
-            Debug.LogError("Units is null");
-        }
     }
 
     public void StartFight()

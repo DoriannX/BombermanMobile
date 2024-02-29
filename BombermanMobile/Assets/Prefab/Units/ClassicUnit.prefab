@@ -9,13 +9,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5461165261873944937}
+  - component: {fileID: 5831193621701706723}
   - component: {fileID: 5000996847490332421}
   - component: {fileID: 7883843510171610483}
   - component: {fileID: 970447982798818744}
   - component: {fileID: 5959630725530682369}
   - component: {fileID: 5690353921240679916}
   m_Layer: 0
-  m_Name: TemplateUnit
+  m_Name: ClassicUnit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36,6 +37,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5831193621701706723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4548619596124136097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6427c3be979d0fa46ae79f3d31d47d5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _team: 0
+  _maxHealth: 100
+  _maxSpeed: 0
+  _reloadingTime: 1
 --- !u!114 &5000996847490332421
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -50,7 +67,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _unitType: 2
   _unitTeam: 0
-  _ai: {fileID: 0}
+  _ai: {fileID: 5831193621701706723}
 --- !u!33 &7883843510171610483
 MeshFilter:
   m_ObjectHideFlags: 0

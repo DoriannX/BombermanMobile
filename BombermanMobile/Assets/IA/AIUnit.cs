@@ -6,7 +6,7 @@ public class AIUnit : Unit
 {
     protected private NavMeshAgent _agent;
 
-    [SerializeField] protected private Team _team;
+    public Team CurrentTeam;
 
     protected private float _health;
     [SerializeField] protected private float _maxHealth;
@@ -56,11 +56,6 @@ public class AIUnit : Unit
 
     }
 
-    public virtual GameObject GetTarget()
-    {
-        return null;
-    }
-
     public virtual void TakeDamage(float damage)
     {
         _health = Mathf.Clamp(_health -= damage, 0, _maxHealth);
@@ -89,5 +84,11 @@ public class AIUnit : Unit
             return true;
         }
         return false;
+    }
+
+    public virtual Vector3 GetTarget()
+    {
+        Vector3 target = Vector3.zero;
+        return target;
     }
 }

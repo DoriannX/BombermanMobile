@@ -161,9 +161,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02852fcf606e6594eb7c622a96b3d066, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _type: 4
   _team: 0
   _spriteRadius: {fileID: 21300000, guid: 1e08e68a07af3bf4cac1eca45f1fecb2, type: 3}
+  _unitToSpawn: {fileID: 4548619596124136097, guid: 39ea9372fe99b7d448d130a99255424e,
+    type: 3}
 --- !u!114 &4040474680867591762
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -327,9 +328,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02852fcf606e6594eb7c622a96b3d066, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _type: 2
   _team: 0
   _spriteRadius: {fileID: 21300000, guid: 1e08e68a07af3bf4cac1eca45f1fecb2, type: 3}
+  _unitToSpawn: {fileID: 0}
 --- !u!114 &2817495117084782927
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -418,9 +419,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02852fcf606e6594eb7c622a96b3d066, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _type: 2
   _team: 0
   _spriteRadius: {fileID: 21300000, guid: 1e08e68a07af3bf4cac1eca45f1fecb2, type: 3}
+  _unitToSpawn: {fileID: 0}
 --- !u!114 &189791868009195858
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -575,9 +576,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02852fcf606e6594eb7c622a96b3d066, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _type: 4
   _team: 1
   _spriteRadius: {fileID: 21300000, guid: 1e08e68a07af3bf4cac1eca45f1fecb2, type: 3}
+  _unitToSpawn: {fileID: 0}
 --- !u!114 &7461702812332158743
 MonoBehaviour:
   m_ObjectHideFlags: 0
