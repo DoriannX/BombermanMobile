@@ -8,6 +8,8 @@ public class AIUnit : Unit
     protected private float _maxHealth;
 
     protected private float _speed;
+
+    protected private bool _isActivated = false;
     
     protected private enum AISTATES
     {
@@ -28,7 +30,7 @@ public class AIUnit : Unit
 
     public virtual void StartingBattle()
     {
-
+        _isActivated = true;
     }
 
     public virtual void Attack()
