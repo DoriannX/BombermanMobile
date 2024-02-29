@@ -66,11 +66,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _units: {fileID: 0}
-  _unitTemplate: {fileID: 4548619596124136097, guid: 547de342a913ad34d92072c610c36249,
-    type: 3}
   _materials:
   - {fileID: 2100000, guid: efe26027cacc84b409062a6cff9b90c4, type: 2}
   - {fileID: 2100000, guid: 6af20d21fdb3e9846be9fcc5368045e6, type: 2}
+  _bomb: {fileID: 5470170190981348223, guid: 881da22d31728cc4b83dadf872bb2dee, type: 3}
+  _unitsToSpawn: []
 --- !u!114 &2974057518389776962
 MonoBehaviour:
   m_ObjectHideFlags: 0
