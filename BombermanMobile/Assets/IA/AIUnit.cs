@@ -1,16 +1,20 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class AIUnit : Unit
 {
-    protected private Team _team;
+    protected private NavMeshAgent _agent;
+
+    [SerializeField] protected private Team _team;
 
     protected private float _health;
-    protected private float _maxHealth;
+    [SerializeField] protected private float _maxHealth;
 
     protected private float _speed;
+    [SerializeField] protected private float _maxSpeed;
 
-    protected private float _reloadingTime = 1;
+    [SerializeField] protected private float _reloadingTime = 1;
     protected private bool _isReloading = false;
 
     protected private bool _isActivated = false;
@@ -26,12 +30,20 @@ public class AIUnit : Unit
 
     public virtual void Awake()
     {
-
+        SetBaseStats();
+        _agent = GetComponent<NavMeshAgent>();
     }
 
     public virtual void Start()
     {
         GameManager.Instance.BattleStartEvent.AddListener(OnStartingBattle);
+    }
+
+    public virtual void SetBaseStats()
+    {
+        _health = _maxHealth;
+        _speed = _maxSpeed;
+        _isReloading = false;
     }
 
     public virtual void OnStartingBattle()
