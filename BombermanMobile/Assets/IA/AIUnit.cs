@@ -15,4 +15,24 @@ public class AIUnit : Unit
     }
 
     protected private AISTATES _currentState;
+
+    public virtual void Awake()
+    {
+
+    }
+
+    public virtual void Start()
+    {
+        GameManager.Instance.BattleStartEvent.AddListener(StartingBattle);
+    }
+
+    public virtual void StartingBattle()
+    {
+
+    }
+
+    public virtual void Attack()
+    {
+
+    }
 }
