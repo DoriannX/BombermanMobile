@@ -49,6 +49,8 @@ MonoBehaviour:
   TimeToExplode: 1.5
   ExplosionDamage: 0
   ExplosionRange: 0
+  _particles: {fileID: 3910934613243425163, guid: 8e6aad010cc569a4a9780ca56be1c1aa,
+    type: 3}
 --- !u!1 &8796802652116917072
 GameObject:
   m_ObjectHideFlags: 0

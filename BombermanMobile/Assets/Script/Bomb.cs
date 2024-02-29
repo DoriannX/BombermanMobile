@@ -9,6 +9,8 @@ public class Bomb : Unit
 
     private bool _exploding = true;
 
+    [SerializeField] private GameObject _particles;
+
     private void Start()
     {
         Destroy(gameObject, TimeToExplode);
@@ -16,6 +18,7 @@ public class Bomb : Unit
 
     private void OnDestroy()
     {
+        Destroy(Instantiate(_particles), 5);
         if (_exploding)
         {
             foreach(Collider collider in Physics.OverlapSphere(transform.position, ExplosionRange)) 
