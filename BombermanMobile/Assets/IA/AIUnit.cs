@@ -17,9 +17,11 @@ public class AIUnit : Unit
     [SerializeField] protected private float _reloadingTime = 1;
     protected private bool _isReloading = false;
 
-    protected private bool _isActivated = false;
+    protected private bool _isActivated = true;
 
     protected private GameObject _currentTarget; public GameObject CurrentTarget {  get { return _currentTarget; } }
+    [SerializeField] private protected float _range = 1;
+    [SerializeField] private protected float _damage = 1;
     
     protected private enum AISTATES
     {

@@ -26,11 +26,11 @@ public class PathFinding : Unit
             MoveTo();
     }
 
-    public bool IsCloseToEnnemy(float range)
+    public bool IsCloseToEnnemy(float range, GameObject target)
     {
         bool isCloseToEnnemy = false;
 
-        if(Vector3.Distance(_agent.transform.position, _agent.destination) <= range)
+        if(Vector3.Distance(_agent.transform.position, _agent.destination) <= range && target!= null)
         {
             isCloseToEnnemy = true;
         }
