@@ -42,4 +42,16 @@ public class PathFinding : Unit
             Debug.LogError("Camera is empty");
         }
     }
+
+    public bool HasWallInFront(float range = 1.5f)
+    {
+        if (Physics.Raycast(transform.position, _agent.velocity.normalized, out RaycastHit hitInfo, range))
+        {
+            if (hitInfo.collider.CompareTag("Walls"))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
 }
