@@ -27,10 +27,10 @@ public class AIUnit : Unit
 
     public virtual void Start()
     {
-        GameManager.Instance.BattleStartEvent.AddListener(StartingBattle);
+        GameManager.Instance.BattleStartEvent.AddListener(OnStartingBattle);
     }
 
-    public virtual void StartingBattle()
+    public virtual void OnStartingBattle()
     {
         _isActivated = true;
     }
@@ -38,6 +38,11 @@ public class AIUnit : Unit
     public virtual void Attack()
     {
 
+    }
+
+    public virtual GameObject GetTarget()
+    {
+        return null;
     }
 
     public virtual void TakeDamage(float damage)
