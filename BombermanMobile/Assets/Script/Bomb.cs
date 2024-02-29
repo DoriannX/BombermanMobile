@@ -27,7 +27,10 @@ public class Bomb : Unit
                         unit.TakeDamage(ExplosionDamage);
                     }
                 }
-                
+                if (collider.CompareTag("Walls"))
+                {
+                    Destroy(collider);
+                }
             }
         }
     }
