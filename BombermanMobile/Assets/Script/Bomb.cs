@@ -17,23 +17,14 @@ public class Bomb : Unit
 
     [SerializeField] protected private Image _imageRadius;
 
-<<<<<<< Updated upstream
-    public bool IsThrowed = false;
-    public float BombSpeed = 3;
-    private Vector3 _basePosition;
-    [HideInInspector] public float MaxHeight = 4;
-    public Vector3 TargetPosition;
-    private float _baseHeight;
-    [SerializeField] private AnimationCurve _heightCurve;
-=======
+
     [HideInInspector] public bool IsThrowed = false;
     [HideInInspector] public float BombSpeed = 3;
     protected private Vector3 _basePosition;
-    protected private float _maxHeight = 4;
+    [HideInInspector] public float MaxHeight = 4;
     [HideInInspector] public Vector3 TargetPosition;
     protected private float _baseHeight;
     [SerializeField] protected private AnimationCurve _heightCurve;
->>>>>>> Stashed changes
 
     virtual protected void Awake()
     {
