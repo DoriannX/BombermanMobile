@@ -25,9 +25,12 @@ public class AIClassic : AIUnit
 
     private void Update()
     {
-        if (_pathFinding.IsCloseToEnnemy(_range, _currentTarget))
+        if (_currentTarget)
         {
-            Attack();
+            if (_pathFinding.IsCloseToEnnemy(_range, _currentTarget))
+            {
+                Attack();
+            }
         }
     }
 
