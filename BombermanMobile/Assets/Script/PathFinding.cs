@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.InputSystem;
@@ -71,5 +72,32 @@ public class PathFinding : Unit
             }
         }
         return false;
+    }
+
+    public GameObject GetClosestWall(GameObject unit, Team unitTeam)
+    {
+        List<GameObject> walls = new List<GameObject>();
+        GameObject closest = null;
+
+        foreach(Transform child in MapManager.Instance.gameObject.transform)
+        {
+            if (child.gameObject.CompareTag("Walls"))
+            {
+                walls.Add(child.gameObject);
+            }
+        }
+
+        if (walls.Count > 0)
+        {
+            closest = walls[0];
+            foreach (GameObject wall in walls)
+            {
+                if (Vector3.Distance(unit.transform.position, wall.transform.position) < Vector3.Distance(unit.transform.position, closest.transform.position))
+                {
+                    closest = wall;
+                }
+            }
+        }
+        return closest;
     }
 }
