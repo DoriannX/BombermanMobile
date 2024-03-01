@@ -20,7 +20,7 @@ public class Bomb : Unit
     public bool IsThrowed = false;
     public float BombSpeed = 3;
     private Vector3 _basePosition;
-    private float _maxHeight = 4;
+    [HideInInspector] public float MaxHeight = 4;
     public Vector3 TargetPosition;
     private float _baseHeight;
     [SerializeField] private AnimationCurve _heightCurve;
@@ -53,7 +53,7 @@ public class Bomb : Unit
             float proportion = currentDistance / totalDistance;
             print(proportion);
 
-            transform.position = new Vector3(transform.position.x, _baseHeight + (_heightCurve.Evaluate(proportion) * _maxHeight), transform.position.z);
+            transform.position = new Vector3(transform.position.x, _baseHeight + (_heightCurve.Evaluate(proportion) * MaxHeight), transform.position.z);
             transform.position += (TargetPosition - transform.position).normalized * BombSpeed * Time.deltaTime;
             yield return null;
         }
@@ -75,7 +75,7 @@ public class Bomb : Unit
         ParticleManager.Instance.ExplodeParticle(transform.position);
         if (_exploding)
         {
-            foreach (Collider collider in Physics.OverlapSphere(transform.position, ExplosionRange))
+            foreach (Collider collider in Physics.OverlapSphere(transform.position, ExplosionRange/2))
             {
                 if (collider.TryGetComponent<AIUnit>(out AIUnit unit))
                 {
