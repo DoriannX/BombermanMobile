@@ -22,7 +22,7 @@ public class UnitManager : Unit
     public GameObject GetUnitToSpawn(Type type)
     {
         GameObject unitToSpawn = null;
-        if(_unitsToSpawn.Count > 0)
+        if(_unitsToSpawn.Count >= 0)
         {
             unitToSpawn = _unitsToSpawn[(int)type];
         }

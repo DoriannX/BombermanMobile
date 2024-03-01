@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
     private bool _battleStarted = false; public bool BattleStarted { get { return _battleStarted; } }
 
-    public UnityEvent BattleStartEvent;
+    [HideInInspector] public UnityEvent BattleStartEvent;
 
     private void Awake()
     {

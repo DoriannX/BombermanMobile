@@ -64,7 +64,7 @@ public class PathFinding : Unit
 
     public bool HasWallInFront(float range = 1.5f)
     {
-        if (Physics.Raycast(transform.position, _agent.velocity.normalized, out RaycastHit hitInfo, range))
+        if (Physics.Raycast(transform.position, transform.forward*10000, out RaycastHit hitInfo, range))
         {
             if (hitInfo.collider.CompareTag("Walls"))
             {
