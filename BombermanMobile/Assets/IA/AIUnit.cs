@@ -1,7 +1,6 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
-using static UnityEngine.ParticleSystem;
 
 public class AIUnit : Unit
 {
