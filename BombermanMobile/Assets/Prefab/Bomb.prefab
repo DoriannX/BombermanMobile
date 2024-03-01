@@ -122,12 +122,52 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentTeam: 0
+  bombExplodedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  bombReachedTarget:
+    m_PersistentCalls:
+      m_Calls: []
   TimeToExplode: 1.5
   ExplosionDamage: 0
   ExplosionRange: 0
-  _particles: {fileID: 3910934613243425163, guid: 8e6aad010cc569a4a9780ca56be1c1aa,
-    type: 3}
   _imageRadius: {fileID: 6507063235272959537}
+  IsThrowed: 0
+  BombSpeed: 8
+  TargetPosition: {x: 0, y: 0, z: 0}
+  _heightCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: -0.0012588501
+      inSlope: 1.8642037
+      outSlope: 1.8642037
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.52677286
+      value: 0.98075306
+      inSlope: 0.9802899
+      outSlope: 0.9802899
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.06371719
+    - serializedVersion: 3
+      time: 1.0030518
+      value: -0.006290436
+      inSlope: -2.0724065
+      outSlope: -2.0724065
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &8528228072027433647
 GameObject:
   m_ObjectHideFlags: 0
