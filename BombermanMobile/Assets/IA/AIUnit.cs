@@ -21,7 +21,10 @@ public class AIUnit : Unit
 
     protected private GameObject _currentTarget; public GameObject CurrentTarget {  get { return _currentTarget; } }
     [SerializeField] private protected float _range = 1;
-    [SerializeField] private protected float _damage = 1;
+
+    [SerializeField] private protected float _bombDamage = 1;
+    [SerializeField] private protected float _bombTimeToExplode = 1.5f;
+    [SerializeField] private protected float _bombRange = 2f;
     
     protected private enum AISTATES
     {
