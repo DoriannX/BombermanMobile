@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.InputSystem;
@@ -11,6 +12,7 @@ public class PathFinding : Unit
     private void Start()
     {
         _agent = GetComponent<NavMeshAgent>();
+        StartCoroutine(UpdatePath());
     }
     
 
@@ -22,9 +24,15 @@ public class PathFinding : Unit
 
     private void FixedUpdate()
     {
-        print(_agent.nextPosition);
-        if(_canMove)
-            MoveTo();
+        /*if(_canMove)
+            MoveTo();*/
+    }
+
+    private IEnumerator UpdatePath()
+    {
+        _ai.GetTargetPosition();
+        yield return new WaitForSeconds(0.5f);
+        StartCoroutine(UpdatePath());
     }
 
     public bool IsCloseToEnnemy(float range, GameObject target)

@@ -51,7 +51,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CurrentTeam: 0
   _maxHealth: 100
-  _maxSpeed: 0
+  _maxSpeed: 100
   _reloadingTime: 2
   _range: 3
   _bombPlacementOffset: {x: 0, y: 0, z: 1}

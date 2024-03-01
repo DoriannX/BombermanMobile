@@ -11,7 +11,7 @@ public class AIUnit : Unit
     protected private float _health;
     [SerializeField] protected private float _maxHealth;
 
-    protected private float _speed;
+    protected private float _speed; public float Speed { get { return _speed; } }
     [SerializeField] protected private float _maxSpeed;
 
     [SerializeField] protected private float _reloadingTime = 1;

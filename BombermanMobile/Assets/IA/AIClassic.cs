@@ -14,6 +14,10 @@ public class AIClassic : AIUnit
             _agent.destination = target.transform.position;
             _currentTarget = target;
         }
+        else
+        {
+            target = gameObject;
+        }
         return target.transform.position;
     }
 
