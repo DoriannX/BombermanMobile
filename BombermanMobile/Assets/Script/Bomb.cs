@@ -11,9 +11,8 @@ public class Bomb : Unit
 
     private bool _exploding = true;
 
-    [SerializeField] private GameObject _particles;
-
     [SerializeField] private Image _imageRadius;
+    
     private void Start()
     {
         StartCoroutine(OnDestroyBomb());
