@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
+using static UnityEngine.ParticleSystem;
 
 public class AIUnit : Unit
 {
@@ -26,7 +27,8 @@ public class AIUnit : Unit
     [SerializeField] private protected float _bombDamage = 1;
     [SerializeField] private protected float _bombTimeToExplode = 1.5f;
     [SerializeField] private protected float _bombRange = 2f;
-    
+    [SerializeField] private GameObject _particles;
+
     protected private enum AISTATES
     {
         IDLE,
@@ -74,7 +76,8 @@ public class AIUnit : Unit
     public virtual void Death()
     {
         Destroy(gameObject);
-        if(CurrentTeam == Team.Ennemy)
+        ParticleManager.Instance.ExplodeParticle(transform.position);
+        if (CurrentTeam == Team.Ennemy)
             UnitManager.Instance.EnemiesUnits.Remove(gameObject);
         else
             UnitManager.Instance.AllyUnits.Remove(gameObject);
@@ -84,7 +87,6 @@ public class AIUnit : Unit
     {
         _isReloading = true;
         yield return new WaitForSeconds(_reloadingTime);
-        print(_isReloading);
         _isReloading = false;
     }
 
@@ -97,9 +99,9 @@ public class AIUnit : Unit
         return false;
     }
 
-    public virtual Vector3 GetTargetPosition()
+    public virtual GameObject GetTarget()
     {
-        Vector3 target = Vector3.zero;
+        GameObject target = null;
         return target;
     }
 }

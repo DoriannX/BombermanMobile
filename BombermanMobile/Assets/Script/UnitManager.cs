@@ -97,10 +97,6 @@ public class UnitManager : Unit
                 }
             }
         }
-        else
-        {
-            Debug.LogError("opponentUnit is empty");
-        }
         return closest;
     }
 
@@ -139,7 +135,6 @@ public class UnitManager : Unit
                 -MapManager.Instance.MapGround.localScale.x * 10 / 2, MapManager.Instance.MapGround.localScale.x * 10 / 2),
                 1,
                 Random.Range(-MapManager.Instance.MapGround.localScale.z * 10 / 2, MapManager.Instance.MapGround.localScale.z * 10 / 2));
-            print("random pos : " + agent.destination);
         }
 
         yield return new WaitForSeconds(3);
