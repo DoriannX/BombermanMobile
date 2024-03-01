@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Bomb : Unit
 {
@@ -12,10 +13,12 @@ public class Bomb : Unit
 
     [SerializeField] private GameObject _particles;
 
+    [SerializeField] private Image _imageRadius;
     private void Start()
     {
         StartCoroutine(OnDestroyBomb());
         Destroy(gameObject, TimeToExplode+.1f);
+        _imageRadius.transform.localScale = new Vector3(1f, 1f, 1f) * ExplosionRange;
     }
 
     IEnumerator OnDestroyBomb()
