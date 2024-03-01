@@ -16,7 +16,7 @@ public class PathFinding : Unit
 
     public void MoveTo()
     {
-        _ai.GetTarget();
+        _ai.GetTargetPosition();
         _canMove = true;
     }
 

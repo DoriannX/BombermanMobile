@@ -18,7 +18,7 @@ public class Bomb : Unit
 
     private void OnDestroy()
     {
-        Destroy(Instantiate(_particles), 5);
+        Destroy(Instantiate(_particles, transform.position, Quaternion.identity), 5);
         if (_exploding)
         {
             foreach(Collider collider in Physics.OverlapSphere(transform.position, ExplosionRange)) 

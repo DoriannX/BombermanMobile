@@ -5,7 +5,7 @@ public class AIClassic : AIUnit
     
     PathFinding _pathFinding;
 
-    public override Vector3 GetTarget()
+    public override Vector3 GetTargetPosition()
     {
         GameObject target = UnitManager.Instance.GetClosest(gameObject, CurrentTeam);
 

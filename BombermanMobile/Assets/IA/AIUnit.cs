@@ -88,7 +88,7 @@ public class AIUnit : Unit
         return false;
     }
 
-    public virtual Vector3 GetTarget()
+    public virtual Vector3 GetTargetPosition()
     {
         Vector3 target = Vector3.zero;
         return target;
