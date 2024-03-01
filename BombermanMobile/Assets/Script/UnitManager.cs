@@ -1,11 +1,5 @@
-using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.InteropServices.WindowsRuntime;
-using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.AI;
-using static UnityEngine.GraphicsBuffer;
 
 public class UnitManager : Unit
 {
@@ -14,7 +8,6 @@ public class UnitManager : Unit
     [HideInInspector] public List<GameObject> AllyUnits = new List<GameObject>();
     [SerializeField] private GameObject _units;
     [SerializeField] private List<Material> _materials;
-    private bool _canGetRandomPos = true;
     public GameObject BombObject;
 
     [SerializeField] private List<GameObject> _unitsToSpawn;
@@ -120,25 +113,5 @@ public class UnitManager : Unit
         return random;
     }
 
-    public void GetRandomPosition(NavMeshAgent agent)
-    {
-        StartCoroutine(RandPosCo(agent));
-    }
-
-    private IEnumerator RandPosCo(NavMeshAgent agent)
-    {
-        if (_canGetRandomPos)
-        {
-            _canGetRandomPos = false;
-            Debug.Log("At Destination");
-            agent.destination = new Vector3(Random.Range(
-                -MapManager.Instance.MapGround.localScale.x * 10 / 2, MapManager.Instance.MapGround.localScale.x * 10 / 2),
-                1,
-                Random.Range(-MapManager.Instance.MapGround.localScale.z * 10 / 2, MapManager.Instance.MapGround.localScale.z * 10 / 2));
-        }
-
-        yield return new WaitForSeconds(3);
-        StopAllCoroutines();
-        _canGetRandomPos = true;
-    }
+    
 }

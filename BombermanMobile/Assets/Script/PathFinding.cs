@@ -8,12 +8,22 @@ public class PathFinding : Unit
     private Vector3 _touchPos = Vector3.zero;
     private NavMeshAgent _agent = null;
     AIUnit _ai;
+    Vector3 randomPos = Vector3.zero;
+
+    private bool _canGetRandomPos = true;
 
     private void Start()
     {
         _agent = GetComponent<NavMeshAgent>();
         _ai = GetComponent<AIUnit>();
-        StartCoroutine(UpdatePath());
+        if (_ai)
+        {
+            StartCoroutine(UpdatePath());
+        }
+        else
+        {
+            Debug.LogWarning("ai or target is empty");
+        }
     }
     
 
@@ -99,5 +109,28 @@ public class PathFinding : Unit
             }
         }
         return closest;
+    }
+
+    public Vector3 GetRandomPosition()
+    {
+        StartCoroutine(RandPosCo());
+        return randomPos;
+    }
+
+    private IEnumerator RandPosCo()
+    {
+        if (_canGetRandomPos)
+        {
+            _canGetRandomPos = false;
+            randomPos = new Vector3(Random.Range(
+                -MapManager.Instance.MapGround.localScale.x * 10 / 2, MapManager.Instance.MapGround.localScale.x * 10 / 2),
+                1,
+                Random.Range(-MapManager.Instance.MapGround.localScale.z * 10 / 2, MapManager.Instance.MapGround.localScale.z * 10 / 2));
+            print("random pos");
+        }
+
+        yield return new WaitForSeconds(3);
+        StopAllCoroutines();
+        _canGetRandomPos = true;
     }
 }
