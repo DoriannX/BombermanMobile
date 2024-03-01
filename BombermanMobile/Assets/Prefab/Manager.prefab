@@ -69,6 +69,8 @@ MonoBehaviour:
   _materials:
   - {fileID: 2100000, guid: efe26027cacc84b409062a6cff9b90c4, type: 2}
   - {fileID: 2100000, guid: 6af20d21fdb3e9846be9fcc5368045e6, type: 2}
+  BombObject: {fileID: 5470170190981348223, guid: 881da22d31728cc4b83dadf872bb2dee,
+    type: 3}
   _unitsToSpawn:
   - {fileID: 4548619596124136097, guid: 39ea9372fe99b7d448d130a99255424e, type: 3}
   - {fileID: 4548619596124136097, guid: 39ea9372fe99b7d448d130a99255424e, type: 3}
