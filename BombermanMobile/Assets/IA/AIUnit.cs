@@ -76,6 +76,7 @@ public class AIUnit : Unit
     {
         _isReloading = true;
         yield return new WaitForSeconds(_reloadingTime);
+        print(_isReloading);
         _isReloading = false;
     }
 

@@ -41,7 +41,7 @@ public class AIClassic : AIUnit
             print("JAI POSE UNE BOMBE SUR TOI MEC");
             GameObject bomb = Instantiate(UnitManager.Instance.BombObject, gameObject.transform.position, Quaternion.identity);
             //bomb.GetComponent<Bomb>().TimeToExplode = 
-            Reloading();
+            StartCoroutine(Reloading());
         }
         //pose ta bombe fdp
     }
