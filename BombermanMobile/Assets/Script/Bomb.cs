@@ -32,7 +32,7 @@ public class Bomb : Unit
                 }
                 if (collider.CompareTag("Walls"))
                 {
-                    Destroy(collider);
+                    Destroy(collider.gameObject);
                 }
             }
         }

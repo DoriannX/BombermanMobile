@@ -30,7 +30,7 @@ public class PathFinding : Unit
     {
         bool isCloseToEnnemy = false;
 
-        if(Vector3.Distance(_agent.transform.position, _agent.destination) <= range && target!= null)
+        if(Vector3.Distance(_agent.transform.position, target.transform.position) <= range && target!= null)
         {
             isCloseToEnnemy = true;
         }

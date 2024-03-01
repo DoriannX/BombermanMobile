@@ -27,7 +27,7 @@ public class AIClassic : AIUnit
     {
         if (_currentTarget)
         {
-            if (_pathFinding.IsCloseToEnnemy(_range, _currentTarget))
+            if (_pathFinding.IsCloseToEnnemy(_range, _currentTarget) || _pathFinding.HasWallInFront(2))
             {
                 Attack();
             }
