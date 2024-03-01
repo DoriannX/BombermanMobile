@@ -6,11 +6,12 @@ public class PathFinding : Unit
 {
     private Vector3 _touchPos = Vector3.zero;
     private NavMeshAgent _agent = null;
-    [SerializeField] AIUnit _ai;
+    AIUnit _ai;
 
     private void Start()
     {
         _agent = GetComponent<NavMeshAgent>();
+        _ai = GetComponent<AIUnit>();
         StartCoroutine(UpdatePath());
     }
     

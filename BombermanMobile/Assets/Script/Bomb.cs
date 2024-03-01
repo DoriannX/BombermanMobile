@@ -10,8 +10,6 @@ public class Bomb : Unit
 
     private bool _exploding = true;
 
-    [SerializeField] private GameObject _particles;
-
     private void Start()
     {
         StartCoroutine(OnDestroyBomb());
