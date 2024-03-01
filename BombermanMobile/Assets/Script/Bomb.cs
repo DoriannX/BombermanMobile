@@ -15,8 +15,13 @@ public class Bomb : Unit
     
     private void Start()
     {
+        Detonate();
+    }
+
+    private void Detonate()
+    {
         StartCoroutine(OnDestroyBomb());
-        Destroy(gameObject, TimeToExplode+.1f);
+        Destroy(gameObject, TimeToExplode + .1f);
         _imageRadius.transform.localScale = new Vector3(1f, 1f, 1f) * ExplosionRange;
     }
 
