@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Bomb : Unit
@@ -13,15 +14,17 @@ public class Bomb : Unit
 
     private void Start()
     {
-        Destroy(gameObject, TimeToExplode);
+        StartCoroutine(OnDestroyBomb());
+        Destroy(gameObject, TimeToExplode+.1f);
     }
 
-    private void OnDestroy()
+    IEnumerator OnDestroyBomb()
     {
-        Destroy(Instantiate(_particles, transform.position, Quaternion.identity), 5);
+        yield return new WaitForSeconds(TimeToExplode);
+        ParticleManager.Instance.ExplodeParticle(transform.position);
         if (_exploding)
         {
-            foreach(Collider collider in Physics.OverlapSphere(transform.position, ExplosionRange)) 
+            foreach (Collider collider in Physics.OverlapSphere(transform.position, ExplosionRange))
             {
                 if (collider.TryGetComponent<AIUnit>(out AIUnit unit))
                 {

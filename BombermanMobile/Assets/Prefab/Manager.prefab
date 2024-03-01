@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1432032877793137676}
   - component: {fileID: 8052221338828973120}
+  - component: {fileID: 4180945529444026027}
   - component: {fileID: 5069564704734163150}
   - component: {fileID: 2974057518389776962}
   - component: {fileID: 6299591190305119879}
@@ -53,6 +54,20 @@ MonoBehaviour:
     type: 3}
   _mapSize: {x: 20, y: 35}
   _tileSize: 2
+--- !u!114 &4180945529444026027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6742781808429491398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57308931e3819ab438a71186575c137c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ExplosionParticle: {fileID: 3910934613243425163, guid: 8e6aad010cc569a4a9780ca56be1c1aa,
+    type: 3}
 --- !u!114 &5069564704734163150
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -65,6 +80,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98dca9564a9b24d44a45f9428a9ace3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EnemiesUnits: []
+  AllyUnits: []
   _units: {fileID: 0}
   _materials:
   - {fileID: 2100000, guid: efe26027cacc84b409062a6cff9b90c4, type: 2}

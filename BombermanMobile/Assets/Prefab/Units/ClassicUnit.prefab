@@ -58,6 +58,8 @@ MonoBehaviour:
   _bombDamage: 50
   _bombTimeToExplode: 1.5
   _bombRange: 2
+  _particles: {fileID: 3910934613243425163, guid: 8e6aad010cc569a4a9780ca56be1c1aa,
+    type: 3}
 --- !u!114 &5000996847490332421
 MonoBehaviour:
   m_ObjectHideFlags: 0

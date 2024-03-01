@@ -6,7 +6,6 @@ public class PathFinding : Unit
     private Vector3 _touchPos = Vector3.zero;
     private NavMeshAgent _agent = null;
     [SerializeField] AIUnit _ai;
-    private bool _canMove = false;
 
     private void Start()
     {
@@ -16,14 +15,12 @@ public class PathFinding : Unit
 
     public void MoveTo()
     {
-        _ai.GetTargetPosition();
-        _canMove = true;
+        _ai.GetTarget();
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
-        if(_canMove)
-            MoveTo();
+        MoveTo();
     }
 
     public bool IsCloseToEnnemy(float range, GameObject target)

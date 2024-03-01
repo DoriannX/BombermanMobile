@@ -5,7 +5,7 @@ public class AIClassic : AIUnit
     
     PathFinding _pathFinding;
 
-    public override Vector3 GetTargetPosition()
+    public override GameObject GetTarget()
     {
         GameObject target = UnitManager.Instance.GetClosest(gameObject, CurrentTeam);
 
@@ -14,7 +14,11 @@ public class AIClassic : AIUnit
             _agent.destination = target.transform.position;
             _currentTarget = target;
         }
-        return target.transform.position;
+        else
+        {
+            _agent.destination = transform.position;
+        }
+        return target;
     }
 
     public override void Start()
