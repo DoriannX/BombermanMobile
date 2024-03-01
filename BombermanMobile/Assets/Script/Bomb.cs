@@ -5,18 +5,19 @@ using UnityEngine.UI;
 
 public class Bomb : Unit
 {
-    public Team CurrentTeam;
-    public UnityEvent bombExplodedEvent;
-    public UnityEvent bombReachedTarget; //work on throwable only
+    [HideInInspector] public Team CurrentTeam;
+    [HideInInspector] public UnityEvent bombExplodedEvent;
+    [HideInInspector] public UnityEvent bombReachedTarget; //work on throwable only
 
-    public float TimeToExplode = 1.5f;
-    public float ExplosionDamage;
-    public float ExplosionRange;
+    [HideInInspector] public float TimeToExplode = 1.5f;
+    [HideInInspector] public float ExplosionDamage;
+    [HideInInspector] public float ExplosionRange;
 
-    private bool _exploding = true;
+    protected private bool _exploding = true;
 
-    [SerializeField] private Image _imageRadius;
+    [SerializeField] protected private Image _imageRadius;
 
+<<<<<<< Updated upstream
     public bool IsThrowed = false;
     public float BombSpeed = 3;
     private Vector3 _basePosition;
@@ -24,13 +25,22 @@ public class Bomb : Unit
     public Vector3 TargetPosition;
     private float _baseHeight;
     [SerializeField] private AnimationCurve _heightCurve;
+=======
+    [HideInInspector] public bool IsThrowed = false;
+    [HideInInspector] public float BombSpeed = 3;
+    protected private Vector3 _basePosition;
+    protected private float _maxHeight = 4;
+    [HideInInspector] public Vector3 TargetPosition;
+    protected private float _baseHeight;
+    [SerializeField] protected private AnimationCurve _heightCurve;
+>>>>>>> Stashed changes
 
-    private void Awake()
+    virtual protected void Awake()
     {
         _baseHeight = transform.position.y;
     }
 
-    private void Start()
+    virtual protected void Start()
     {
         if (IsThrowed)
         {
@@ -62,14 +72,14 @@ public class Bomb : Unit
         yield return null;
     }
 
-    private void Detonate()
+    virtual protected void Detonate()
     {
         StartCoroutine(OnDestroyBomb());
         Destroy(gameObject, TimeToExplode + .1f);
         _imageRadius.transform.localScale = new Vector3(1f, 1f, 1f) * ExplosionRange;
     }
 
-    private IEnumerator OnDestroyBomb()
+    virtual protected IEnumerator OnDestroyBomb()
     {
         yield return new WaitForSeconds(TimeToExplode);
         ParticleManager.Instance.ExplodeParticle(transform.position);

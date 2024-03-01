@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 5690353921240679916}
   m_Layer: 0
   m_Name: ClassicUnit
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -58,8 +58,6 @@ MonoBehaviour:
   _bombDamage: 50
   _bombTimeToExplode: 1.5
   _bombRange: 2
-  _particles: {fileID: 3910934613243425163, guid: 8e6aad010cc569a4a9780ca56be1c1aa,
-    type: 3}
 --- !u!114 &5000996847490332421
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -72,7 +70,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4e6f8aadfeaf8348938c7a650a9c07c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _ai: {fileID: 5831193621701706723}
 --- !u!33 &7883843510171610483
 MeshFilter:
   m_ObjectHideFlags: 0

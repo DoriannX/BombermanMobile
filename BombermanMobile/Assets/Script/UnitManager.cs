@@ -9,6 +9,7 @@ public class UnitManager : Unit
     [SerializeField] private GameObject _units;
     [SerializeField] private List<Material> _materials;
     public GameObject BombObject;
+    public GameObject MineObject;
 
     [SerializeField] private List<GameObject> _unitsToSpawn;
 

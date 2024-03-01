@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 
 public class AIMinelayer : AIUnit
@@ -29,7 +28,7 @@ public class AIMinelayer : AIUnit
         if (CanAttack())
         {
             print("JAI POSE UNE BOMBE SUR TOI MEC");
-            GameObject bomb = Instantiate(UnitManager.Instance.BombObject, gameObject.transform.position
+            GameObject bomb = Instantiate(UnitManager.Instance.MineObject, gameObject.transform.position
                 + (_bombPlacementOffset.z * transform.forward)
                 + (_bombPlacementOffset.x * transform.right), Quaternion.identity);
             bomb.GetComponent<Bomb>().TimeToExplode = _bombTimeToExplode;

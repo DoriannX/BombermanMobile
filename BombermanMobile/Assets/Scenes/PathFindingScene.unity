@@ -1050,6 +1050,12 @@ PrefabInstance:
       objectReference: {fileID: 1463670676}
     - target: {fileID: 5069564704734163150, guid: c2bf541c57b431d4dae3e384b9391984,
         type: 3}
+      propertyPath: MineObject
+      value: 
+      objectReference: {fileID: 5470170190981348223, guid: 96c1e497aea92d646873589a39fc8cf2,
+        type: 3}
+    - target: {fileID: 5069564704734163150, guid: c2bf541c57b431d4dae3e384b9391984,
+        type: 3}
       propertyPath: _unitsToSpawn.Array.size
       value: 7
       objectReference: {fileID: 0}
