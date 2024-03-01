@@ -39,7 +39,9 @@ public class AIClassic : AIUnit
         if(CanAttack())
         {
             print("JAI POSE UNE BOMBE SUR TOI MEC");
-            GameObject bomb = Instantiate(UnitManager.Instance.BombObject, gameObject.transform.position, Quaternion.identity);
+            GameObject bomb = Instantiate(UnitManager.Instance.BombObject, gameObject.transform.position
+                + (_bombPlacementOffset.z * transform.forward)
+                + (_bombPlacementOffset.x * transform.right), Quaternion.identity);
             bomb.GetComponent<Bomb>().TimeToExplode = _bombTimeToExplode;
             bomb.GetComponent<Bomb>().ExplosionRange = _bombRange;
             bomb.GetComponent<Bomb>().ExplosionDamage = _bombDamage;
