@@ -15,6 +15,7 @@ public class UnitManager : Unit
     [SerializeField] private GameObject _units;
     [SerializeField] private List<Material> _materials;
     private bool _canGetRandomPos = true;
+    public GameObject BombObject;
 
     [SerializeField] private List<GameObject> _unitsToSpawn;
 
