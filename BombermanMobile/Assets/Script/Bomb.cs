@@ -1,10 +1,14 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class Bomb : Unit
 {
-    public Team CurrentTeam; 
+    public Team CurrentTeam;
+    public UnityEvent bombExplodedEvent;
+    public UnityEvent bombReachedTarget; //work on throwable only
+
     public float TimeToExplode = 1.5f;
     public float ExplosionDamage;
     public float ExplosionRange;
@@ -45,6 +49,7 @@ public class Bomb : Unit
                     Destroy(collider.gameObject);
                 }
             }
+            bombExplodedEvent.Invoke();
         }
     }
 }
