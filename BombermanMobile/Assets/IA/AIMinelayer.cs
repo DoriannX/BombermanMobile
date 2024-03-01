@@ -1,9 +1,10 @@
+using System.Collections;
 using UnityEngine;
 
 public class AIMinelayer : AIUnit
 {
     PathFinding _pathFinding;
-
+    
     public override GameObject GetTarget()
     {
         _agent.destination = _pathFinding.GetRandomPosition();
@@ -20,13 +21,7 @@ public class AIMinelayer : AIUnit
     private void Update()
     {
         GetTarget();
-        if (_currentTarget)
-        {
-            if (_pathFinding.IsCloseToEnnemy(_range, _currentTarget) || _pathFinding.HasWallInFront(2))
-            {
-                Attack();
-            }
-        }
+        Attack();
     }
 
     public override void Attack()
