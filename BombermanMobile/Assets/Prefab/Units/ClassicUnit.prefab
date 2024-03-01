@@ -53,8 +53,10 @@ MonoBehaviour:
   _maxHealth: 100
   _maxSpeed: 0
   _reloadingTime: 2
-  _range: 10
-  _damage: 0
+  _range: 3
+  _bombDamage: 50
+  _bombTimeToExplode: 1.5
+  _bombRange: 2
 --- !u!114 &5000996847490332421
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -150,7 +152,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 4548619596124136097}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 1
   m_Speed: 3.5
   m_Acceleration: 120
   avoidancePriority: 50

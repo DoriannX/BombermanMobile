@@ -73,6 +73,10 @@ public class AIUnit : Unit
     public virtual void Death()
     {
         Destroy(gameObject);
+        if(CurrentTeam == Team.Ennemy)
+            UnitManager.Instance.EnemiesUnits.Remove(gameObject);
+        else
+            UnitManager.Instance.AllyUnits.Remove(gameObject);
     }
 
     public virtual IEnumerator Reloading()

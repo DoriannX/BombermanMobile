@@ -46,7 +46,6 @@ public class AIClassic : AIUnit
             bomb.GetComponent<Bomb>().CurrentTeam = CurrentTeam;
             StartCoroutine(Reloading());
         }
-        //pose ta bombe fdp
     }
 
 }

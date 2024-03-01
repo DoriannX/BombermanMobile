@@ -10,8 +10,8 @@ using static UnityEngine.GraphicsBuffer;
 public class UnitManager : Unit
 {
     public static UnitManager Instance;
-    private List<GameObject> EnemiesUnits = new List<GameObject>();
-    private List<GameObject> AllyUnits = new List<GameObject>();
+    public List<GameObject> EnemiesUnits = new List<GameObject>();
+    public List<GameObject> AllyUnits = new List<GameObject>();
     [SerializeField] private GameObject _units;
     [SerializeField] private List<Material> _materials;
     private bool _canGetRandomPos = true;
