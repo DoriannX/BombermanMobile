@@ -22,6 +22,7 @@ public class PathFinding : Unit
 
     private void FixedUpdate()
     {
+        print(_agent.nextPosition);
         if(_canMove)
             MoveTo();
     }
@@ -30,7 +31,7 @@ public class PathFinding : Unit
     {
         bool isCloseToEnnemy = false;
 
-        if(Vector3.Distance(_agent.transform.position, target.transform.position) <= range && target!= null)
+        if(target != null && Vector3.Distance(_agent.transform.position, target.transform.position) <= range)
         {
             isCloseToEnnemy = true;
         }
