@@ -40,7 +40,11 @@ public class AIBowman : AIUnit
     {
         if (_currentTarget)
         {
-            if (_pathFinding.IsCloseToEnnemy(_range, _currentTarget) || _pathFinding.HasWallInFront(2))
+            if (_pathFinding.IsCloseToEnnemy(_range, _currentTarget))
+            {
+                ThrowBomb();
+            }
+            if (_pathFinding.HasWallInFront(2))
             {
                 Attack();
             }
@@ -48,6 +52,21 @@ public class AIBowman : AIUnit
     }
 
     public override void Attack()
+    {
+        if (CanAttack())
+        {
+            GameObject bomb = Instantiate(UnitManager.Instance.BombObject, gameObject.transform.position
+                + (_bombPlacementOffset.z * transform.forward)
+                + (_bombPlacementOffset.x * transform.right), Quaternion.identity);
+            bomb.GetComponent<Bomb>().TimeToExplode = _bombTimeToExplode;
+            bomb.GetComponent<Bomb>().ExplosionRange = _bombRange;
+            bomb.GetComponent<Bomb>().ExplosionDamage = _bombDamage;
+            bomb.GetComponent<Bomb>().CurrentTeam = CurrentTeam;
+            StartCoroutine(Reloading());
+        }
+    }
+
+    public void ThrowBomb()
     {
         if (CanAttack())
         {
