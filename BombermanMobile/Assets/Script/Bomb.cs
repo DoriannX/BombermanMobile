@@ -49,14 +49,15 @@ public class Bomb : Unit
         while (Vector3.Distance(new Vector3(transform.position.x, TargetPosition.y, transform.position.z), TargetPosition) > .5f)
         {
             float totalDistance = Vector3.Distance(_basePosition, TargetPosition);
-            float currentDistance = Vector3.Distance(_basePosition, transform.position);
+            float currentDistance = Vector3.Distance(_basePosition, new Vector3(transform.position.x, TargetPosition.y, transform.position.z));
             float proportion = currentDistance / totalDistance;
-            proportion = Mathf.Clamp01(proportion);
+            print(proportion);
 
             transform.position = new Vector3(transform.position.x, _baseHeight + (_heightCurve.Evaluate(proportion) * _maxHeight), transform.position.z);
             transform.position += (TargetPosition - transform.position).normalized * BombSpeed * Time.deltaTime;
             yield return null;
         }
+        transform.position = new Vector3(transform.position.x, TargetPosition.y, transform.position.z);
         Detonate();
         yield return null;
     }
