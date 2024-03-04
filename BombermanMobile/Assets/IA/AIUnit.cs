@@ -30,6 +30,7 @@ public class AIUnit : Unit
     [SerializeField] private protected float _bombRange = 2f;
 
     private float _baseHeight = 0;
+    private float _randomVisuals = 0; //random constant number for animations and stuff
 
     protected private enum AISTATES
     {
@@ -59,13 +60,14 @@ public class AIUnit : Unit
             _enemyVisuals.SetActive(true);
         }
         _baseHeight = _visuals.transform.position.y;
+        _randomVisuals = Random.Range(-100, 100);
     }
 
     public virtual void Update()
     {
         if (_agent.velocity.magnitude > 0.5f)
         {
-            _visuals.transform.position = new Vector3(_visuals.transform.position.x, _baseHeight + 1 * Mathf.Abs(Mathf.Sin(Time.time * 15)), _visuals.transform.position.z);
+            _visuals.transform.position = new Vector3(_visuals.transform.position.x, _baseHeight + 1 * Mathf.Abs(Mathf.Sin((Time.time + _randomVisuals) * 15)), _visuals.transform.position.z);
         }
         else
         {
