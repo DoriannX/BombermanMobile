@@ -45,7 +45,7 @@ public class AIMortar : AIUnit
                 + (_bombPlacementOffset.x * transform.right), Quaternion.identity);
             bomb.GetComponent<Bomb>().TimeToExplode = _bombTimeToExplode;
             bomb.GetComponent<Bomb>().ExplosionRange = _bombRange;
-            bomb.GetComponent<Bomb>().ExplosionDamage = _bombDamage;
+            bomb.GetComponent<Bomb>().ExplosionDamage = BombDamage;
             bomb.GetComponent<Bomb>().CurrentTeam = CurrentTeam;
             StartCoroutine(Reloading());
         }
@@ -61,7 +61,7 @@ public class AIMortar : AIUnit
             bomb.GetComponent<Bomb>().TargetPosition = _currentTarget.transform.position;
             bomb.GetComponent<Bomb>().TimeToExplode = _bombTimeToExplode;
             bomb.GetComponent<Bomb>().ExplosionRange = _bombRange;
-            bomb.GetComponent<Bomb>().ExplosionDamage = _bombDamage;
+            bomb.GetComponent<Bomb>().ExplosionDamage = BombDamage;
             bomb.GetComponent<Bomb>().CurrentTeam = CurrentTeam;
             bomb.GetComponent<Bomb>().BombSpeed = 15;
             bomb.GetComponent<Bomb>().MaxHeight = 10;
