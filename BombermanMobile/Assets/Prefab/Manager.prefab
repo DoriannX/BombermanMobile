@@ -1,0 +1,212 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6742781808429491398
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1432032877793137676}
+  - component: {fileID: 8052221338828973120}
+  - component: {fileID: 4180945529444026027}
+  - component: {fileID: 5069564704734163150}
+  - component: {fileID: 2974057518389776962}
+  - component: {fileID: 6299591190305119879}
+  - component: {fileID: 6254215133761284688}
+  m_Layer: 0
+  m_Name: Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1432032877793137676
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6742781808429491398}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.21339178, y: 1.4612212, z: 0.6935216}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8052221338828973120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6742781808429491398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc5a78e8b5d10d3479e469a22c6afa85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mapGround: {fileID: 0}
+  _wallObject: {fileID: 1580778365017064789, guid: 2848fac8549fa7647aa439987f76ee0a,
+    type: 3}
+  _mapSize: {x: 20, y: 35}
+  _tileSize: 2
+--- !u!114 &4180945529444026027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6742781808429491398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57308931e3819ab438a71186575c137c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ExplosionParticle: {fileID: 3910934613243425163, guid: 8e6aad010cc569a4a9780ca56be1c1aa,
+    type: 3}
+--- !u!114 &5069564704734163150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6742781808429491398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98dca9564a9b24d44a45f9428a9ace3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnemiesUnits: []
+  AllyUnits: []
+  _units: {fileID: 0}
+  _materials:
+  - {fileID: 2100000, guid: efe26027cacc84b409062a6cff9b90c4, type: 2}
+  - {fileID: 2100000, guid: 6af20d21fdb3e9846be9fcc5368045e6, type: 2}
+  BombObject: {fileID: 5470170190981348223, guid: 881da22d31728cc4b83dadf872bb2dee,
+    type: 3}
+  _unitsToSpawn:
+  - {fileID: 4548619596124136097, guid: 39ea9372fe99b7d448d130a99255424e, type: 3}
+  - {fileID: 4548619596124136097, guid: 39ea9372fe99b7d448d130a99255424e, type: 3}
+  - {fileID: 4548619596124136097, guid: 39ea9372fe99b7d448d130a99255424e, type: 3}
+  - {fileID: 4548619596124136097, guid: 39ea9372fe99b7d448d130a99255424e, type: 3}
+  - {fileID: 4548619596124136097, guid: 39ea9372fe99b7d448d130a99255424e, type: 3}
+  - {fileID: 4548619596124136097, guid: 39ea9372fe99b7d448d130a99255424e, type: 3}
+--- !u!114 &2974057518389776962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6742781808429491398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6d6c70967012d1498a09da75810c6ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ClickEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  ReleaseClickEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  TouchPositionEvent:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &6299591190305119879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6742781808429491398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37dcb9cfd1ea70843b22472cc21ed460, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BattleStartEvent:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &6254215133761284688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6742781808429491398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: f12b72a19c0172f45b9890cb63e7b52d,
+    type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5069564704734163150}
+        m_TargetAssemblyTypeName: UnitManager, Assembly-CSharp
+        m_MethodName: StartFight
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: d3134738-f177-4a99-b27c-dd864384534a
+    m_ActionName: Player/Click[/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2974057518389776962}
+        m_TargetAssemblyTypeName: InputManager, Assembly-CSharp
+        m_MethodName: OnTouchPosition
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: daec60c1-954a-48c6-bbd7-f46d8c6f8960
+    m_ActionName: Player/TouchPosition
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2974057518389776962}
+        m_TargetAssemblyTypeName: InputManager, Assembly-CSharp
+        m_MethodName: OnTouchPress
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: e921aff6-59d8-45c8-944c-da1b368e5bfc
+    m_ActionName: Player/TouchPress[/Mouse/leftButton]
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Player
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -9,11 +10,13 @@ public class GoatPortrait : Unit, IPointerDownHandler
 
     private Transform _unitVisual; //unit that is following finger
 
-    [SerializeField] private Type _type = Type.Classic;
-    [SerializeField] private Team _team = Team.Player;
+    [SerializeField] private Team _team;
+    [SerializeField] private Type _type;
     [SerializeField] private Sprite _spriteRadius;
 
     private Vector2 _placeOffset = Vector2.zero;
+
+    
 
     public void FollowFinger()
     {
@@ -56,11 +59,19 @@ public class GoatPortrait : Unit, IPointerDownHandler
     public void SpawnUnit(Vector2 spawnPosition)
     {
         Ray ray = Camera.main.ScreenPointToRay(new Vector3(spawnPosition.x, spawnPosition.y, 0));
+        GameObject unitToSpawn = UnitManager.Instance.GetUnitToSpawn(_type);
         if (Physics.Raycast(ray, out RaycastHit hitData))
         {
             if (CanSpawnUnitAt(spawnPosition))
             {
-                UnitManager.Instance.SpawnUnit(_team, 1, _type, hitData.point);
+                if(unitToSpawn != null)
+                {
+                    UnitManager.Instance.SpawnUnit(_team, 1, hitData.point, unitToSpawn);
+                }
+                else
+                {
+                    Debug.LogError("You didn't put the unit to spawn in the serialize field");
+                }
             }
         }
     }
