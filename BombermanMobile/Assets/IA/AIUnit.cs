@@ -41,9 +41,9 @@ public class AIUnit : Unit
 
     public virtual void Awake()
     {
-        SetBaseStats();
         _agent = GetComponent<NavMeshAgent>();
-        
+        SetBaseStats();
+
     }
 
     public virtual void Start()
@@ -80,6 +80,7 @@ public class AIUnit : Unit
         _health = _maxHealth;
         _speed = _maxSpeed;
         _isReloading = false;
+        _agent.speed = _speed;
     }
 
     public virtual void OnStartingBattle()
