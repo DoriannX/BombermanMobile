@@ -63,7 +63,14 @@ public class AIUnit : Unit
 
     public virtual void Update()
     {
-        _visuals.transform.position = new Vector3(_visuals.transform.position.x, _baseHeight + 1 * Mathf.Abs(Mathf.Sin(Time.time*3)), _visuals.transform.position.z);
+        if (_agent.velocity.magnitude > 0.5f)
+        {
+            _visuals.transform.position = new Vector3(_visuals.transform.position.x, _baseHeight + 1 * Mathf.Abs(Mathf.Sin(Time.time * 15)), _visuals.transform.position.z);
+        }
+        else
+        {
+            _visuals.transform.position = new Vector3(_visuals.transform.position.x, _baseHeight, _visuals.transform.position.z);
+        }
     }
 
     public virtual void SetBaseStats()
