@@ -59,7 +59,7 @@ public class AIBowman : AIUnit
                 + (_bombPlacementOffset.x * transform.right), Quaternion.identity);
             bomb.GetComponent<Bomb>().TimeToExplode = _bombTimeToExplode;
             bomb.GetComponent<Bomb>().ExplosionRange = _bombRange;
-            bomb.GetComponent<Bomb>().ExplosionDamage = _bombDamage;
+            bomb.GetComponent<Bomb>().ExplosionDamage = BombDamage;
             bomb.GetComponent<Bomb>().CurrentTeam = CurrentTeam;
             StartCoroutine(Reloading());
         }
@@ -75,7 +75,7 @@ public class AIBowman : AIUnit
             bomb.GetComponent<Bomb>().TargetPosition = _currentTarget.transform.position;
             bomb.GetComponent<Bomb>().TimeToExplode = _bombTimeToExplode;
             bomb.GetComponent<Bomb>().ExplosionRange = _bombRange;
-            bomb.GetComponent<Bomb>().ExplosionDamage = _bombDamage;
+            bomb.GetComponent<Bomb>().ExplosionDamage = BombDamage;
             bomb.GetComponent<Bomb>().CurrentTeam = CurrentTeam;
             bomb.GetComponent<Bomb>().IsThrowed = true;
             StartCoroutine(Reloading());

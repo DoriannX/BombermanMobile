@@ -49,7 +49,7 @@ public class AIClassic : AIUnit
                 + (_bombPlacementOffset.x * transform.right), Quaternion.identity);
             bomb.GetComponent<Bomb>().TimeToExplode = _bombTimeToExplode;
             bomb.GetComponent<Bomb>().ExplosionRange = _bombRange;
-            bomb.GetComponent<Bomb>().ExplosionDamage = _bombDamage;
+            bomb.GetComponent<Bomb>().ExplosionDamage = BombDamage;
             bomb.GetComponent<Bomb>().CurrentTeam = CurrentTeam;
             StartCoroutine(Reloading());
         }
