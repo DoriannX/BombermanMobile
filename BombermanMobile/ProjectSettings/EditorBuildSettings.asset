@@ -4,7 +4,10 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/MapGeneration/MapGenerationScene.unity
+    guid: 3b21d5bc3cd76b448a467aff8ad1fd29
   m_configObjects:
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: a24df4474645a074797485aa751e6cd1,
       type: 2}

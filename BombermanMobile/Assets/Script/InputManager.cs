@@ -6,9 +6,9 @@ public class InputManager : MonoBehaviour
 {
     public static InputManager Instance;
 
-    public UnityEvent ClickEvent;
-    public UnityEvent ReleaseClickEvent;
-    public UnityEvent TouchPositionEvent;
+    [HideInInspector] public UnityEvent ClickEvent;
+    [HideInInspector] public UnityEvent ReleaseClickEvent;
+    [HideInInspector] public UnityEvent TouchPositionEvent;
 
     private Vector2 _oldTouchPosition; public Vector2 OldTouchPosition { get { return _oldTouchPosition; } }
     private Vector2 _lastTouchPosition; public Vector2 LastTouchPosition { get { return _lastTouchPosition; } }

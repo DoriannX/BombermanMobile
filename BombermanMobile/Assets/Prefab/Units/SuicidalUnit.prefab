@@ -9,13 +9,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5461165261873944937}
+  - component: {fileID: -2314828842812359570}
   - component: {fileID: 5000996847490332421}
   - component: {fileID: 7883843510171610483}
   - component: {fileID: 970447982798818744}
   - component: {fileID: 5959630725530682369}
   - component: {fileID: 5690353921240679916}
   m_Layer: 0
-  m_Name: TemplateUnit
+  m_Name: SuicidalUnit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36,6 +37,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-2314828842812359570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4548619596124136097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88682a5d94066a94192b4a7098b54f5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CurrentTeam: 0
+  _maxHealth: 40
+  _maxSpeed: 135
+  _reloadingTime: 2
+  _range: 1.5
+  _bombPlacementOffset: {x: 0, y: 0, z: 0}
+  _bombDamage: 100
+  _bombTimeToExplode: 0.5
+  _bombRange: 3
 --- !u!114 &5000996847490332421
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -48,7 +70,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4e6f8aadfeaf8348938c7a650a9c07c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _ai: {fileID: 0}
 --- !u!33 &7883843510171610483
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -138,9 +159,9 @@ NavMeshAgent:
   m_AngularSpeed: 120
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 0
-  m_AutoRepath: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 0
   m_Height: 2
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 1
+  m_ObstacleAvoidanceType: 4
