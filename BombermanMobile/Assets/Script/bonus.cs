@@ -4,12 +4,12 @@ public class bonus : MonoBehaviour
 {
     private void Awake()
     {
-        Destroy(gameObject, 1);
-
+        Invoke("GetBonus", 1);
     }
 
-    private void DestroyBonus()
+    private void GetBonus()
     {
-
+        print("jai pose un bonus sur toi mec");
+        Destroy(gameObject);
     }
 }
