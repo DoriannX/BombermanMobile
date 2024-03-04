@@ -26,8 +26,9 @@ public class AIMiner : AIUnit
         _pathFinding = GetComponent<PathFinding>();
     }
 
-    private void Update()
+    public override void Update()
     {
+        base.Update();
         if (_currentTarget)
         {
             if (_pathFinding.HasWallInFront(2))

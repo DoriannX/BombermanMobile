@@ -5,7 +5,9 @@ using UnityEngine.AI;
 public class AIUnit : Unit
 {
     protected private NavMeshAgent _agent;
-
+    [SerializeField] private GameObject _playerVisuals;
+    [SerializeField] private GameObject _enemyVisuals;
+    [SerializeField] private GameObject _visuals;
     [HideInInspector] public Team CurrentTeam;
 
     protected private float _health;
@@ -27,6 +29,9 @@ public class AIUnit : Unit
     [SerializeField] private protected float _bombTimeToExplode = 1.5f;
     [SerializeField] private protected float _bombRange = 2f;
 
+    private float _baseHeight = 0;
+    private float _randomVisuals = 0; //random constant number for animations and stuff
+
     protected private enum AISTATES
     {
         IDLE,
@@ -38,11 +43,36 @@ public class AIUnit : Unit
     {
         SetBaseStats();
         _agent = GetComponent<NavMeshAgent>();
+        
     }
 
     public virtual void Start()
     {
         GameManager.Instance.BattleStartEvent.AddListener(OnStartingBattle);
+        if (CurrentTeam == Team.Player)
+        {
+            _playerVisuals.SetActive(true);
+            _enemyVisuals.SetActive(false);
+        }
+        else
+        {
+            _playerVisuals.SetActive(false);
+            _enemyVisuals.SetActive(true);
+        }
+        _baseHeight = _visuals.transform.position.y;
+        _randomVisuals = Random.Range(-100, 100);
+    }
+
+    public virtual void Update()
+    {
+        if (_agent.velocity.magnitude > 0.5f)
+        {
+            _visuals.transform.position = new Vector3(_visuals.transform.position.x, _baseHeight + 1 * Mathf.Abs(Mathf.Sin((Time.time + _randomVisuals) * 15)), _visuals.transform.position.z);
+        }
+        else
+        {
+            _visuals.transform.position = new Vector3(_visuals.transform.position.x, _baseHeight, _visuals.transform.position.z);
+        }
     }
 
     public virtual void SetBaseStats()

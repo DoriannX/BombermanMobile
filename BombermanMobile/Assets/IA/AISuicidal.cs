@@ -38,8 +38,9 @@ public class AISuicidal : AIUnit
         _pathFinding = GetComponent<PathFinding>();
     }
 
-    private void Update()
+    public override void Update()
     {
+        base.Update();
         if (!_exploding)
         {
             if (_currentTarget)

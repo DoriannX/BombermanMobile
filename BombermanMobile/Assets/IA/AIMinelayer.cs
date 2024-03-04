@@ -17,8 +17,9 @@ public class AIMinelayer : AIUnit
         _pathFinding = GetComponent<PathFinding>();
     }
 
-    private void Update()
+    public override void Update()
     {
+        base.Update();
         GetTarget();
         Attack();
     }
