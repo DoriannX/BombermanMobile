@@ -87,6 +87,10 @@ public class Bomb : Unit
                 }
                 if (collider.CompareTag("Walls"))
                 {
+                    if(collider.gameObject.TryGetComponent<BonusBlock>(out BonusBlock component))
+                    {
+                        component.DestroyBlock();
+                    }
                     Destroy(collider.gameObject);
                 }
             }
