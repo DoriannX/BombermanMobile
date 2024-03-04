@@ -83,14 +83,7 @@ public class UnitManager : Unit
         }
         foreach(GameObject unit in EnemiesUnits)
         {
-            if(unit != null)
-            {
-                unit.GetComponent<PathFinding>().MoveTo();
-            }
-            else
-            {
-                Debug.LogWarning("unit is null");
-            }
+            unit.GetComponent<PathFinding>().MoveTo();
         }
     }
 

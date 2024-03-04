@@ -162,12 +162,7 @@ PlayerSettings:
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
-<<<<<<< Updated upstream
     Android: com.DefaultCompany.BombermanMobile
-=======
-    Android: com.Exploaters.Exploatomatic
-    Standalone: com.Exploaters.Exploatomatic
->>>>>>> Stashed changes
   buildNumber:
     Standalone: 0
     VisionOS: 0
