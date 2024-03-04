@@ -10,6 +10,8 @@ public class MapManager : MonoBehaviour
 
     [SerializeField] private Vector2 _mapSize = new Vector2(20, 35);
     [SerializeField] private float _tileSize = 2f;
+    public List<GameObject> Bonuses = new List<GameObject>();
+
 
     private void Awake()
     {
