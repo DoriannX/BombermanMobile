@@ -5,7 +5,9 @@ using UnityEngine.AI;
 public class AIUnit : Unit
 {
     protected private NavMeshAgent _agent;
-
+    [SerializeField] private GameObject _playerVisuals;
+    [SerializeField] private GameObject _enemyVisuals;
+    [SerializeField] private GameObject _visuals;
     [HideInInspector] public Team CurrentTeam;
 
     protected private float _health;
@@ -27,6 +29,8 @@ public class AIUnit : Unit
     [SerializeField] private protected float _bombTimeToExplode = 1.5f;
     [SerializeField] private protected float _bombRange = 2f;
 
+    private float _baseHeight = 0;
+
     protected private enum AISTATES
     {
         IDLE,
@@ -38,11 +42,28 @@ public class AIUnit : Unit
     {
         SetBaseStats();
         _agent = GetComponent<NavMeshAgent>();
+        
     }
 
     public virtual void Start()
     {
         GameManager.Instance.BattleStartEvent.AddListener(OnStartingBattle);
+        if (CurrentTeam == Team.Player)
+        {
+            _playerVisuals.SetActive(true);
+            _enemyVisuals.SetActive(false);
+        }
+        else
+        {
+            _playerVisuals.SetActive(false);
+            _enemyVisuals.SetActive(true);
+        }
+        _baseHeight = _visuals.transform.position.y;
+    }
+
+    public virtual void Update()
+    {
+        _visuals.transform.position = new Vector3(_visuals.transform.position.x, _baseHeight + 1 * Mathf.Abs(Mathf.Sin(Time.time*3)), _visuals.transform.position.z);
     }
 
     public virtual void SetBaseStats()

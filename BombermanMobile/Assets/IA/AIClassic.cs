@@ -27,8 +27,9 @@ public class AIClassic : AIUnit
         _pathFinding = GetComponent<PathFinding>();
     }
 
-    private void Update()
+    public override void Update()
     {
+        base.Update();
         if (_currentTarget)
         {
             if (_pathFinding.IsCloseToEnnemy(_range, _currentTarget) || _pathFinding.HasWallInFront(2))

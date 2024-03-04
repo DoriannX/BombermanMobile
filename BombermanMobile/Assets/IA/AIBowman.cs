@@ -34,8 +34,9 @@ public class AIBowman : AIUnit
         _pathFinding = GetComponent<PathFinding>();
     }
 
-    private void Update()
+    public override void Update()
     {
+        base.Update();
         if (_currentTarget)
         {
             if (_pathFinding.IsCloseToEnnemy(_range, _currentTarget))
