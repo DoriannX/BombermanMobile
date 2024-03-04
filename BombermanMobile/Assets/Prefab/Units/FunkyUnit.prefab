@@ -88,11 +88,11 @@ MonoBehaviour:
   _visuals: {fileID: 6327376017909392597}
   CurrentTeam: 0
   _maxHealth: 10
-  _maxSpeed: 125
+  _maxSpeed: 3.5
   _reloadingTime: 2
   _range: 6
   _bombPlacementOffset: {x: 0, y: 0, z: 1}
-  _bombDamage: 1
+  BombDamage: 1
   _bombTimeToExplode: 1.5
   _bombRange: 2
 --- !u!114 &5000996847490332421
