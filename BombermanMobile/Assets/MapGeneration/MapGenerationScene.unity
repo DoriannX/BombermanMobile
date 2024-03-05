@@ -594,8 +594,14 @@ PrefabInstance:
       objectReference: {fileID: 1460161949}
     - target: {fileID: 5069564704734163150, guid: c2bf541c57b431d4dae3e384b9391984,
         type: 3}
+      propertyPath: MineObject
+      value: 
+      objectReference: {fileID: 5470170190981348223, guid: 96c1e497aea92d646873589a39fc8cf2,
+        type: 3}
+    - target: {fileID: 5069564704734163150, guid: c2bf541c57b431d4dae3e384b9391984,
+        type: 3}
       propertyPath: _unitsToSpawn.Array.size
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5069564704734163150, guid: c2bf541c57b431d4dae3e384b9391984,
         type: 3}
@@ -619,13 +625,19 @@ PrefabInstance:
         type: 3}
       propertyPath: _unitsToSpawn.Array.data[5]
       value: 
-      objectReference: {fileID: 4548619596124136097, guid: 0e3e3cea3639593438fa2e088bc31b73,
+      objectReference: {fileID: 4548619596124136097, guid: 72ee0161102a16e498496acbf89fcbe4,
         type: 3}
     - target: {fileID: 5069564704734163150, guid: c2bf541c57b431d4dae3e384b9391984,
         type: 3}
       propertyPath: _unitsToSpawn.Array.data[6]
       value: 
       objectReference: {fileID: 4548619596124136097, guid: 856e399fa2da94240849e72a580b8409,
+        type: 3}
+    - target: {fileID: 5069564704734163150, guid: c2bf541c57b431d4dae3e384b9391984,
+        type: 3}
+      propertyPath: _unitsToSpawn.Array.data[7]
+      value: 
+      objectReference: {fileID: 4548619596124136097, guid: 0e3e3cea3639593438fa2e088bc31b73,
         type: 3}
     - target: {fileID: 6742781808429491398, guid: c2bf541c57b431d4dae3e384b9391984,
         type: 3}
@@ -821,7 +833,7 @@ PrefabInstance:
     - target: {fileID: 2084539204798923880, guid: 5247c632909c8be44a6441a7fd6ac7a0,
         type: 3}
       propertyPath: _type
-      value: 6
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2339118525654134646, guid: 5247c632909c8be44a6441a7fd6ac7a0,
         type: 3}
@@ -1006,12 +1018,12 @@ PrefabInstance:
     - target: {fileID: 5661513303016402200, guid: 5247c632909c8be44a6441a7fd6ac7a0,
         type: 3}
       propertyPath: _team
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5661513303016402200, guid: 5247c632909c8be44a6441a7fd6ac7a0,
         type: 3}
       propertyPath: _type
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6230516815179453074, guid: 5247c632909c8be44a6441a7fd6ac7a0,
         type: 3}
