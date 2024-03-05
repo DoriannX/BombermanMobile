@@ -52,7 +52,6 @@ public class Bomb : Unit
             float totalDistance = Vector3.Distance(_basePosition, TargetPosition);
             float currentDistance = Vector3.Distance(_basePosition, new Vector3(transform.position.x, TargetPosition.y, transform.position.z));
             float proportion = currentDistance / totalDistance;
-            print(proportion);
 
             transform.position = new Vector3(transform.position.x, _baseHeight + (_heightCurve.Evaluate(proportion) * MaxHeight), transform.position.z);
             transform.position += (TargetPosition - transform.position).normalized * BombSpeed * Time.deltaTime;
