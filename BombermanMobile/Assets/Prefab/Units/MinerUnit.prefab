@@ -125,11 +125,11 @@ MonoBehaviour:
   CurrentTeam: 0
   _maxHealth: 30
   _maxSpeed: 3.5
-  _reloadingTime: 1
+  _reloadingTime: 1.25
   _range: 1
-  _bombPlacementOffset: {x: 0, y: 0, z: 0}
+  _bombPlacementOffset: {x: 0, y: 0, z: 1.25}
   BombDamage: 1
-  _bombTimeToExplode: 1.5
+  _bombTimeToExplode: 1
   _bombRange: 2
 --- !u!114 &5000996847490332421
 MonoBehaviour:
