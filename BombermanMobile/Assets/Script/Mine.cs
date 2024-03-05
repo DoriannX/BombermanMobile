@@ -20,7 +20,10 @@ public class Mine : Bomb
 
     private void OnTriggerEnter(Collider other)
     {
-        print("detected");
-        Detonate();
+        if (other.TryGetComponent<AIUnit>(out AIUnit unit))
+        {
+            print("detected");
+            Detonate();
+        }
     }   
 }
