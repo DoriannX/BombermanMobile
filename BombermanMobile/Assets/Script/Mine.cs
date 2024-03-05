@@ -25,5 +25,5 @@ public class Mine : Bomb
             print("detected");
             Detonate();
         }
-    }   
+    }
 }
