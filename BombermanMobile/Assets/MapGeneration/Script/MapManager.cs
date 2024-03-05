@@ -1,7 +1,8 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MapManager : MonoBehaviour
+public class MapManager : Unit
 {
     public static MapManager Instance;
     [SerializeField] private Transform _mapGround; public Transform MapGround {  get { return _mapGround; } }
@@ -28,7 +29,13 @@ public class MapManager : MonoBehaviour
     {
         BuildWalls();
         //bake navmesh
-        PlaceEnemies();
+
+        int nbUnit = UnityEngine.Random.Range(5, 8);
+
+        for (int i = 0; i < nbUnit; i++)
+        {
+            PlaceEnemies();
+        }
     }
 
     private void BuildWalls()
@@ -39,7 +46,7 @@ public class MapManager : MonoBehaviour
         while (_placingPosition.z > -_mapSize.y/2 - halfTile + _mapGround.position.y)
         {
             bool placedWall = false;
-            int rand = Random.Range(1, 101);
+            int rand = UnityEngine.Random.Range(1, 101);
             if (GetNearWallCount(_placingPosition, _walls) > 0) rand += 40;
             if (rand > 85 && !placedWall)
             {
@@ -84,6 +91,20 @@ public class MapManager : MonoBehaviour
 
     private void PlaceEnemies()
     {
+        Vector3 randomPos = new Vector3(UnityEngine.Random.Range(
+                -MapManager.Instance.MapGround.localScale.x * 10 / 2, MapManager.Instance.MapGround.localScale.x * 10 / 2),
+                1,
+                UnityEngine.Random.Range(-MapManager.Instance.MapGround.localScale.z * 10 / 2, MapManager.Instance.MapGround.localScale.z * 10 / 2));
 
+        foreach (Collider collider in Physics.OverlapSphere(randomPos, .8f))
+        {
+            if (!collider.CompareTag("Ground"))
+            {
+                PlaceEnemies();
+                return;
+            }
+            int unitType = UnityEngine.Random.Range(0, Enum.GetNames(typeof(Type)).Length - 1);
+            UnitManager.Instance.SpawnUnit(Team.Ennemy, 1, randomPos, UnitManager.Instance.GetUnitToSpawn((Type)unitType));
+        }
     }
 }
