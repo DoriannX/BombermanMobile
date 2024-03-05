@@ -17,6 +17,7 @@ public class GameManager : Unit
     private void Start()
     {
         UnitManager.Instance.SpawnUnit(Team.Player, 1, new Vector3(0, 0, -14.3000002f), UnitManager.Instance.GetUnitToSpawn(Type.Goass));
+        UnitManager.Instance.SpawnUnit(Team.Ennemy, 1, new Vector3(0, 0, 14.3000002f), UnitManager.Instance.GetUnitToSpawn(Type.Goass));
     }
 
     public void StartBattle()
