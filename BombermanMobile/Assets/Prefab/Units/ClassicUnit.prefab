@@ -123,7 +123,7 @@ MonoBehaviour:
   _reloadingTime: 2
   _range: 3
   _bombPlacementOffset: {x: 0, y: 0, z: 1}
-  BombDamage: 1
+  BombDamage: 50
   _bombTimeToExplode: 1.5
   _bombRange: 2
 --- !u!114 &5000996847490332421
