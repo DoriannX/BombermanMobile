@@ -137,6 +137,9 @@ public class AIUnit : Unit
     private void OnDestroy()
     {
         print("detroy");
-        Zone.Instance.RemoveFromDetectedPlayer(gameObject);
+        if(Zone.Instance != null)
+        {
+            Zone.Instance.RemoveFromDetectedPlayer(gameObject);
+        }
     }
 }

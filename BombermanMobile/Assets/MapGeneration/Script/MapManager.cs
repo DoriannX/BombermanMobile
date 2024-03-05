@@ -91,20 +91,43 @@ public class MapManager : Unit
 
     private void PlaceEnemies()
     {
-        Vector3 randomPos = new Vector3(UnityEngine.Random.Range(
-                -MapManager.Instance.MapGround.localScale.x * 10 / 2, MapManager.Instance.MapGround.localScale.x * 10 / 2),
-                1,
-                UnityEngine.Random.Range(-MapManager.Instance.MapGround.localScale.z * 10 / 2, MapManager.Instance.MapGround.localScale.z * 10 / 2));
-
-        foreach (Collider collider in Physics.OverlapSphere(randomPos, .8f))
+        bool placedEnemy = false;
+        Vector3 randomPos = new Vector3();
+        int iterationMax = 1000;
+        int unitType = 0;
+        while (!placedEnemy)
         {
-            if (!collider.CompareTag("Ground"))
+            bool obstacleDetected = false;
+            unitType = UnityEngine.Random.Range(0, Enum.GetNames(typeof(Type)).Length - 1);
+            if(unitType == 6) 
             {
-                PlaceEnemies();
-                return;
+                obstacleDetected = true;
             }
-            int unitType = UnityEngine.Random.Range(0, Enum.GetNames(typeof(Type)).Length - 1);
-            UnitManager.Instance.SpawnUnit(Team.Ennemy, 1, randomPos, UnitManager.Instance.GetUnitToSpawn((Type)unitType));
+            randomPos = new Vector3(UnityEngine.Random.Range(
+                    -MapManager.Instance.MapGround.localScale.x * 10 / 2, MapManager.Instance.MapGround.localScale.x * 10 / 2),
+                    1,
+                    UnityEngine.Random.Range(-MapManager.Instance.MapGround.localScale.z * 10 / 2, MapManager.Instance.MapGround.localScale.z * 10 / 2));
+
+            foreach (Collider collider in Physics.OverlapSphere(randomPos, .8f))
+            {
+                if (!collider.CompareTag("Ground"))
+                {
+                    obstacleDetected = true;
+                    print("Obstacle Detected");
+                }
+            }
+            if (!obstacleDetected)
+            {
+                placedEnemy = true;
+                print("Enemy detected");
+            }
+            iterationMax--;
+            if (iterationMax <= 0)
+            {
+                placedEnemy = true;
+                break;
+            }
         }
+        UnitManager.Instance.SpawnUnit(Team.Ennemy, 1, randomPos, UnitManager.Instance.GetUnitToSpawn((Type)unitType));
     }
 }
