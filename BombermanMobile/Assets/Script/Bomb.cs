@@ -92,6 +92,10 @@ public class Bomb : Unit
                     }
                     Destroy(collider.gameObject);
                 }
+                if (collider.TryGetComponent<Mine>(out Mine mine))
+                {
+                    mine.Detonate();
+                }
             }
             bombExplodedEvent.Invoke();
         }

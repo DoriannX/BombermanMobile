@@ -121,14 +121,14 @@ MonoBehaviour:
   _enemyVisuals: {fileID: 1154010139249970612}
   _visuals: {fileID: 4876875020938807516}
   CurrentTeam: 0
-  _maxHealth: 500
-  _maxSpeed: 3.5
+  _maxHealth: 400
+  _maxSpeed: 2
   _reloadingTime: 2
   _range: 3
   _bombPlacementOffset: {x: 0, y: 0, z: 1}
-  BombDamage: 1
+  BombDamage: 0
   _bombTimeToExplode: 1.5
-  _bombRange: 2
+  _bombRange: 4
   TakeDamageEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -389,6 +389,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5461165261873944937}
     m_Modifications:
+    - target: {fileID: 584851384824154352, guid: 56495b579952de240bbf3cd4b7d9e256,
+        type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5047368389217937502, guid: 56495b579952de240bbf3cd4b7d9e256,
         type: 3}
       propertyPath: m_Pivot.x
