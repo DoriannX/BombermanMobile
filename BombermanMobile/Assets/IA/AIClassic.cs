@@ -42,6 +42,7 @@ public class AIClassic : AIUnit
             if (_pathFinding.IsCloseToEnnemy(_range, _currentTarget) || _pathFinding.HasWallInFront(2))
             {
                 Attack();
+                transform.LookAt(CurrentTarget.transform.position);
             }
         }
     }

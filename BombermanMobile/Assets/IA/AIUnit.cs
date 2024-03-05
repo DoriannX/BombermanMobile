@@ -10,8 +10,8 @@ public class AIUnit : Unit
     [SerializeField] private GameObject _visuals;
     [HideInInspector] public Team CurrentTeam;
 
-    protected private float _health;
-    [SerializeField] protected private float _maxHealth;
+    protected private float _health; public float Health { get { return _health; } }
+    [SerializeField] protected private float _maxHealth; public float MaxHealth { get { return _maxHealth; } }
 
     protected private float _speed; public float Speed { get { return _speed; } }
     [SerializeField] protected private float _maxSpeed;
@@ -59,7 +59,7 @@ public class AIUnit : Unit
             _playerVisuals.SetActive(false);
             _enemyVisuals.SetActive(true);
         }
-        _baseHeight = _visuals.transform.position.y;
+        _baseHeight = transform.position.y;
         _randomVisuals = Random.Range(-100, 100);
     }
 
@@ -67,11 +67,11 @@ public class AIUnit : Unit
     {
         if (_agent.velocity.magnitude > 0.5f)
         {
-            _visuals.transform.position = new Vector3(_visuals.transform.position.x, _baseHeight + 1 * Mathf.Abs(Mathf.Sin((Time.time + _randomVisuals) * 15)), _visuals.transform.position.z);
+            _visuals.transform.position = new Vector3(_visuals.transform.position.x, transform.position.y + 1 * Mathf.Abs(Mathf.Sin((Time.time + _randomVisuals) * 15)), _visuals.transform.position.z);
         }
         else
         {
-            _visuals.transform.position = new Vector3(_visuals.transform.position.x, _baseHeight, _visuals.transform.position.z);
+            _visuals.transform.position = new Vector3(_visuals.transform.position.x, transform.position.y, _visuals.transform.position.z);
         }
     }
 
