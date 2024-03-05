@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Zone : MonoBehaviour
@@ -10,9 +11,36 @@ public class Zone : MonoBehaviour
     private List<GameObject> _zoneWalls = new List<GameObject>();
     [SerializeField] private float _zoneSpeed;
     [SerializeField] private float _zoneDamage;
+    [SerializeField] private float _zoneWaitTime = 10f;
+    [SerializeField] private float _damageWaitTime = 1;
     private bool _canZone = false;
     private bool _canApplyDamage = true;
+    public static Zone Instance;
 
+
+    private void Awake()
+    {
+        if(Instance == null)
+        {
+            Instance = this;
+        }
+    }
+
+    public void RemoveFromDetectedPlayer(GameObject objectToRemove)
+    {
+        foreach(GameObject obj in new Tools().GetAllChildren(gameObject))
+        {
+            List<GameObject> detectedPlayer = obj.GetComponent<CharacterDetection>().DetectedPlayers;
+            if (detectedPlayer.Contains(objectToRemove))
+            {
+                obj.GetComponent<CharacterDetection>().DetectedPlayers.Remove(objectToRemove);
+            }
+            else
+            {
+                Debug.LogWarning("Object is not in the list");
+            }
+        }
+    }
     private void Start()
     {
         SetZoneWallsPos();
@@ -58,7 +86,7 @@ public class Zone : MonoBehaviour
                 zoneWall.transform.position -= zoneWall.transform.position.normalized * Time.deltaTime * _zoneSpeed / 100;
             }
         }
-        Invoke("StartZoneAdvancement", 10);
+        Invoke("StartZoneAdvancement", _zoneWaitTime);
     }
 
     private void StartZoneAdvancement()
@@ -68,26 +96,51 @@ public class Zone : MonoBehaviour
     private void Update()
     {
         ZoneAdvancement();
+        DetectPlayer();
     }
 
-    private void OnTriggerEnter(Collider collision)
+    private void DetectPlayer()
     {
-        print(collision.gameObject.name);
-        if (collision.gameObject)
-        {
-            StartCoroutine(ApplyDamage(collision.gameObject));
+        List<GameObject> detectedPlayers = new List<GameObject>();
+
+        foreach(Transform zoneWall in transform){
+            if (zoneWall.TryGetComponent<CharacterDetection>(out CharacterDetection characterDetection))
+            {
+                detectedPlayers.AddRange(characterDetection.DetectedPlayers);
+            }
         }
+        StartCoroutine(ApplyDamage(detectedPlayers));
+
+
     }
-
-    IEnumerator ApplyDamage(GameObject unit)
+    IEnumerator ApplyDamage(List<GameObject> units)
     {
-        if (_canApplyDamage && unit.TryGetComponent<AIUnit>(out AIUnit AIUnit))
+        if (_canApplyDamage)
         {
-            AIUnit.TakeDamage(_zoneDamage);
-            _canApplyDamage = false;
+            foreach(GameObject unit in units)
+            {
+                if(unit != null)
+                {
+                    if (unit.TryGetComponent<AIUnit>(out AIUnit AIUnit))
+                    {
+                        AIUnit.TakeDamage(_zoneDamage);
+                        _canApplyDamage = false;
+                        print("degat");
+                    }
+                    else
+                    {
+                        Debug.LogWarning("There's no AIUnit on unit");
+                    }
+                }
+                else
+                {
+                    Debug.LogWarning("unit is null");
+                }
+            }
         }
 
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(_damageWaitTime);
+        StopAllCoroutines();
         _canApplyDamage = true;
     }
 

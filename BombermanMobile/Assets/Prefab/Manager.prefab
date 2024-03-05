@@ -54,6 +54,8 @@ MonoBehaviour:
     type: 3}
   _mapSize: {x: 20, y: 35}
   _tileSize: 2
+  Bonuses:
+  - {fileID: 602420279613635264, guid: 58e828caf2bf92f4fa246c12d4cd055c, type: 3}
 --- !u!114 &4180945529444026027
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -88,13 +90,17 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 6af20d21fdb3e9846be9fcc5368045e6, type: 2}
   BombObject: {fileID: 5470170190981348223, guid: 881da22d31728cc4b83dadf872bb2dee,
     type: 3}
+  MineObject: {fileID: 5470170190981348223, guid: 96c1e497aea92d646873589a39fc8cf2,
+    type: 3}
   _unitsToSpawn:
+  - {fileID: 4548619596124136097, guid: 974621d8aec95bf4cb4a86e76de36046, type: 3}
+  - {fileID: 4548619596124136097, guid: e5f7cac63bebceb4f8652ee3497a2914, type: 3}
   - {fileID: 4548619596124136097, guid: 39ea9372fe99b7d448d130a99255424e, type: 3}
-  - {fileID: 4548619596124136097, guid: 39ea9372fe99b7d448d130a99255424e, type: 3}
-  - {fileID: 4548619596124136097, guid: 39ea9372fe99b7d448d130a99255424e, type: 3}
-  - {fileID: 4548619596124136097, guid: 39ea9372fe99b7d448d130a99255424e, type: 3}
-  - {fileID: 4548619596124136097, guid: 39ea9372fe99b7d448d130a99255424e, type: 3}
-  - {fileID: 4548619596124136097, guid: 39ea9372fe99b7d448d130a99255424e, type: 3}
+  - {fileID: 4548619596124136097, guid: 08d6f7318e5ab944d87b59feda756642, type: 3}
+  - {fileID: 4548619596124136097, guid: 72ee0161102a16e498496acbf89fcbe4, type: 3}
+  - {fileID: 4548619596124136097, guid: 856e399fa2da94240849e72a580b8409, type: 3}
+  - {fileID: 4548619596124136097, guid: 0e3e3cea3639593438fa2e088bc31b73, type: 3}
+  - {fileID: 4548619596124136097, guid: e35aaa4cbb210f543abf5363c310421d, type: 3}
 --- !u!114 &2974057518389776962
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 5690353921240679916}
   m_Layer: 0
   m_Name: SuicidalUnit
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -536,6 +536,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PenguinModelPrefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 9090214448317433188, guid: f9c85064f52b9e5498ebac13bcc0f2fa,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
