@@ -113,13 +113,11 @@ public class MapManager : Unit
                 if (!collider.CompareTag("Ground"))
                 {
                     obstacleDetected = true;
-                    print("Obstacle Detected");
                 }
             }
             if (!obstacleDetected)
             {
                 placedEnemy = true;
-                print("Enemy detected");
             }
             iterationMax--;
             if (iterationMax <= 0)
