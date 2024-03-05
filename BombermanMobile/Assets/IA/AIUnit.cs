@@ -10,8 +10,8 @@ public class AIUnit : Unit
     [SerializeField] private GameObject _visuals;
     [HideInInspector] public Team CurrentTeam;
 
-    protected private float _health;
-    [SerializeField] protected private float _maxHealth;
+    protected private float _health; public float Health { get { return _health; } }
+    [SerializeField] protected private float _maxHealth; public float MaxHealth { get { return _maxHealth; } }
 
     protected private float _speed; public float Speed { get { return _speed; } }
     [SerializeField] protected private float _maxSpeed;
