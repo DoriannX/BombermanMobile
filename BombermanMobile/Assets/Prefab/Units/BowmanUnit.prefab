@@ -129,6 +129,9 @@ MonoBehaviour:
   BombDamage: 1
   _bombTimeToExplode: 0.5
   _bombRange: 2
+  TakeDamageEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &5000996847490332421
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -245,6 +248,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9093869279258203701}
+  - component: {fileID: 7339111053459340515}
   m_Layer: 0
   m_Name: Visuals
   m_TagString: Untagged
@@ -269,6 +273,20 @@ Transform:
   - {fileID: 2616265633070602651}
   m_Father: {fileID: 5461165261873944937}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7339111053459340515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8794444851806934260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55dba579ba541ec45b859722c563540b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _penguinMesh: {fileID: 2463296996783598505}
+  _goatMesh: {fileID: 2897455017695012802}
 --- !u!1001 &1114552486003068220
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -580,6 +598,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f9c85064f52b9e5498ebac13bcc0f2fa, type: 3}
+--- !u!137 &2463296996783598505 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 1069806561325051306, guid: f9c85064f52b9e5498ebac13bcc0f2fa,
+    type: 3}
+  m_PrefabInstance: {fileID: 3240292614368118275}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6456730006920763869 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8461486673382203358, guid: f9c85064f52b9e5498ebac13bcc0f2fa,
@@ -751,6 +775,12 @@ PrefabInstance:
 --- !u!4 &946777758404408639 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8602830655996148390, guid: df0d371d85fbe8b4caf1a4315aed7f60,
+    type: 3}
+  m_PrefabInstance: {fileID: 8809258282441166745}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &2897455017695012802 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 5941679750638512219, guid: df0d371d85fbe8b4caf1a4315aed7f60,
     type: 3}
   m_PrefabInstance: {fileID: 8809258282441166745}
   m_PrefabAsset: {fileID: 0}

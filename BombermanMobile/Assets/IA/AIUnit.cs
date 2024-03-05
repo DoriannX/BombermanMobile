@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Events;
 
 public class AIUnit : Unit
 {
@@ -31,6 +32,8 @@ public class AIUnit : Unit
 
     private float _baseHeight = 0;
     private float _randomVisuals = 0; //random constant number for animations and stuff
+
+    public UnityEvent TakeDamageEvent;
 
     protected private enum AISTATES
     {
@@ -96,6 +99,7 @@ public class AIUnit : Unit
     public virtual void TakeDamage(float damage)
     {
         _health = Mathf.Clamp(_health -= damage, 0, _maxHealth);
+        TakeDamageEvent.Invoke();
         if (_health <= 0)
         {
             Death();
