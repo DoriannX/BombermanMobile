@@ -44,6 +44,7 @@ public class Zone : MonoBehaviour
     private void Start()
     {
         SetZoneWallsPos();
+        GameManager.Instance.BattleStartEvent.AddListener(WaitZoneAdvancement);
     }
 
     private List<GameObject> GetAllZoneWalls()
@@ -79,6 +80,7 @@ public class Zone : MonoBehaviour
 
     private void ZoneAdvancement()
     {
+
         foreach(GameObject zoneWall in _zoneWalls)
         {
             if (_canZone)
@@ -86,15 +88,18 @@ public class Zone : MonoBehaviour
                 zoneWall.transform.position -= zoneWall.transform.position.normalized * Time.deltaTime * _zoneSpeed / 100;
             }
         }
+    }
+    private void WaitZoneAdvancement()
+    {
         Invoke("StartZoneAdvancement", _zoneWaitTime);
     }
-
     private void StartZoneAdvancement()
     {
         _canZone = true;
     }
     private void Update()
     {
+
         ZoneAdvancement();
         DetectPlayer();
     }
