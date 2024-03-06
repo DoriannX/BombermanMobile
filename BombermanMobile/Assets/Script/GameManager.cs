@@ -9,7 +9,8 @@ public class GameManager : Unit
     private bool _battleStarted = false; public bool BattleStarted { get { return _battleStarted; } }
 
     [HideInInspector] public UnityEvent BattleStartEvent;
-
+    [SerializeField] private GameObject _buttonStart;
+    [SerializeField] private GameObject _panel;
     private void Awake()
     {
         Instance = this;
@@ -22,7 +23,22 @@ public class GameManager : Unit
 
     public void StartBattle()
     {
-
+        if (_buttonStart)
+        {
+            _buttonStart.SetActive(false);
+        }
+        else
+        {
+            Debug.LogError("Button start is empty");
+        }
+        if (_panel)
+        {
+            _panel.SetActive(false);
+        }
+        else
+        {
+            Debug.LogError("panel placement is empty");
+        }
         _battleStarted = true;
         BattleStartEvent.Invoke();
     }

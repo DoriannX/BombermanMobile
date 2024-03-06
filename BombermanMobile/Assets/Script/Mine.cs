@@ -22,8 +22,11 @@ public class Mine : Bomb
     {
         if (other.TryGetComponent<AIUnit>(out AIUnit unit))
         {
-            print("detected");
-            Detonate();
+            if(unit.CurrentTeam != CurrentTeam)
+            {
+                print("detected");
+                Detonate();
+            }
         }
-    }   
+    }
 }

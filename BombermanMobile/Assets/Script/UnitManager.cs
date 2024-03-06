@@ -53,6 +53,7 @@ public class UnitManager : Unit
                 {
                     EnemiesUnits.Add(spawnedUnit);
                     spawnedUnit.GetComponent<MeshRenderer>().material = _materials[1];
+                    spawnedUnit.transform.Rotate(Vector3.down*180);
                 }
             }
             else
