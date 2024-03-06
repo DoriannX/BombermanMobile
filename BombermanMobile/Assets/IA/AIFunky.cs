@@ -13,7 +13,7 @@ public class AIFunky : AIUnit
         if (target != null)
         {
             _currentTarget = target;
-            if (_pathFinding.IsCloseToEnnemy(_range, _currentTarget))
+            if (_pathFinding.IsCloseToEnnemy(_range, _currentTarget) && _isActivated)
             {
                 _agent.destination = transform.position + -(target.transform.position - transform.position).normalized * _range;
                 //flee

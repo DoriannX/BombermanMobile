@@ -6,7 +6,10 @@ public class AIMinelayer : AIUnit
     
     public override GameObject GetTarget()
     {
-        _agent.destination = _pathFinding.GetRandomPosition();
+        if (_isActivated)
+        {
+            _agent.destination = _pathFinding.GetRandomPosition();
+        }
         _currentTarget = null;
         return null;
     }
