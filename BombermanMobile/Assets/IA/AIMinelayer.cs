@@ -32,7 +32,7 @@ public class AIMinelayer : AIUnit
             GameObject bomb = Instantiate(UnitManager.Instance.MineObject, gameObject.transform.position
                 + (_bombPlacementOffset.z * transform.forward)
                 + (_bombPlacementOffset.x * transform.right), Quaternion.identity);
-            bomb.GetComponent<Bomb>().TimeToExplode = _bombTimeToExplode;
+            bomb.GetComponent<Bomb>().TimeToExplode = 0;
             bomb.GetComponent<Bomb>().ExplosionRange = _bombRange;
             bomb.GetComponent<Bomb>().ExplosionDamage = BombDamage;
             bomb.GetComponent<Bomb>().CurrentTeam = CurrentTeam;
