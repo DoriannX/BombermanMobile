@@ -8,11 +8,10 @@ public class AIClassic : AIUnit
     public override GameObject GetTarget()
     {
         GameObject target = UnitManager.Instance.GetClosest(gameObject, CurrentTeam);
-
         if (target != null)
         {
             _currentTarget = target;
-            if (Vector3.Distance(transform.position, _currentTarget.transform.position) > _range)
+            if (Vector3.Distance(transform.position, _currentTarget.transform.position) > _range && _isActivated)
             {
                 _agent.destination = target.transform.position;
             }

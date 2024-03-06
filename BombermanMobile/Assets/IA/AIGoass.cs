@@ -13,6 +13,17 @@ public class AIGoass : AIUnit
         {
             _agent.destination = target.transform.position;
             _currentTarget = target;
+<<<<<<< Updated upstream
+=======
+            if (Vector3.Distance(transform.position, _currentTarget.transform.position) > _range && _isActivated)
+            {
+                _agent.destination = target.transform.position;
+            }
+            else
+            {
+                _agent.destination = transform.position;
+            }
+>>>>>>> Stashed changes
         }
         else
         {
