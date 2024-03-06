@@ -19,11 +19,6 @@ public class loadInterstitial : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsS
 
     }
 
-    private void Start()
-    {
-        LoadAd();
-    }
-
     public void LoadAd()
     {
         print("Loading interstitial!!");

@@ -77,7 +77,7 @@ Material:
     - _TopBright: 1
     - _Width: 1.75
     - _WindScale: 0.4
-    - _WindStr: 0.25
+    - _WindStr: 0.16
     m_Colors:
     - _BottomCol: {r: 1, g: 1, b: 1, a: 1}
     - _NoiseRange: {r: -0.45, g: 1, b: 0, a: 0}
