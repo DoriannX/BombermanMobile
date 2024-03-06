@@ -62,6 +62,7 @@ public class AIBowman : AIUnit
             bomb.GetComponent<Bomb>().ExplosionRange = _bombRange;
             bomb.GetComponent<Bomb>().ExplosionDamage = BombDamage;
             bomb.GetComponent<Bomb>().CurrentTeam = CurrentTeam;
+            bomb.GetComponent<Bomb>().OwnerName = gameObject.name;
             StartCoroutine(Reloading());
         }
     }
@@ -78,6 +79,7 @@ public class AIBowman : AIUnit
             bomb.GetComponent<Bomb>().ExplosionRange = _bombRange;
             bomb.GetComponent<Bomb>().ExplosionDamage = BombDamage;
             bomb.GetComponent<Bomb>().CurrentTeam = CurrentTeam;
+            bomb.GetComponent<Bomb>().OwnerName = gameObject.name;
             bomb.GetComponent<Bomb>().IsThrowed = true;
             StartCoroutine(Reloading());
         }

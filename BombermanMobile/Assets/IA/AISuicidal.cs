@@ -73,7 +73,7 @@ public class AISuicidal : AIUnit
             bomb.GetComponent<Bomb>().ExplosionRange = _bombRange;
             bomb.GetComponent<Bomb>().ExplosionDamage = BombDamage;
             bomb.GetComponent<Bomb>().CurrentTeam = CurrentTeam;
-            
+            bomb.GetComponent<Bomb>().OwnerName = gameObject.name;
             bomb.GetComponent<Bomb>().bombExplodedEvent.AddListener(Suicide);
             StartCoroutine(Reloading());
         }
