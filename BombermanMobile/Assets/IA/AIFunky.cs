@@ -10,10 +10,10 @@ public class AIFunky : AIUnit
         target = UnitManager.Instance.GetClosest(gameObject, CurrentTeam);
 
         
-        if (target != null)
+        if (target != null && _isActivated)
         {
             _currentTarget = target;
-            if (_pathFinding.IsCloseToEnnemy(_range, _currentTarget) && _isActivated)
+            if (_pathFinding.IsCloseToEnnemy(_range, _currentTarget))
             {
                 _agent.destination = transform.position + -(target.transform.position - transform.position).normalized * _range;
                 //flee
