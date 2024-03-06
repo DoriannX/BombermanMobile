@@ -5,7 +5,7 @@ public class initializeAds : MonoBehaviour, IUnityAdsInitializationListener
     public string androidGameId;
     public string iosGameId;
 
-    public bool isTestingMode = true;
+    public bool isTestingMode = false;
 
     string gameId;
 
