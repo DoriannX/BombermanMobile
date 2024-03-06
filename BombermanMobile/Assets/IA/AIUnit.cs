@@ -20,7 +20,7 @@ public class AIUnit : Unit
     [SerializeField] protected private float _reloadingTime = 1;
     protected private bool _isReloading = false;
 
-    protected private bool _isActivated = false; // Utiliser variable
+    protected private bool _isActivated = false;
 
     protected private GameObject _currentTarget; public GameObject CurrentTarget {  get { return _currentTarget; } }
     [SerializeField] private protected float _range = 1;
@@ -93,7 +93,7 @@ public class AIUnit : Unit
 
     public virtual void Attack()
     {
-        
+
     }
 
     public virtual void TakeDamage(float damage)
