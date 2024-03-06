@@ -12,7 +12,7 @@ public class AIGoass : AIUnit
         if (target != null)
         {
             _currentTarget = target;
-            if (Vector3.Distance(transform.position, _currentTarget.transform.position) > _range)
+            if (Vector3.Distance(transform.position, _currentTarget.transform.position) > _range && _isActivated)
             {
                 _agent.destination = target.transform.position;
             }
