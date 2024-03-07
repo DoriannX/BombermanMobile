@@ -9,6 +9,16 @@ public class loadBanner : MonoBehaviour
 
     BannerPosition bannerPosition = BannerPosition.BOTTOM_CENTER;
 
+    public static loadBanner Instance;
+
+    private void Awake()
+    {
+        if(Instance == null)
+        {
+            Instance = this;
+        }
+    }
+
     private void Start()
     {
 #if UNITY_IOS

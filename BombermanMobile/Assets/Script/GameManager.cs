@@ -30,6 +30,7 @@ public class GameManager : Unit
             _buttonStart.SetActive(false);
             _battleStarted = true;
             BattleStartEvent.Invoke();
+            loadBanner.Instance.LoadBanner();
         }
         else
         {
