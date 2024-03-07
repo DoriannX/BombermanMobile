@@ -83,6 +83,7 @@ public class Bomb : Unit
                 {
                     if (unit.CurrentTeam != CurrentTeam)
                     {
+                        unit.LastDamageSourceName = OwnerName;
                         unit.TakeDamage(ExplosionDamage);
                     }
                 }
