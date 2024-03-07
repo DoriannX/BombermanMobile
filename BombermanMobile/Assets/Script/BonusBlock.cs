@@ -4,6 +4,7 @@ using UnityEngine;
 public class BonusBlock : MonoBehaviour
 {
     private bool _isBonusTile = false;
+    [SerializeField] private float _rate = 50;
     public void DestroyBlock()
     {
         GetBonus();
@@ -16,7 +17,7 @@ public class BonusBlock : MonoBehaviour
         if(transform.parent.TryGetComponent<MapManager>(out MapManager component))
         {
             List<GameObject> bonuses = component.Bonuses;
-            _isBonusTile = (Random.Range(0, 100) < 50);
+            _isBonusTile = (Random.Range(0, 100) < _rate);
             if (_isBonusTile)
             {
                 if (bonuses != null && bonuses.Count > 0)
