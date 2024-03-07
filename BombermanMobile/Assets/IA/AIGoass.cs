@@ -63,4 +63,13 @@ public class AIGoass : AIUnit
         }
     }
 
+    public override void Death()
+    {
+        if(CurrentTeam == Team.Player)
+        {
+            base.Death();
+            GameManager.Instance.Lose();
+        }
+    }
+
 }
