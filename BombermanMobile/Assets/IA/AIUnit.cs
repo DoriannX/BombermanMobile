@@ -48,7 +48,6 @@ public class AIUnit : Unit
     {
         _agent = GetComponent<NavMeshAgent>();
         SetBaseStats();
-
     }
 
     public virtual void Start()
@@ -66,6 +65,7 @@ public class AIUnit : Unit
         }
         _baseHeight = transform.position.y;
         _randomVisuals = Random.Range(-100, 100);
+        gameObject.name = UnitManager.Instance.GetRandomName(CurrentTeam);
     }
 
     public virtual void Update()
@@ -98,14 +98,17 @@ public class AIUnit : Unit
 
     }
 
-    public virtual void TakeDamage(float damage)
+    public virtual bool TakeDamage(float damage)
     {
         _health = Mathf.Clamp(_health -= damage, 0, _maxHealth);
         TakeDamageEvent.Invoke();
         if (_health <= 0)
         {
+            KillFeedManager.Instance.NewKillFeed(gameObject.name, LastDamageSourceName);
             Death();
+            return true;
         }
+        return false;
     }
 
     public virtual void Death()

@@ -128,9 +128,9 @@ public class Zone : MonoBehaviour
                 {
                     if (unit.TryGetComponent<AIUnit>(out AIUnit AIUnit))
                     {
+                        AIUnit.LastDamageSourceName = "The zone";
                         AIUnit.TakeDamage(_zoneDamage);
                         _canApplyDamage = false;
-                        print("degat");
                     }
                     else
                     {

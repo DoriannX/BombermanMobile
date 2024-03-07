@@ -13,6 +13,9 @@ public class UnitManager : Unit
 
     [SerializeField] private List<GameObject> _unitsToSpawn;
 
+    [SerializeField] private List<string> _goatNames;
+    [SerializeField] private List<string> _penguinNames;
+
     public GameObject GetUnitToSpawn(Type type)
     {
         GameObject unitToSpawn = null;
@@ -34,6 +37,21 @@ public class UnitManager : Unit
             Instance = this;
         //StartGame();
     }
+
+    public string GetRandomName(Team unitTeam)
+    {
+        string name = "cool";
+        if (unitTeam == Team.Player)
+        {
+            name = _goatNames[Random.Range(0, _goatNames.Count)];
+        }
+        else
+        {
+            name = _penguinNames[Random.Range(0, _penguinNames.Count)];
+        }
+        return name;
+    }
+
     public List<GameObject> SpawnUnit(Team unitTeam, int nb, Vector3 position, GameObject unitToSpawn)
     {
         List<GameObject> spawnedUnits = new List<GameObject>();
