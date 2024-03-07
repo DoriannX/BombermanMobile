@@ -15,10 +15,18 @@ public class HUDUnitCountScript : MonoBehaviour
 
     private void Update()
     {
-        if (_team == Unit.Team.Player)
-            _text.text = UnitManager.Instance.AllyUnits.Count.ToString();
+        if (_text)
+        {
+            {
+                if (_team == Unit.Team.Player)
+                    _text.text = UnitManager.Instance.AllyUnits.Count.ToString();
+                else
+                    _text.text = UnitManager.Instance.EnemiesUnits.Count.ToString();
+            }
+        }
         else
-            _text.text = UnitManager.Instance.EnemiesUnits.Count.ToString();
-
+        {
+            Debug.LogError("text is empty");
+        }
     }
 }

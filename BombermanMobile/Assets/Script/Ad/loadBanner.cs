@@ -7,7 +7,7 @@ public class loadBanner : MonoBehaviour
 
     string adUnitId;
 
-    BannerPosition bannerPosition = BannerPosition.CENTER;
+    BannerPosition bannerPosition = BannerPosition.BOTTOM_CENTER;
 
     public static loadBanner Instance;
 
