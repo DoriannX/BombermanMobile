@@ -378,3 +378,5 @@ MonoBehaviour:
   _zoneDamage: 10
   _zoneWaitTime: 0
   _damageWaitTime: 2
+  _zoneWall1: {fileID: 648453415616762717}
+  _zoneWall2: {fileID: 932842340341372870}

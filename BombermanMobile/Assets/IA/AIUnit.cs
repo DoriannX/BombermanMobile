@@ -21,6 +21,7 @@ public class AIUnit : Unit
     protected private bool _isReloading = false;
 
     protected private bool _isActivated = false;
+    protected private bool _isDead = false; public bool IsDead { get { return _isDead; } }
 
     protected private GameObject _currentTarget; public GameObject CurrentTarget {  get { return _currentTarget; } }
     [SerializeField] private protected float _range = 1;
@@ -102,7 +103,7 @@ public class AIUnit : Unit
     {
         _health = Mathf.Clamp(_health -= damage, 0, _maxHealth);
         TakeDamageEvent.Invoke();
-        if (_health <= 0)
+        if (_health <= 0 && !_isDead)
         {
             KillFeedManager.Instance.NewKillFeed(gameObject.name, LastDamageSourceName);
             Death();
@@ -114,6 +115,7 @@ public class AIUnit : Unit
     public virtual void Death()
     {
         Destroy(gameObject);
+        _isDead = true;
         ParticleManager.Instance.ExplodeParticle(transform.position);
         if (CurrentTeam == Team.Ennemy)
             UnitManager.Instance.EnemiesUnits.Remove(gameObject);

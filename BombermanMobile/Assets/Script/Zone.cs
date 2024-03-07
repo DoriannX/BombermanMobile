@@ -13,6 +13,8 @@ public class Zone : MonoBehaviour
     [SerializeField] private float _zoneDamage;
     [SerializeField] private float _zoneWaitTime = 10f;
     [SerializeField] private float _damageWaitTime = 1;
+    [SerializeField] private GameObject _zoneWall1;
+    [SerializeField] private GameObject _zoneWall2;
     private bool _canZone = false;
     private bool _canApplyDamage = true;
     public static Zone Instance;
@@ -99,7 +101,16 @@ public class Zone : MonoBehaviour
     }
     private void Update()
     {
-
+        if (_canZone) 
+        {
+            _zoneWall1.gameObject.SetActive(true);
+            _zoneWall2.gameObject.SetActive(true);
+        }
+        else
+        {
+            _zoneWall1.gameObject.SetActive(false);
+            _zoneWall2.gameObject.SetActive(false);
+        }
         ZoneAdvancement();
         DetectPlayer();
     }
@@ -120,7 +131,7 @@ public class Zone : MonoBehaviour
     }
     IEnumerator ApplyDamage(List<GameObject> units)
     {
-        if (_canApplyDamage)
+        if (_canApplyDamage && _canZone)
         {
             foreach(GameObject unit in units)
             {

@@ -79,7 +79,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _hud: {fileID: 0}
   _killfeedText: {fileID: 0}
-  _deathLines: []
+  _deathLines:
+  - '[KILLER] killed [VICTIM]'
   NewKillFeedEvent:
     m_PersistentCalls:
       m_Calls: []
