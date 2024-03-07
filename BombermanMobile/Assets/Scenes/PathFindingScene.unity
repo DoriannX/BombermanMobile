@@ -1185,6 +1185,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4180945529444026027, guid: c2bf541c57b431d4dae3e384b9391984,
+        type: 3}
+      propertyPath: ConfettisParticle
+      value: 
+      objectReference: {fileID: 4355132339278548818, guid: a54fcf6d75ad6e24dbc4b73e8996d88a,
+        type: 3}
     - target: {fileID: 5069564704734163150, guid: c2bf541c57b431d4dae3e384b9391984,
         type: 3}
       propertyPath: _units

@@ -13,6 +13,7 @@ public class GoatPortrait : Unit, IPointerDownHandler
     [SerializeField] private Team _team;
     [SerializeField] private Type _type;
     [SerializeField] private Sprite _spriteRadius;
+    [SerializeField] private GameObject _startButton;
 
     private Vector2 _placeOffset = Vector2.zero;
 
@@ -33,6 +34,11 @@ public class GoatPortrait : Unit, IPointerDownHandler
                 Instantiate(newObject, _unitVisual).GetComponent<Image>().sprite = _spriteRadius;
                 _unitVisual.GetChild(0).transform.localScale = new Vector3(1, 1, 1) * 5f;
                 Destroy(newObject);
+
+                if (_startButton)
+                    _startButton.SetActive(false);
+                else
+                    Debug.LogError("startButton is empty");
             }
             else
             {
@@ -50,6 +56,11 @@ public class GoatPortrait : Unit, IPointerDownHandler
             SpawnUnit(InputManager.Instance.LastTouchPosition + _placeOffset);
             Destroy(_unitVisual.gameObject);
             _unitVisual = null;
+
+            if (_startButton)
+                _startButton.SetActive(true);
+            else
+                Debug.LogError("startButton is empty");
         }
         InputManager.Instance.TouchPositionEvent.RemoveListener(FollowFinger);
         _alreadyFollowing = false;
