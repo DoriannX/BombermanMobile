@@ -94,6 +94,7 @@ public class Bomb : Unit
                         component.DestroyBlock();
                     }
                     Destroy(collider.gameObject);
+                    ParticleManager.Instance.SpawnParticle(component.transform.position, ParticleManager.Instance.RockExplosionParticle);
                 }
                 if (collider.TryGetComponent<Mine>(out Mine mine))
                 {

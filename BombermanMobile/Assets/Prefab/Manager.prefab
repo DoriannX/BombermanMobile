@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1432032877793137676}
   - component: {fileID: 8052221338828973120}
+  - component: {fileID: 8107549321764918074}
   - component: {fileID: 4180945529444026027}
   - component: {fileID: 5069564704734163150}
   - component: {fileID: 2974057518389776962}
@@ -64,6 +65,18 @@ MonoBehaviour:
   _tileSize: 2
   Bonuses:
   - {fileID: 602420279613635264, guid: 58e828caf2bf92f4fa246c12d4cd055c, type: 3}
+--- !u!114 &8107549321764918074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6742781808429491398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aea2186c6d760cd49a02ed27a26d36e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &4180945529444026027
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -77,6 +90,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ExplosionParticle: {fileID: 3910934613243425163, guid: 8e6aad010cc569a4a9780ca56be1c1aa,
+    type: 3}
+  RockExplosionParticle: {fileID: 3263767432841969685, guid: eb98695a8d2924049be92b7bf2ce7536,
     type: 3}
 --- !u!114 &5069564704734163150
 MonoBehaviour:
@@ -109,6 +124,10 @@ MonoBehaviour:
   - {fileID: 4548619596124136097, guid: 856e399fa2da94240849e72a580b8409, type: 3}
   - {fileID: 4548619596124136097, guid: 0e3e3cea3639593438fa2e088bc31b73, type: 3}
   - {fileID: 4548619596124136097, guid: e35aaa4cbb210f543abf5363c310421d, type: 3}
+  _goatNames:
+  - Goat
+  _penguinNames:
+  - Penguin
 --- !u!114 &2974057518389776962
 MonoBehaviour:
   m_ObjectHideFlags: 0

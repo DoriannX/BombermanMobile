@@ -465,6 +465,16 @@ PrefabInstance:
       propertyPath: _units
       value: 
       objectReference: {fileID: 1460161949}
+    - target: {fileID: 5069564704734163150, guid: c2bf541c57b431d4dae3e384b9391984,
+        type: 3}
+      propertyPath: _goatNames.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5069564704734163150, guid: c2bf541c57b431d4dae3e384b9391984,
+        type: 3}
+      propertyPath: _goatNames.Array.data[1]
+      value: Cool goat
+      objectReference: {fileID: 0}
     - target: {fileID: 6299591190305119879, guid: c2bf541c57b431d4dae3e384b9391984,
         type: 3}
       propertyPath: _panel
