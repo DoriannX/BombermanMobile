@@ -77,6 +77,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aea2186c6d760cd49a02ed27a26d36e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _hud: {fileID: 0}
+  _killfeedText: {fileID: 0}
+  _deathLines: []
+  NewKillFeedEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &4180945529444026027
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -126,6 +132,7 @@ MonoBehaviour:
   - {fileID: 4548619596124136097, guid: e35aaa4cbb210f543abf5363c310421d, type: 3}
   _goatNames:
   - Goat
+  - Cool goat
   _penguinNames:
   - Penguin
 --- !u!114 &2974057518389776962
@@ -161,11 +168,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37dcb9cfd1ea70843b22472cc21ed460, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GameOver: 0
   BattleStartEvent:
     m_PersistentCalls:
       m_Calls: []
   _buttonStart: {fileID: 0}
   _panel: {fileID: 0}
+  _textSkip: {fileID: 0}
+  _skipButton: {fileID: 0}
+  _endMenu: {fileID: 0}
+  _winLoseText: {fileID: 0}
+  _unitCount: {fileID: 0}
 --- !u!114 &6254215133761284688
 MonoBehaviour:
   m_ObjectHideFlags: 0
