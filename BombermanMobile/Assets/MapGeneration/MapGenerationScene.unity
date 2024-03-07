@@ -468,22 +468,12 @@ PrefabInstance:
     - target: {fileID: 5069564704734163150, guid: c2bf541c57b431d4dae3e384b9391984,
         type: 3}
       propertyPath: _goatNames.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5069564704734163150, guid: c2bf541c57b431d4dae3e384b9391984,
         type: 3}
-      propertyPath: _goatNames.Array.data[0]
-      value: Goat
-      objectReference: {fileID: 0}
-    - target: {fileID: 5069564704734163150, guid: c2bf541c57b431d4dae3e384b9391984,
-        type: 3}
-      propertyPath: _penguinNames.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5069564704734163150, guid: c2bf541c57b431d4dae3e384b9391984,
-        type: 3}
-      propertyPath: _penguinNames.Array.data[0]
-      value: Penguin
+      propertyPath: _goatNames.Array.data[1]
+      value: Cool goat
       objectReference: {fileID: 0}
     - target: {fileID: 6299591190305119879, guid: c2bf541c57b431d4dae3e384b9391984,
         type: 3}

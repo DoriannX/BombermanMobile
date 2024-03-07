@@ -124,6 +124,10 @@ MonoBehaviour:
   - {fileID: 4548619596124136097, guid: 856e399fa2da94240849e72a580b8409, type: 3}
   - {fileID: 4548619596124136097, guid: 0e3e3cea3639593438fa2e088bc31b73, type: 3}
   - {fileID: 4548619596124136097, guid: e35aaa4cbb210f543abf5363c310421d, type: 3}
+  _goatNames:
+  - Goat
+  _penguinNames:
+  - Penguin
 --- !u!114 &2974057518389776962
 MonoBehaviour:
   m_ObjectHideFlags: 0
