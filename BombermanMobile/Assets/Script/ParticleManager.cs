@@ -5,6 +5,7 @@ public class ParticleManager : MonoBehaviour
 {
     [SerializeField] public GameObject ExplosionParticle;
     [SerializeField] public GameObject RockExplosionParticle;
+    [SerializeField] public GameObject ConfettisParticle;
     public static ParticleManager Instance;
 
     private void Awake()

@@ -82,6 +82,6 @@ public class AISuicidal : AIUnit
     private void Suicide()
     {
         Death();
-        KillFeedManager.Instance.NewKillFeed(gameObject.name, gameObject.name);
+        KillFeedManager.Instance.NewKillFeed(gameObject.name, gameObject.name, CurrentTeam);
     }
 }

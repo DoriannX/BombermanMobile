@@ -105,7 +105,7 @@ public class AIUnit : Unit
         TakeDamageEvent.Invoke();
         if (_health <= 0 && !_isDead)
         {
-            KillFeedManager.Instance.NewKillFeed(gameObject.name, LastDamageSourceName);
+            KillFeedManager.Instance.NewKillFeed(gameObject.name, LastDamageSourceName, CurrentTeam);
             Death();
             return true;
         }
@@ -117,6 +117,7 @@ public class AIUnit : Unit
         Destroy(gameObject);
         _isDead = true;
         ParticleManager.Instance.ExplodeParticle(transform.position);
+        ParticleManager.Instance.SpawnParticle(transform.position, ParticleManager.Instance.ConfettisParticle);
         if (CurrentTeam == Team.Ennemy)
             UnitManager.Instance.EnemiesUnits.Remove(gameObject);
         else

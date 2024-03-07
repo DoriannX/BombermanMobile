@@ -81,6 +81,9 @@ MonoBehaviour:
   _killfeedText: {fileID: 0}
   _deathLines:
   - '[KILLER] killed [VICTIM]'
+  - '[KILLER] Showed [VICTIM] no mercy'
+  _suicideLines:
+  - '[KILLER] killed himself'
   NewKillFeedEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -133,9 +136,15 @@ MonoBehaviour:
   - {fileID: 4548619596124136097, guid: e35aaa4cbb210f543abf5363c310421d, type: 3}
   _goatNames:
   - Goat
-  - Cool goat
+  - The cool goat
+  - The goat
+  - Meeeeh
+  - Goat simulator 3
   _penguinNames:
   - Penguin
+  - Pingu
+  - Nut nut
+  - Mr freeze
 --- !u!114 &2974057518389776962
 MonoBehaviour:
   m_ObjectHideFlags: 0

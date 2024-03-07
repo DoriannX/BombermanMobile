@@ -22,7 +22,7 @@ public class KillFeedManager : MonoBehaviour
         Instance = this;
     }
 
-    public void NewKillFeed(string victim, string killer, string forceString = null)
+    public void NewKillFeed(string victim, string killer, Unit.Team victimTeam, string forceString = null)
     {
         NewKillFeedEvent.Invoke();
         print(killer + " killed " + victim);
@@ -42,8 +42,16 @@ public class KillFeedManager : MonoBehaviour
 
         if (forceString == null)
         {
-            feedText = feedText.Replace("[KILLER]", killer);
-            feedText = feedText.Replace("[VICTIM]", victim);
+            if (victimTeam == Unit.Team.Player)
+            {
+                feedText = feedText.Replace("[KILLER]", "<color=red>" + killer + "</color>");
+                feedText = feedText.Replace("[VICTIM]", "<color=blue>" + victim + "</color>");
+            }
+            else
+            {
+                feedText = feedText.Replace("[KILLER]", "<color=blue>" + killer + "</color>");
+                feedText = feedText.Replace("[VICTIM]", "<color=red>" + victim + "</color>");
+            }
         }
         else
         {
