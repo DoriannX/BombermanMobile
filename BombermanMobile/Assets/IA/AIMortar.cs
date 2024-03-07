@@ -67,6 +67,7 @@ public class AIMortar : AIUnit
             bomb.GetComponent<Bomb>().BombSpeed = 15;
             bomb.GetComponent<Bomb>().MaxHeight = 10;
             bomb.GetComponent<Bomb>().IsThrowed = true;
+            bomb.GetComponent<Bomb>().OwnerName = gameObject.name;
             StartCoroutine(Reloading());
         }
     }

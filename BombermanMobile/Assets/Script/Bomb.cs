@@ -13,6 +13,8 @@ public class Bomb : Unit
     [HideInInspector] public float ExplosionDamage;
     [HideInInspector] public float ExplosionRange;
 
+    [HideInInspector] public string OwnerName;
+
     protected private bool _exploding = true;
 
     [SerializeField] protected private Image _imageRadius;
@@ -81,6 +83,7 @@ public class Bomb : Unit
                 {
                     if (unit.CurrentTeam != CurrentTeam)
                     {
+                        unit.LastDamageSourceName = OwnerName;
                         unit.TakeDamage(ExplosionDamage);
                     }
                 }

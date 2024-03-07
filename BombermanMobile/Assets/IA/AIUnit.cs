@@ -33,6 +33,8 @@ public class AIUnit : Unit
     private float _baseHeight = 0;
     private float _randomVisuals = 0; //random constant number for animations and stuff
 
+    [HideInInspector] public string LastDamageSourceName;
+
     public UnityEvent TakeDamageEvent;
 
     protected private enum AISTATES
