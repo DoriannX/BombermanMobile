@@ -396,6 +396,12 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
+--- !u!1 &382783040 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2789056835066574083, guid: 5247c632909c8be44a6441a7fd6ac7a0,
+    type: 3}
+  m_PrefabInstance: {fileID: 5278283387243202917}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &877403506
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -459,6 +465,16 @@ PrefabInstance:
       propertyPath: _units
       value: 
       objectReference: {fileID: 1460161949}
+    - target: {fileID: 6299591190305119879, guid: c2bf541c57b431d4dae3e384b9391984,
+        type: 3}
+      propertyPath: _panel
+      value: 
+      objectReference: {fileID: 382783040}
+    - target: {fileID: 6299591190305119879, guid: c2bf541c57b431d4dae3e384b9391984,
+        type: 3}
+      propertyPath: _buttonStart
+      value: 
+      objectReference: {fileID: 1985158979}
     - target: {fileID: 6742781808429491398, guid: c2bf541c57b431d4dae3e384b9391984,
         type: 3}
       propertyPath: m_Name
@@ -748,6 +764,12 @@ MonoBehaviour:
   m_DeselectOnBackgroundClick: 1
   m_PointerBehavior: 0
   m_CursorLockBehavior: 0
+--- !u!1 &1985158979 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8954338414821609754, guid: 5247c632909c8be44a6441a7fd6ac7a0,
+    type: 3}
+  m_PrefabInstance: {fileID: 5278283387243202917}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1994085775
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -28,6 +28,8 @@ public class GameManager : Unit
         if (_buttonStart)
         {
             _buttonStart.SetActive(false);
+            _battleStarted = true;
+            BattleStartEvent.Invoke();
         }
         else
         {
@@ -41,8 +43,6 @@ public class GameManager : Unit
         {
             Debug.LogError("panel placement is empty");
         }
-        _battleStarted = true;
-        BattleStartEvent.Invoke();
     }
 
     private void Update()
