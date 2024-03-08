@@ -38,7 +38,10 @@ public class PathFinding : Unit
 
     private IEnumerator UpdatePath()
     {
-        _ai.GetTarget();
+        if (!_ai.IsDead)
+        {
+            _ai.GetTarget();
+        }
         yield return new WaitForSeconds(0.5f);
         StartCoroutine(UpdatePath());
     }

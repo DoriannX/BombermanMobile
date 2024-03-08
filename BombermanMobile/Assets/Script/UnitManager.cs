@@ -43,19 +43,26 @@ public class UnitManager : Unit
     {
         InputManager inputManager = InputManager.Instance;
         Ray ray = Camera.main.ScreenPointToRay(new Vector3(inputManager.LastTouchPosition.x, inputManager.LastTouchPosition.y, 0));
-        if (Physics.Raycast(ray, out RaycastHit hitData) && hitData.collider.TryGetComponent<AIUnit>(out AIUnit aiUnit))
+        if (Physics.Raycast(ray, out RaycastHit hitData))
         {
             if (!GameManager.Instance.BattleStarted)
             {
-                if (hitData.collider.TryGetComponent<AIGoass>(out AIGoass aiGoass))
+                float sphereRadius = 0.8f;
+                foreach (Collider collider in Physics.OverlapSphere(hitData.point, sphereRadius))
                 {
-
-                }
-                else
-                {
-                    if (aiUnit.CurrentTeam == Team.Player)
+                    if (collider.TryGetComponent<AIUnit>(out AIUnit aiUnit))
                     {
-                        aiUnit.Death();
+                        if (collider.TryGetComponent<AIGoass>(out AIGoass aiGoass))
+                        {
+
+                        }
+                        else
+                        {
+                            if (aiUnit.CurrentTeam == Team.Player)
+                            {
+                                aiUnit.Death();
+                            }
+                        }
                     }
                 }
             }
