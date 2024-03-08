@@ -26,12 +26,6 @@ public class Ragdoll : MonoBehaviour
         }
     }
 
-
-    private void Update()
-    {
-        print("test");
-    }
-
     private void Start()
     {
         SwitchRagdoll(gameObject);
