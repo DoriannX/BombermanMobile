@@ -19,6 +19,9 @@ public class GameManager : Unit
     [SerializeField] private GameObject _endMenu = null;
     [SerializeField] private TextMeshProUGUI _winLoseText = null;
     [SerializeField] private GameObject _unitCount = null;
+
+    public float MaximumGoatUnits = 8;
+
     private void Awake()
     {
         Instance = this;

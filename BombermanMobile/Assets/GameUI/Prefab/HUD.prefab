@@ -477,7 +477,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GoingToPos: {x: 0, y: 0, z: 0}
-  _timeBeforeDestroy: 3
+  _timeBeforeDestroy: 5
   _timeBeforeGoingUp: 1
 --- !u!114 &8608836988265665605
 MonoBehaviour:
@@ -499,7 +499,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: gOAT KILLED PENGUIN
+  m_text: <color=blue>gOAT</color> KILLED <color=red>PENGUIN</color>
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 50dfc47d9c7946e428154aa47fb4ebb4, type: 2}
   m_sharedMaterial: {fileID: 835968502210099655, guid: 50dfc47d9c7946e428154aa47fb4ebb4,
@@ -509,7 +509,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4283241881
+    rgba: 4286587903
   m_fontColor: {r: 1, g: 0.1372549, b: 0.503268, a: 1}
   m_enableVertexGradient: 1
   m_colorMode: 3
@@ -527,8 +527,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 99.93
-  m_fontSizeBase: 99.93
+  m_fontSize: 80
+  m_fontSizeBase: 80
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -887,6 +887,7 @@ MonoBehaviour:
   _team: 0
   _type: 2
   _spriteRadius: {fileID: 21300000, guid: 1e08e68a07af3bf4cac1eca45f1fecb2, type: 3}
+  _startButton: {fileID: 8954338414821609754}
 --- !u!114 &4040474680867591762
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1837,6 +1838,7 @@ MonoBehaviour:
   _team: 0
   _type: 0
   _spriteRadius: {fileID: 21300000, guid: 1e08e68a07af3bf4cac1eca45f1fecb2, type: 3}
+  _startButton: {fileID: 8954338414821609754}
 --- !u!114 &2817495117084782927
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1928,6 +1930,7 @@ MonoBehaviour:
   _team: 0
   _type: 6
   _spriteRadius: {fileID: 21300000, guid: 1e08e68a07af3bf4cac1eca45f1fecb2, type: 3}
+  _startButton: {fileID: 8954338414821609754}
 --- !u!114 &7725690645254729941
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2019,6 +2022,7 @@ MonoBehaviour:
   _team: 0
   _type: 4
   _spriteRadius: {fileID: 21300000, guid: 1e08e68a07af3bf4cac1eca45f1fecb2, type: 3}
+  _startButton: {fileID: 8954338414821609754}
 --- !u!114 &189791868009195858
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2578,6 +2582,7 @@ MonoBehaviour:
   _team: 0
   _type: 3
   _spriteRadius: {fileID: 21300000, guid: 1e08e68a07af3bf4cac1eca45f1fecb2, type: 3}
+  _startButton: {fileID: 8954338414821609754}
 --- !u!114 &7461702812332158743
 MonoBehaviour:
   m_ObjectHideFlags: 0

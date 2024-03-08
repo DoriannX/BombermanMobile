@@ -35,7 +35,31 @@ public class UnitManager : Unit
     {
         if(Instance == null)
             Instance = this;
+        InputManager.Instance.ClickEvent.AddListener(CheckClickUnit);
         //StartGame();
+    }
+
+    private void CheckClickUnit()
+    {
+        InputManager inputManager = InputManager.Instance;
+        Ray ray = Camera.main.ScreenPointToRay(new Vector3(inputManager.LastTouchPosition.x, inputManager.LastTouchPosition.y, 0));
+        if (Physics.Raycast(ray, out RaycastHit hitData) && hitData.collider.TryGetComponent<AIUnit>(out AIUnit aiUnit))
+        {
+            if (!GameManager.Instance.BattleStarted)
+            {
+                if (hitData.collider.TryGetComponent<AIGoass>(out AIGoass aiGoass))
+                {
+
+                }
+                else
+                {
+                    if (aiUnit.CurrentTeam == Team.Player)
+                    {
+                        aiUnit.Death();
+                    }
+                }
+            }
+        }
     }
 
     public string GetRandomName(Team unitTeam)

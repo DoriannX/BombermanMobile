@@ -111,9 +111,12 @@ public class GoatPortrait : Unit, IPointerDownHandler
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        _isClicked = true;
-        FollowFinger();
-        InputManager.Instance.TouchPositionEvent.AddListener(FollowFinger);
-        InputManager.Instance.ReleaseClickEvent.AddListener(UnfollowFinger);
+        if (UnitManager.Instance.AllyUnits.Count < GameManager.Instance.MaximumGoatUnits)
+        {
+            _isClicked = true;
+            FollowFinger();
+            InputManager.Instance.TouchPositionEvent.AddListener(FollowFinger);
+            InputManager.Instance.ReleaseClickEvent.AddListener(UnfollowFinger);
+        }
     }
 }

@@ -83,7 +83,7 @@ MonoBehaviour:
   - '[KILLER] killed [VICTIM]'
   - '[KILLER] Showed [VICTIM] no mercy'
   _suicideLines:
-  - '[KILLER] killed himself'
+  - '[VICTIM] killed himself'
   NewKillFeedEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -102,6 +102,8 @@ MonoBehaviour:
   ExplosionParticle: {fileID: 3910934613243425163, guid: 8e6aad010cc569a4a9780ca56be1c1aa,
     type: 3}
   RockExplosionParticle: {fileID: 3263767432841969685, guid: eb98695a8d2924049be92b7bf2ce7536,
+    type: 3}
+  ConfettisParticle: {fileID: 4355132339278548818, guid: a54fcf6d75ad6e24dbc4b73e8996d88a,
     type: 3}
 --- !u!114 &5069564704734163150
 MonoBehaviour:
@@ -189,6 +191,7 @@ MonoBehaviour:
   _endMenu: {fileID: 0}
   _winLoseText: {fileID: 0}
   _unitCount: {fileID: 0}
+  MaximumGoatUnits: 8
 --- !u!114 &6254215133761284688
 MonoBehaviour:
   m_ObjectHideFlags: 0
