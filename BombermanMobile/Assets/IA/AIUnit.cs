@@ -118,6 +118,7 @@ public class AIUnit : Unit
         _isDead = true;
         ParticleManager.Instance.ExplodeParticle(transform.position);
         ParticleManager.Instance.SpawnParticle(transform.position, ParticleManager.Instance.ConfettisParticle);
+        SoundManager.Instance.PlayAtPath("Confettis", 0.35f);
         if (CurrentTeam == Team.Ennemy)
             UnitManager.Instance.EnemiesUnits.Remove(gameObject);
         else
