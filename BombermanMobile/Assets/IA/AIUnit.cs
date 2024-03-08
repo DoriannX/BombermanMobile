@@ -37,6 +37,7 @@ public class AIUnit : Unit
     [HideInInspector] public string LastDamageSourceName;
 
     public UnityEvent TakeDamageEvent;
+    public UnityEvent UnitDeathEvent;
 
     protected private enum AISTATES
     {
@@ -115,16 +116,18 @@ public class AIUnit : Unit
 
     public virtual void Death()
     {
-        Destroy(gameObject);
-        _isDead = true;
-        _currentState = AISTATES.DEAD;
-        ParticleManager.Instance.ExplodeParticle(transform.position);
-        ParticleManager.Instance.SpawnParticle(transform.position, ParticleManager.Instance.ConfettisParticle);
-        SoundManager.Instance.PlayAtPath("Confettis", 0.35f);
-        if (CurrentTeam == Team.Ennemy)
-            UnitManager.Instance.EnemiesUnits.Remove(gameObject);
-        else
-            UnitManager.Instance.AllyUnits.Remove(gameObject);
+        if (!_isDead) 
+        {
+            _isDead = true;
+            ParticleManager.Instance.ExplodeParticle(transform.position);
+            ParticleManager.Instance.SpawnParticle(transform.position, ParticleManager.Instance.ConfettisParticle);
+            UnitDeathEvent.Invoke();
+            SoundManager.Instance.PlayAtPath("Confettis", 0.35f);
+            if (CurrentTeam == Team.Ennemy)
+                UnitManager.Instance.EnemiesUnits.Remove(gameObject);
+            else
+                UnitManager.Instance.AllyUnits.Remove(gameObject);
+        }
     }
 
     public virtual IEnumerator Reloading()
