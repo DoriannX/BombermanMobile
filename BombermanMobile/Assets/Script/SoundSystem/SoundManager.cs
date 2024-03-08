@@ -11,6 +11,27 @@ public class SoundManager : MonoBehaviour
         Instance = this;
     }
 
+    public void PlayButtonSound1()
+    {
+        PlayAtPath("ButtonClick1", 1, 0.05f);
+    }
+    
+    public void PlayButtonSound2()
+    {
+        PlayAtPath("ButtonClick2", 1);
+    }
+
+    public void PlayAtPath(string path, float volume = 1, float randomness = 0.15f)
+    {
+        AudioClip newClip = Resources.Load<AudioClip>(path);
+        CustomSound sound = new CustomSound();
+        sound.AudioClip = newClip;
+        sound.b_RandomPitch = true;
+        sound.MaxPitchRandomness = randomness;
+        sound.Volume = volume;
+        Play(sound);
+    }
+
     public GameObject Play(CustomSound newCustomSound)
     {
         GameObject newObject = new GameObject();
