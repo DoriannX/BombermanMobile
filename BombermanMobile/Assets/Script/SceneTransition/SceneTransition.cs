@@ -21,14 +21,21 @@ public class SceneTransition : MonoBehaviour
 
     private void Start()
     {
-        if (SceneManager.GetActiveScene().buildIndex == 1)
+        if (_transitionImage)
         {
-            _transitionImage.color = new Color(0, 0, 0, 1);
-            StartOutTransition();
+            if (SceneManager.GetActiveScene().buildIndex == 1)
+            {
+                _transitionImage.color = new Color(0, 0, 0, 1);
+                StartOutTransition();
+            }
+            else
+            {
+                _transitionImage.color = new Color(0, 0, 0, 0);
+            }
         }
         else
         {
-            _transitionImage.color = new Color(0, 0, 0, 0);
+            Debug.LogError("transition image is empty");
         }
     }
 
@@ -39,16 +46,22 @@ public class SceneTransition : MonoBehaviour
     }
     private void InTransition()
     {
-        if (_startedInTransition)
+        if (_transitionImage)
         {
-            _transitionImage.color = new Color(0, 0, 0, _i);
-            _i += Time.deltaTime;
-            if (_i >= 1)
+            if (_startedInTransition)
             {
-                SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex+1);
-                _startedInTransition = false;
-                print("started out transition");
+                _transitionImage.color = new Color(0, 0, 0, _i);
+                _i += Time.deltaTime;
+                if (_i >= 1)
+                {
+                    SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
+                    _startedInTransition = false;
+                }
             }
+        }
+        else
+        {
+            Debug.LogError("transition image is empty");
         }
     }
 
