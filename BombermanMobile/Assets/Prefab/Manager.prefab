@@ -142,11 +142,22 @@ MonoBehaviour:
   - The goat
   - Meeeeh
   - Goat simulator 3
+  - Bertrand
+  - Sabrina
+  - Sophie
+  - Kevin
+  - Michel
   _penguinNames:
   - Penguin
   - Pingu
   - Nut nut
   - Mr freeze
+  - Gerard
+  - Gertrude
+  - Brigitte
+  - Homer
+  - Mike
+  - Michelle
 --- !u!114 &2974057518389776962
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -9,7 +9,7 @@ public class GameManager : Unit
 {
     public static GameManager Instance;
     private bool _battleStarted = false; public bool BattleStarted { get { return _battleStarted; } }
-    public bool GameOver = false;
+    [HideInInspector] public bool GameOver = false;
 
     [HideInInspector] public UnityEvent BattleStartEvent;
     [SerializeField] private GameObject _buttonStart = null;
@@ -162,7 +162,11 @@ public class GameManager : Unit
 
     public void RestartGame()
     {
-        Time.timeScale = 1.0f;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        new Tools().SetScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void StartMenu()
+    {
+        new Tools().SetScene(0);
     }
 }

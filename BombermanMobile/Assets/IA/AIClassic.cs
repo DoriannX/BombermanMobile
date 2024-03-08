@@ -11,13 +11,17 @@ public class AIClassic : AIUnit
         if (target != null && _isActivated)
         {
             _currentTarget = target;
-            if (Vector3.Distance(transform.position, _currentTarget.transform.position) > _range)
+            if (_agent && Vector3.Distance(transform.position, _currentTarget.transform.position) > _range)
             {
                 _agent.destination = target.transform.position;
             }
-            else
+            else if(_agent)
             {
                 _agent.destination = transform.position;
+            }
+            else
+            {
+                Debug.LogWarning("_agent is null");
             }
         }
         else

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Tools
 {
@@ -13,5 +14,11 @@ public class Tools
         }
 
         return children;
+    }
+
+    public void SetScene(int scene)
+    {
+        Time.timeScale = 1.0f;
+        SceneManager.LoadScene(scene);
     }
 }

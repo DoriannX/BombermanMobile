@@ -3,6 +3,9 @@ using UnityEngine;
 
 public class attackBonus : MonoBehaviour
 {
+
+    [SerializeField] private float _damageRate;
+
     private void Start()
     {
         Invoke("GetBonus", 1);
@@ -16,7 +19,7 @@ public class attackBonus : MonoBehaviour
             {
                 if (unit != null && unit.TryGetComponent<AIUnit>(out AIUnit component))
                 {
-                    component.BombDamage *= 1.25f;
+                    component.BombDamage *= (1+ _damageRate / 100);
                     print("damage is higher now" + component.BombDamage);
                 }
                 else
