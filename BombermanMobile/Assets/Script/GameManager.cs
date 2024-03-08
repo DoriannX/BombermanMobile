@@ -19,6 +19,8 @@ public class GameManager : Unit
     [SerializeField] private GameObject _endMenu = null;
     [SerializeField] private TextMeshProUGUI _winLoseText = null;
     [SerializeField] private GameObject _unitCount = null;
+    public UnityEvent LoseEvent;
+    public UnityEvent WinEvent;
 
     public float MaximumGoatUnits = 8;
 
@@ -104,7 +106,10 @@ public class GameManager : Unit
             switchStateEnable(_skipButton);
 
             print("you lose");
+            LoseEvent.Invoke();
+            PlayerPrefs.SetInt("Lose", PlayerPrefs.GetInt("Lose") + 1);
             Time.timeScale = 0f;
+            
         }
         GameOver = true;
     }
@@ -125,6 +130,8 @@ public class GameManager : Unit
             switchStateEnable(_skipButton);
 
             print("you win");
+            WinEvent.Invoke();
+            PlayerPrefs.SetInt("Lose", 0);
             Time.timeScale = 0f;
         }
         GameOver = true;
