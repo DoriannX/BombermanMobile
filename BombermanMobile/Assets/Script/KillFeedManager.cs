@@ -25,7 +25,6 @@ public class KillFeedManager : MonoBehaviour
     public void NewKillFeed(string victim, string killer, Unit.Team victimTeam, string forceString = null)
     {
         NewKillFeedEvent.Invoke();
-        print(killer + " killed " + victim);
         TextMeshProUGUI newFeed = Instantiate(_killfeedText, _killfeedText.transform.position, Quaternion.identity, _hud.transform);
         newFeed.gameObject.SetActive(true);
 
@@ -38,7 +37,6 @@ public class KillFeedManager : MonoBehaviour
         {
             feedText =_deathLines[UnityEngine.Random.Range(0, _deathLines.Count)];
         }
-
 
         if (forceString == null)
         {
@@ -57,13 +55,9 @@ public class KillFeedManager : MonoBehaviour
         {
             feedText = forceString;
         }
-        
-        
 
         newFeed.text = feedText;
         newFeed.GetComponent<KillFeedTestScript>().GoingToPos = _killfeedText.transform.position;
         newFeed.transform.position += Vector3.left * 100;
-        
-        //Destroy(Instantiate(victim));
     }
 }
