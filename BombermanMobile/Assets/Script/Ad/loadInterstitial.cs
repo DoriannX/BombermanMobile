@@ -57,6 +57,7 @@ public class loadInterstitial : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsS
     public void OnUnityAdsShowComplete(string placementId, UnityAdsShowCompletionState showCompletionState)
     {
         print("interstitial show complete");
+        Time.timeScale = 1.0f;
 
     }
 
