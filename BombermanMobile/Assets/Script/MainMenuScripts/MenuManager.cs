@@ -8,7 +8,8 @@ public class MenuManager : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+
+        SceneTransition.Instance.StartTransition();
     }
 
     private void Start()
