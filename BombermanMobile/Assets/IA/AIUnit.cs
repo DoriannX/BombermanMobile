@@ -37,6 +37,7 @@ public class AIUnit : Unit
     [HideInInspector] public string LastDamageSourceName;
 
     public UnityEvent TakeDamageEvent;
+    public UnityEvent UnitDeathEvent;
 
     protected private enum AISTATES
     {
