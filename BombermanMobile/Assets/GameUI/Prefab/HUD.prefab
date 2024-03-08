@@ -477,7 +477,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GoingToPos: {x: 0, y: 0, z: 0}
-  _timeBeforeDestroy: 5
+  _timeBeforeDestroy: 4
   _timeBeforeGoingUp: 1
 --- !u!114 &8608836988265665605
 MonoBehaviour:
