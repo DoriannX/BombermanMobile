@@ -47,7 +47,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7776391195370058279
 Transform:
   m_ObjectHideFlags: 0
@@ -127,6 +127,7 @@ MonoBehaviour:
   BombDamage: 50
   _bombTimeToExplode: 1.5
   _bombRange: 3
+  LastDamageSourceName: 
   TakeDamageEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -562,6 +563,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 7216463232832998777, guid: df0d371d85fbe8b4caf1a4315aed7f60,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7334212623664067181, guid: df0d371d85fbe8b4caf1a4315aed7f60,
         type: 3}
       propertyPath: m_Layer
@@ -802,6 +808,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 6256485578141767154, guid: f9c85064f52b9e5498ebac13bcc0f2fa,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6289318046287697204, guid: f9c85064f52b9e5498ebac13bcc0f2fa,
         type: 3}
       propertyPath: m_Layer
@@ -941,6 +952,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 9090214448317433188, guid: f9c85064f52b9e5498ebac13bcc0f2fa,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

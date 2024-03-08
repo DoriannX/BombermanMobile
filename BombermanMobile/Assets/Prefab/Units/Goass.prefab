@@ -48,7 +48,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7776391195370058279
 Transform:
   m_ObjectHideFlags: 0
@@ -125,10 +125,11 @@ MonoBehaviour:
   _maxSpeed: 2
   _reloadingTime: 2
   _range: 3
-  _bombPlacementOffset: {x: 0, y: 0, z: 1}
-  BombDamage: 0
+  _bombPlacementOffset: {x: 0, y: 0, z: 1.25}
+  BombDamage: 25
   _bombTimeToExplode: 1.5
   _bombRange: 4
+  LastDamageSourceName: 
   TakeDamageEvent:
     m_PersistentCalls:
       m_Calls: []

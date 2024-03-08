@@ -13,6 +13,9 @@ public class UnitManager : Unit
 
     [SerializeField] private List<GameObject> _unitsToSpawn;
 
+    [SerializeField] private List<string> _goatNames;
+    [SerializeField] private List<string> _penguinNames;
+
     public GameObject GetUnitToSpawn(Type type)
     {
         GameObject unitToSpawn = null;
@@ -32,8 +35,47 @@ public class UnitManager : Unit
     {
         if(Instance == null)
             Instance = this;
+        InputManager.Instance.ClickEvent.AddListener(CheckClickUnit);
         //StartGame();
     }
+
+    private void CheckClickUnit()
+    {
+        InputManager inputManager = InputManager.Instance;
+        Ray ray = Camera.main.ScreenPointToRay(new Vector3(inputManager.LastTouchPosition.x, inputManager.LastTouchPosition.y, 0));
+        if (Physics.Raycast(ray, out RaycastHit hitData) && hitData.collider.TryGetComponent<AIUnit>(out AIUnit aiUnit))
+        {
+            if (!GameManager.Instance.BattleStarted)
+            {
+                if (hitData.collider.TryGetComponent<AIGoass>(out AIGoass aiGoass))
+                {
+
+                }
+                else
+                {
+                    if (aiUnit.CurrentTeam == Team.Player)
+                    {
+                        aiUnit.Death();
+                    }
+                }
+            }
+        }
+    }
+
+    public string GetRandomName(Team unitTeam)
+    {
+        string name = "cool";
+        if (unitTeam == Team.Player)
+        {
+            name = _goatNames[Random.Range(0, _goatNames.Count)];
+        }
+        else
+        {
+            name = _penguinNames[Random.Range(0, _penguinNames.Count)];
+        }
+        return name;
+    }
+
     public List<GameObject> SpawnUnit(Team unitTeam, int nb, Vector3 position, GameObject unitToSpawn)
     {
         List<GameObject> spawnedUnits = new List<GameObject>();

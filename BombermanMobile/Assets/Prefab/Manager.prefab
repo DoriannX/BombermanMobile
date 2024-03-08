@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1432032877793137676}
   - component: {fileID: 8052221338828973120}
+  - component: {fileID: 8107549321764918074}
   - component: {fileID: 4180945529444026027}
   - component: {fileID: 5069564704734163150}
   - component: {fileID: 2974057518389776962}
@@ -33,7 +34,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.21339178, y: 1.4612212, z: 0.6935216}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -52,10 +53,40 @@ MonoBehaviour:
   _mapGround: {fileID: 0}
   _wallObject: {fileID: 1580778365017064789, guid: 2848fac8549fa7647aa439987f76ee0a,
     type: 3}
+  _grassList:
+  - {fileID: 5098166735730487887, guid: e1911aeff5cba5f47861e9584df91e0e, type: 3}
+  - {fileID: 4025141361983464341, guid: 28d66e7e8dab6da44af849ea5753aa44, type: 3}
+  - {fileID: 4992434099539113192, guid: d1278bde9795dd444a561ac91d01c74d, type: 3}
+  - {fileID: 2490277158419471808, guid: 6fdc0fb98b24c0444b5457aad7f9c76c, type: 3}
+  - {fileID: 5103869435317970775, guid: 0aa5aec3e867e104c8e0b8d6529d7397, type: 3}
+  - {fileID: 4355197091694618660, guid: 2aa93eb3d14fd5149b199fa7eea1b141, type: 3}
+  _grassCount: 400
   _mapSize: {x: 20, y: 35}
   _tileSize: 2
   Bonuses:
   - {fileID: 602420279613635264, guid: 58e828caf2bf92f4fa246c12d4cd055c, type: 3}
+--- !u!114 &8107549321764918074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6742781808429491398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aea2186c6d760cd49a02ed27a26d36e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _hud: {fileID: 0}
+  _killfeedText: {fileID: 0}
+  _deathLines:
+  - '[KILLER] killed [VICTIM]'
+  - '[KILLER] Showed [VICTIM] no mercy'
+  _suicideLines:
+  - '[VICTIM] killed himself'
+  NewKillFeedEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &4180945529444026027
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -69,6 +100,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ExplosionParticle: {fileID: 3910934613243425163, guid: 8e6aad010cc569a4a9780ca56be1c1aa,
+    type: 3}
+  RockExplosionParticle: {fileID: 3263767432841969685, guid: eb98695a8d2924049be92b7bf2ce7536,
+    type: 3}
+  ConfettisParticle: {fileID: 4355132339278548818, guid: a54fcf6d75ad6e24dbc4b73e8996d88a,
     type: 3}
 --- !u!114 &5069564704734163150
 MonoBehaviour:
@@ -101,6 +136,17 @@ MonoBehaviour:
   - {fileID: 4548619596124136097, guid: 856e399fa2da94240849e72a580b8409, type: 3}
   - {fileID: 4548619596124136097, guid: 0e3e3cea3639593438fa2e088bc31b73, type: 3}
   - {fileID: 4548619596124136097, guid: e35aaa4cbb210f543abf5363c310421d, type: 3}
+  _goatNames:
+  - Goat
+  - The cool goat
+  - The goat
+  - Meeeeh
+  - Goat simulator 3
+  _penguinNames:
+  - Penguin
+  - Pingu
+  - Nut nut
+  - Mr freeze
 --- !u!114 &2974057518389776962
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -134,9 +180,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37dcb9cfd1ea70843b22472cc21ed460, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GameOver: 0
   BattleStartEvent:
     m_PersistentCalls:
       m_Calls: []
+  _buttonStart: {fileID: 0}
+  _panel: {fileID: 0}
+  _textSkip: {fileID: 0}
+  _skipButton: {fileID: 0}
+  _endMenu: {fileID: 0}
+  _winLoseText: {fileID: 0}
+  _unitCount: {fileID: 0}
+  MaximumGoatUnits: 8
 --- !u!114 &6254215133761284688
 MonoBehaviour:
   m_ObjectHideFlags: 0

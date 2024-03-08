@@ -8,6 +8,8 @@ public class MapManager : Unit
     [SerializeField] private Transform _mapGround; public Transform MapGround {  get { return _mapGround; } }
 
     [SerializeField] private GameObject _wallObject;
+    [SerializeField] private List<GameObject> _grassList = new List<GameObject>();
+    [SerializeField] private int _grassCount = 200;
 
     [SerializeField] private Vector2 _mapSize = new Vector2(20, 35);
     [SerializeField] private float _tileSize = 2f;
@@ -27,6 +29,7 @@ public class MapManager : Unit
     
     private void GenerateMap()
     {
+        PlaceGrass();
         BuildWalls();
         //bake navmesh
 
@@ -35,6 +38,19 @@ public class MapManager : Unit
         for (int i = 0; i < nbUnit; i++)
         {
             PlaceEnemies();
+        }
+    }
+
+    private void PlaceGrass()
+    {
+        Vector3 _placingPosition = new Vector3(_mapSize.x / 2, 1f, _mapSize.y / 2);
+        for (int i = 0; i < _grassCount; i++)
+        {
+            GameObject randGrassModel = _grassList[UnityEngine.Random.Range(0, _grassList.Count)];
+            Vector3 spawnPos = Vector3.zero;
+            spawnPos.x = UnityEngine.Random.Range(-_placingPosition.x, _placingPosition.x) + _mapGround.position.x;
+            spawnPos.z = UnityEngine.Random.Range(-_placingPosition.z, _placingPosition.z) + _mapGround.position.z;
+            Instantiate(randGrassModel, spawnPos, Quaternion.Euler(0, UnityEngine.Random.Range(-360, 360), 0), transform);
         }
     }
 
