@@ -41,7 +41,7 @@ public class Ragdoll : MonoBehaviour
 
     private void StartSwitchRagdoll()
     {
-        transform.position = transform.position + Vector3.up * 1;
+        transform.position = transform.position + Vector3.up * 5;
         SwitchRagdoll(gameObject);
         print("start switch ragdoll");
     }
