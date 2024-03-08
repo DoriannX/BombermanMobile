@@ -23,8 +23,8 @@ public class SceneTransition : MonoBehaviour
     {
         if (SceneManager.GetActiveScene().buildIndex == 1)
         {
-            _transitionImage.color = new Color(0, 0, 0, 255);
-            StartTransition();
+            _transitionImage.color = new Color(0, 0, 0, 1);
+            StartOutTransition();
         }
         else
         {
@@ -56,7 +56,6 @@ public class SceneTransition : MonoBehaviour
         _i = 255;
         _startedOutTransition = true;
         print("Started Out Transition");
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
 
@@ -65,6 +64,7 @@ public class SceneTransition : MonoBehaviour
     {
         if (_startedOutTransition)
         {
+            print("started out transition");
             _transitionImage.color = new Color(0, 0, 0, _i);
             _i -= Time.deltaTime;
             if (_i >= 255)
@@ -77,6 +77,7 @@ public class SceneTransition : MonoBehaviour
     private void Update()
     {
         InTransition();
+        OutTransition();
     }
 
     
