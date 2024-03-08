@@ -77,7 +77,6 @@ public class SceneTransition : MonoBehaviour
     {
         if (_startedOutTransition)
         {
-            print("started out transition" + _i);
             _transitionImage.color = new Color(0, 0, 0, _i);
             _i -= Time.deltaTime;
             if (_i <= 0 )

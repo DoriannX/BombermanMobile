@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Ragdoll : MonoBehaviour
@@ -8,7 +9,16 @@ public class Ragdoll : MonoBehaviour
         AIUnit unit = child.GetComponentInParent<AIUnit>();
         if (unit == null)
         {
-            return GetComponentInParents(child.transform.parent.gameObject);
+            if (child.transform.parent != null)
+            {
+                print("recursif");
+                return GetComponentInParents(child.transform.parent.gameObject);
+            }
+            else
+            {
+                Debug.LogError("GetComponent failed");
+                return null;
+            }
         }
         else
         {
@@ -16,12 +26,27 @@ public class Ragdoll : MonoBehaviour
         }
     }
 
+
+    private void Update()
+    {
+        print("test");
+    }
+
     private void Start()
     {
-        GetComponentInParents(gameObject).UnitDeathEvent.AddListener(SwitchRagdoll);
+        SwitchRagdoll(gameObject);
+        GetComponentInParents(gameObject).UnitDeathEvent.AddListener(delegate { SwitchRagdoll(gameObject); });
     }
-    private void SwitchRagdoll()
+    private void SwitchRagdoll(GameObject parent)
     {
-
+        foreach(Transform child in parent.transform)
+        {
+            if(child.TryGetComponent<Rigidbody>(out Rigidbody rb))
+            {
+                print("rb is enabled / disabled");
+                rb.isKinematic = !rb.isKinematic;
+            }
+            SwitchRagdoll(child.gameObject);
+        }
     }
 }

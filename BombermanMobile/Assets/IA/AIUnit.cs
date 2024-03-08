@@ -115,7 +115,6 @@ public class AIUnit : Unit
 
     public virtual void Death()
     {
-        Destroy(gameObject);
         _isDead = true;
         ParticleManager.Instance.ExplodeParticle(transform.position);
         ParticleManager.Instance.SpawnParticle(transform.position, ParticleManager.Instance.ConfettisParticle);
