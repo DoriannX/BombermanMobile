@@ -18,6 +18,7 @@ public class AdManager : MonoBehaviour
         if(PlayerPrefs.GetInt("Lose") >= 2)
         {
             loadInterstitial.Instance.LoadAd();
+            PlayerPrefs.SetInt("Lose", 0);
         }
     }
 }
