@@ -102,7 +102,7 @@ public class Bomb : Unit
                 }
             }
             bombExplodedEvent.Invoke();
-            SoundManager.Instance.PlayAtPath("Explosion", 0.020f);
+            SoundManager.Instance.PlayAtPath("Explosion", 0.030f);
         }
     }
 }
