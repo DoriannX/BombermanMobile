@@ -6,11 +6,16 @@ public class loadInterstitial : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsS
 {
     public string androidAdUnitId;
     public string iosAdUnitId;
+    public static loadInterstitial Instance;
 
     string adUnitId;
 
     void Awake()
     {
+
+        if(Instance == null)
+            Instance = this;
+
 #if UNITY_IOS
         adUnitId = iosAdUnitId;
 #elif UNITY_ANDROID

@@ -37,6 +37,11 @@ public class SceneTransition : MonoBehaviour
         {
             Debug.LogError("transition image is empty");
         }
+
+
+
+
+
     }
 
     public void StartTransition()
@@ -75,7 +80,7 @@ public class SceneTransition : MonoBehaviour
 
     private void OutTransition()
     {
-        if (_startedOutTransition)
+        if (_startedOutTransition && SceneManager.GetActiveScene().isLoaded)
         {
             _transitionImage.color = new Color(0, 0, 0, _i);
             _i -= Time.deltaTime;
