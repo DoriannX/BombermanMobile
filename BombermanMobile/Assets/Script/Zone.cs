@@ -15,6 +15,7 @@ public class Zone : MonoBehaviour
     [SerializeField] private float _damageWaitTime = 1;
     [SerializeField] private GameObject _zoneWall1;
     [SerializeField] private GameObject _zoneWall2;
+    [SerializeField] private float _offset; 
     private bool _canZone = false;
     private bool _canApplyDamage = true;
     public static Zone Instance;
@@ -65,8 +66,8 @@ public class Zone : MonoBehaviour
     {
         _zoneWalls = GetAllZoneWalls();
         _mapSize = MapManager.Instance.MapGround.localScale;
-        _positionWalls.Add(new Vector3(0, 0, -_mapSize.z*10 / 2 - _wallSize.z / 2));
-        _positionWalls.Add(new Vector3(0, 0, _mapSize.z * 10 / 2 + _wallSize.z / 2));
+        _positionWalls.Add(new Vector3(0, 0, -_mapSize.z*10 / 2 - _wallSize.z / 2 - _offset));
+        _positionWalls.Add(new Vector3(0, 0, _mapSize.z * 10 / 2 + _wallSize.z / 2 + _offset));
         if (_zoneWalls.Count == 2)
         {
             for (int i = 0; i < _zoneWalls.Count; i++)

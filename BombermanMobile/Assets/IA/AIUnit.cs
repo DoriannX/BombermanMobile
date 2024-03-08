@@ -148,7 +148,14 @@ public class AIUnit : Unit
 
     private void OnDestroy()
     {
-        if(Zone.Instance != null)
+        if(UnitManager.Instance != null)
+        {
+            if (CurrentTeam == Team.Ennemy)
+                UnitManager.Instance.EnemiesUnits.Remove(gameObject);
+            else
+                UnitManager.Instance.AllyUnits.Remove(gameObject);
+        }
+        if (Zone.Instance != null)
         {
             Zone.Instance.RemoveFromDetectedPlayer(gameObject);
         }
