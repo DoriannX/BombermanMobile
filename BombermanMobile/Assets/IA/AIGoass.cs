@@ -9,7 +9,7 @@ public class AIGoass : AIUnit
     {
         GameObject target = UnitManager.Instance.GetClosest(gameObject, CurrentTeam);
 
-        if (target != null && _isActivated)
+        if (target != null && _isActivated && !_isDead)
         {
             _currentTarget = target;
             if (Vector3.Distance(transform.position, _currentTarget.transform.position) > _range)

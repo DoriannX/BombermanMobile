@@ -40,10 +40,11 @@ public class AIUnit : Unit
 
     protected private enum AISTATES
     {
-        IDLE,
+        NORMAL,
+        DEAD,
     }
 
-    protected private AISTATES _currentState;
+    protected private AISTATES _currentState = AISTATES.NORMAL;
 
     public virtual void Awake()
     {
@@ -116,6 +117,7 @@ public class AIUnit : Unit
     {
         Destroy(gameObject);
         _isDead = true;
+        _currentState = AISTATES.DEAD;
         ParticleManager.Instance.ExplodeParticle(transform.position);
         ParticleManager.Instance.SpawnParticle(transform.position, ParticleManager.Instance.ConfettisParticle);
         SoundManager.Instance.PlayAtPath("Confettis", 0.35f);
@@ -134,7 +136,7 @@ public class AIUnit : Unit
 
     public virtual bool CanAttack()
     {
-        if (!_isReloading && _isActivated) 
+        if (!_isReloading && _isActivated && !_isDead) 
         {
             return true;
         }

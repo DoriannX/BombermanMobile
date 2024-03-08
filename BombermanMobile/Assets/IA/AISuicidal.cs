@@ -16,7 +16,7 @@ public class AISuicidal : AIUnit
         }
         else
         {
-            if (target != null && _isActivated)
+            if (target != null && _isActivated && !_isDead)
             {
                 _agent.destination = target.transform.position;
                 _currentTarget = target;

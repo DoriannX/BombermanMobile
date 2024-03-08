@@ -9,7 +9,7 @@ public class AIBowman : AIUnit
         
         GameObject target = UnitManager.Instance.GetClosest(gameObject, CurrentTeam);
         
-        if (target != null)
+        if (target != null && !_isDead)
         {
             _currentTarget = target;
             if (Vector3.Distance(transform.position, _currentTarget.transform.position) > _range && _isActivated)

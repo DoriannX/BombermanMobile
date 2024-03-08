@@ -8,7 +8,7 @@ public class AIMiner : AIUnit
     {
         GameObject target = _pathFinding.GetClosestWall(gameObject, CurrentTeam);
 
-        if (target != null && _isActivated)
+        if (target != null && _isActivated && !_isDead)
         {
             _agent.destination = target.transform.position;
             _currentTarget = target;

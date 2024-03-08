@@ -10,7 +10,7 @@ public class AIFunky : AIUnit
         target = UnitManager.Instance.GetClosest(gameObject, CurrentTeam);
 
         
-        if (target != null && _isActivated)
+        if (target != null && _isActivated && !_isDead)
         {
             _currentTarget = target;
             if (_pathFinding.IsCloseToEnnemy(_range, _currentTarget))
