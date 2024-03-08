@@ -28,6 +28,8 @@ public class Bomb : Unit
     protected private float _baseHeight;
     [SerializeField] protected private AnimationCurve _heightCurve;
 
+    private bool _alreadyExploded = false;
+
     virtual protected void Awake()
     {
         _baseHeight = transform.position.y;
@@ -66,6 +68,8 @@ public class Bomb : Unit
 
     virtual protected void Detonate()
     {
+        if (_alreadyExploded)
+            return;
         StartCoroutine(OnDestroyBomb());
         Destroy(gameObject, TimeToExplode + .1f);
         _imageRadius.transform.localScale = new Vector3(1f, 1f, 1f) * ExplosionRange;
@@ -75,7 +79,7 @@ public class Bomb : Unit
     {
         yield return new WaitForSeconds(TimeToExplode);
         ParticleManager.Instance.ExplodeParticle(transform.position);
-        if (_exploding)
+        if (_exploding && !_alreadyExploded)
         {
             foreach (Collider collider in Physics.OverlapSphere(transform.position, ExplosionRange/2))
             {
@@ -101,6 +105,7 @@ public class Bomb : Unit
                     mine.Detonate();
                 }
             }
+            _alreadyExploded = true;
             bombExplodedEvent.Invoke();
             SoundManager.Instance.PlayAtPath("Explosion", 0.030f);
         }

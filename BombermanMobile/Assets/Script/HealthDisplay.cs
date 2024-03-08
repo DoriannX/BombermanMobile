@@ -14,6 +14,7 @@ public class HealthDisplay : MonoBehaviour
         _image.enabled = false;
         _borderImage.enabled = _image.enabled;
         _image.fillAmount = GetHealthRatio();
+        _unit.UnitDeathEvent.AddListener(DestroyHealthBar);
         UpdateHealth();
     }
 
@@ -34,5 +35,10 @@ public class HealthDisplay : MonoBehaviour
     private float GetHealthRatio()
     {
         return _unit.Health / _unit.MaxHealth;
+    }
+
+    private void DestroyHealthBar()
+    {
+        Destroy(transform.parent.gameObject);
     }
 }
