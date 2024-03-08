@@ -115,13 +115,17 @@ public class AIUnit : Unit
 
     public virtual void Death()
     {
-        _isDead = true;
-        ParticleManager.Instance.ExplodeParticle(transform.position);
-        ParticleManager.Instance.SpawnParticle(transform.position, ParticleManager.Instance.ConfettisParticle);
-        if (CurrentTeam == Team.Ennemy)
-            UnitManager.Instance.EnemiesUnits.Remove(gameObject);
-        else
-            UnitManager.Instance.AllyUnits.Remove(gameObject);
+        if (!_isDead) 
+        {
+            _isDead = true;
+            ParticleManager.Instance.ExplodeParticle(transform.position);
+            ParticleManager.Instance.SpawnParticle(transform.position, ParticleManager.Instance.ConfettisParticle);
+            UnitDeathEvent.Invoke();
+            if (CurrentTeam == Team.Ennemy)
+                UnitManager.Instance.EnemiesUnits.Remove(gameObject);
+            else
+                UnitManager.Instance.AllyUnits.Remove(gameObject);
+        }
     }
 
     public virtual IEnumerator Reloading()

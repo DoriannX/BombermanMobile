@@ -35,16 +35,29 @@ public class Ragdoll : MonoBehaviour
     private void Start()
     {
         SwitchRagdoll(gameObject);
-        GetComponentInParents(gameObject).UnitDeathEvent.AddListener(delegate { SwitchRagdoll(gameObject); });
+        GetComponentInParents(gameObject).UnitDeathEvent.AddListener(StartSwitchRagdoll);
     }
+
+
+    private void StartSwitchRagdoll()
+    {
+        transform.position = transform.position + Vector3.up * 1;
+        SwitchRagdoll(gameObject);
+        print("start switch ragdoll");
+    }
+
     private void SwitchRagdoll(GameObject parent)
     {
         foreach(Transform child in parent.transform)
         {
             if(child.TryGetComponent<Rigidbody>(out Rigidbody rb))
             {
-                print("rb is enabled / disabled");
+                print("rb is enabled / disabled on : " + child.name);
                 rb.isKinematic = !rb.isKinematic;
+                if (!rb.isKinematic)
+                {
+                    rb.AddForce((Camera.main.transform.position - transform.position).normalized * (25 + Random.Range(-2, 2)), ForceMode.VelocityChange);
+                }
             }
             SwitchRagdoll(child.gameObject);
         }
