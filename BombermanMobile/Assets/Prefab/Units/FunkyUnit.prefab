@@ -92,11 +92,14 @@ MonoBehaviour:
   _reloadingTime: 2
   _range: 6
   _bombPlacementOffset: {x: 0, y: 0, z: 1}
-  BombDamage: 1
-  _bombTimeToExplode: 1.5
-  _bombRange: 2
+  BombDamage: 100
+  _bombTimeToExplode: 0.5
+  _bombRange: 3
   LastDamageSourceName: 
   TakeDamageEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  UnitDeathEvent:
     m_PersistentCalls:
       m_Calls: []
 --- !u!114 &5000996847490332421

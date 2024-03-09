@@ -119,16 +119,19 @@ MonoBehaviour:
   _enemyVisuals: {fileID: 267174826583627296}
   _visuals: {fileID: 8794444851806934260}
   CurrentTeam: 0
-  _maxHealth: 65
+  _maxHealth: 35
   _maxSpeed: 3.5
-  _reloadingTime: 2
+  _reloadingTime: 1.75
   _range: 10
   _bombPlacementOffset: {x: 0, y: 0, z: 0}
-  BombDamage: 1
-  _bombTimeToExplode: 0.5
-  _bombRange: 2
+  BombDamage: 15
+  _bombTimeToExplode: 0.25
+  _bombRange: 3
   LastDamageSourceName: 
   TakeDamageEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  UnitDeathEvent:
     m_PersistentCalls:
       m_Calls: []
 --- !u!114 &5000996847490332421
